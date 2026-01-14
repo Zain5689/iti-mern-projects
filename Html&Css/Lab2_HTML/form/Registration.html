@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration</title>
+  </head>
+  <body>
+    <form action="Thankyou.html" method="get">
+      <label for="ID">ID</label>
+      <br />
+      <input type="hidden" id="ID" name="ID" value="12345" />
+      <label for="fname">First name:</label>
+      <input
+        type="text"
+        id="fname"
+        name="firstName"
+        required
+        minlength="3"
+        pattern="[A-Za-z]+"
+      />
+      <br />
+      <br />
+      <label for="lname">Last name:</label>
+      <input
+        type="text"
+        id="lname"
+        name="lastName"
+        required
+        minlength="3"
+        pattern="[A-Za-z]+"
+      />
+      <br />
+      <br />
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+      <br />
+      <br />
+      <label for="password">Password:</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        minlength="3"
+        pattern="[A-Za-z]+"
+        required
+      />
+      <br />
+      <br />
+      <label for="repeatPassword">Repeat password:</label>
+      <input
+        type="password"
+        id="repeatPassword"
+        name="repeatPassword"
+        required
+      />
+      <br />
+      <br />
+      <label for="birthDate">Birth Date:</label>
+      <input type="date" id="birthDate" name="birthDate" />
+
+      <br />
+      <br />
+      <label for="userPicture">User Picture:</label>
+      <input type="file" id="userPicture" name="userPicture" accept="image/*" />
+      <br />
+      <br />
+
+      <p>Gander</p>
+      <input type="radio" name="gender" value="Male" id="male" />
+      <label for="male">Male</label>
+
+      <br />
+      <input type="radio" name="gender" value="Female" id="female" />
+      <label for="female">Female</label>
+
+      <br />
+      <br />
+      <label for="faculty"><b>Faculty:</b></label
+      ><br />
+
+      <select id="faculty" name="faculty">
+        <option value="">-- Select Faculty --</option>
+        <option value="fci">
+          Faculty of Computers & Artificial Intelligence
+        </option>
+        <option value="eng">Faculty of Engineering</option>
+        <option value="sci">Faculty of Science</option>
+        <option value="med">Faculty of Medicine</option>
+        <option value="law">Faculty of Law</option>
+      </select>
+      <br /><br />
+      <fieldset>
+        <legend><b>Interests</b></legend>
+
+        <input
+          type="checkbox"
+          id="programming"
+          name="interests"
+          value="Programming"
+        />
+        <label for="programming">Programming</label><br />
+
+        <input type="checkbox" id="reading" name="interests" value="Reading" />
+        <label for="reading">Reading</label><br />
+
+        <input
+          type="checkbox"
+          id="swimming"
+          name="interests"
+          value="Swimming"
+        />
+        <label for="swimming">Swimming</label><br />
+
+        <input type="checkbox" id="design" name="interests" value="Design" />
+        <label for="design">Design</label><br />
+      </fieldset>
+      <br />
+      <label for="about"><b>About You:</b></label
+      ><br />
+      <textarea
+        id="about"
+        name="about"
+        rows="5"
+        cols="40"
+        placeholder="Write something about yourself..."
+      ></textarea>
+      <br /><br />
+      <input type="checkbox" id="agree" name="agree" />
+      <label for="agree">
+        I agree to
+        <a target="_blank">Terms and Conditions</a>
+      </label>
+      <br /><br />
+      <input type="submit" value="submit" />
+      <input type="reset" value="reset" />
+    </form>
+    <hr />
+    <h2>Differences between GET and POST methods</h2>
+
+    <h3>GET</h3>
+    <ul>
+      <li>Sends data in the URL</li>
+      <li>Data is visible to everyone</li>
+      <li>Limited amount of data</li>
+      <li>Used for search and simple requests</li>
+    </ul>
+
+    <h3>POST</h3>
+    <ul>
+      <li>Sends data inside the request body</li>
+      <li>Data is hidden</li>
+      <li>No data size limit</li>
+      <li>Used for registration, login, and sensitive data</li>
+    </ul>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+body {
+  font-family: Arial;
+  background: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+}
+body form {
+  background: white;
+  padding: 25px;
+  width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 0 12px #ccc;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+input,
+select {
+  padding: 8px;
+}
+form button {
+  background: #6b4eff;
+  color: white;
+  border: none;
+  margin-top: 15px;
+  cursor: pointer;
+  padding: 15px;
+}
+/* gallery */
+.gallery {
+  width: 80%;
+  margin: 10px auto;
+}
+.gallery h2 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+  color: #6b4eff;
+}
+.gallery .gallery-img {
+  display: flex;
+  /* flex-wrap: wrap; */
+  gap: 15px;
+  cursor: pointer;
+}
+.gallery img {
+  border: 5px solid gray;
+}
+/* slider */
+.slider {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+.slider .slider-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+}
+.slider .slider-container button {
+  background: #6b4eff;
+  color: white;
+  border: none;
+  margin-top: 15px;
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 10px;
+}

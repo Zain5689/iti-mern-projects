@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>thank</title>
+  </head>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #020617, #1f2933);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 15px;
+      font-family: "Segoe UI", sans-serif;
+    }
+    h1 {
+      color: #fafafa;
+      font-size: 40px;
+    }
+    #welcome {
+      color: #38bdf8;
+      font-size: 40px;
+      font-weight: bold;
+      letter-spacing: 4px;
+      padding: 35px 70px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 0 45px rgba(56, 189, 248, 0.4);
+    }
+  </style>
+  <body>
+    <h1>User Data</h1>
+    <div id="welcome"></div>
+    <script>
+      /************** 2 **************/
+      var param = new URLSearchParams(window.location.search);
+      var username = param.get("fullname");
+      document.getElementById("welcome").innerHTML = "welcome " + username;
+    </script>
+  </body>
+</html>

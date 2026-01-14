@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <!-- slider  -->
+    <div class="slider">
+      <h2>Slider</h2>
+      <div class="slider-container">
+        <img
+          class="bg test active"
+          src="assets/1.jpg"
+          onmouseenter="silder(event)"
+          onmouseout="silder(event)"
+        />
+        <div class="btns">
+          <button onclick="stopImage()">stop</button>
+          <button onclick="nextImg(this)">next</button>
+          <button onclick="prevImage(this)">previous</button>
+        </div>
+      </div>
+    </div>
+    <script src="./js/slider.js"></script>
+  </body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab6_js</title>
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: radial-gradient(circle at top, #0f172a, #020617 70%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Segoe UI", system-ui, sans-serif;
+        overflow: hidden;
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .clock {
+        color: #38bdf8;
+        font-size: 70px;
+        font-weight: bold;
+        letter-spacing: 6px;
+        padding: 35px 70px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 0 40px rgba(56, 189, 248, 0.35);
+      }
+      form {
+        width: 360px;
+        background: rgba(255, 255, 255, 0.5);
+        padding: 35px;
+        border-radius: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      /* INPUTS */
+      input {
+        padding: 13px;
+        border-radius: 12px;
+        border: none;
+        outline: none;
+        background: #020617;
+        color: #38bdf8;
+        font-size: 15px;
+      }
+
+      input::placeholder {
+        color: #94a3b8;
+      }
+
+      /* BUTTON */
+      button {
+        margin-top: 10px;
+        padding: 13px;
+        border-radius: 12px;
+        border: none;
+        font-size: 16px;
+        font-weight: bold;
+        background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+        color: #020617;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 25px rgba(56, 189, 248, 0.6);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="time" class="clock"></div>
+    <form action="userData.html" method="get">
+      <input type="text" placeholder="Enter your user name here" name="user" />
+      <input type="password" placeholder="enter password" name="password" />
+      <div class="terms">
+        <input type="checkbox" id="agree" name="agree" required />
+        <label for="agree" onclick="openTerms()"
+          >I agree to <a onclick=" openTerms()">Terms and conditions</a></label
+        >
+      </div>
+      <button type="submit">login</button>
+    </form>
+    <div>
+      <button onclick="openWin()">OpenWin</button>
+      <button onclick="closeWin()">CloseWin</button>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
