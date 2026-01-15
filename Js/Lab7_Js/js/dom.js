@@ -27,7 +27,10 @@ parentDi.insertBefore(image1, text);
 
 var imageContainer = document.getElementById("imageContainer");
 var childNumber = imageContainer.childNodes.length;
+// the better because calc the real elements
+var childNumber2 = imageContainer.children.length;
 console.log("count", childNumber);
+console.log("count", childNumber2);
 
 // alert count in window
 alert(childNumber);

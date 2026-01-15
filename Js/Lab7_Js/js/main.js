@@ -1,7 +1,7 @@
 // Task1
 function dim(e) {
   if (e.type === "focus") {
-    e.target.style.border = "1px solid blue";
+    e.target.style.border = "1px solid black";
   } else if (e.type === "blur") {
     e.target.style.border = "1px solid #ccc";
   }
