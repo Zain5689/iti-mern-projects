@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <style>
+      body form {
+        width: 50%;
+        margin: 5px auto;
+        display: flex;
+        flex-direction: column;
+      }
+    </style>
+  </head>
+  <body>
+    <form class="login-form">
+      <h2>Login</h2>
+      <!-- Email -->
+      <label for="email">Email</label>
+      <input type="email" id="email" required />
+      <!-- Library Card Number -->
+      <label for="card">Library Card Number</label>
+      <input type="text" id="card" required />
+      <!-- Remember Me -->
+      <div class="remember">
+        <input type="checkbox" id="remember" />
+        <label for="remember">Remember Me</label>
+      </div>
+      <!-- Login Button -->
+      <label id="errormessage"></label>
+      <button type="submit">Login</button>
+    </form>
+    <script src="./js/login.js"></script>
+  </body>
+</html>

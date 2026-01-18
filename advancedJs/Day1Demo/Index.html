@@ -1,0 +1,84 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+</head>
+<body>
+    <table id="ProductsTable">
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+        <tbody></tbody>
+    </table>
+    <script>
+        function checkUser(){
+            var cookies = document.cookie;
+            cookies = cookies.replace("; ","&");
+            //console.log(cookies);
+
+            //key=value; key2=value2; key3=value3
+            //key=value&key2=value2&key3=value3
+            var params = new URLSearchParams(cookies);
+            console.log(params.get("user"));
+
+            if(params.get("user") == null){
+                location.assign("http://127.0.0.1:5500/Login.html")
+            }
+        }
+        checkUser();
+
+        function getData(){
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET","https://fakestoreapi.com/products");
+            xhr.onload = function(){
+                if(xhr.status == 200){
+                    displayData(JSON.parse(xhr.responseText));
+                }
+            }
+            xhr.send();
+        }
+        getData();
+
+        function displayData(Products){
+            var pTable = document.querySelector("#ProductsTable>tbody");
+            for(product of Products){
+                var tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>${product.id}</td>
+                    <td>${product.title}</td>
+                    <td>${product.description}</td>
+                    <td>${product.price}</td>
+                    <td>
+                        <input type='button' value='add to cart' onclick='addToCart("${product.id}")'/>
+                    </td>
+                `;
+                pTable.appendChild(tr);
+            }
+        }
+
+        function addToCart(productId){
+            var cart = JSON.parse(localStorage.getItem("Cart")) || [];
+            
+            var index = -1;
+            for(var i=0; i<cart.length; i++){
+                if(cart[i].Product == productId){
+                    index = i;
+                    break;
+                }
+            }
+
+            if(index == -1)
+                cart.push({Product:productId, Quantity:1});
+            else
+                cart[index].Quantity++;
+
+            localStorage.setItem("Cart", JSON.stringify(cart));
+        }
+    </script>
+</body>
+</html>

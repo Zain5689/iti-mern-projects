@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "title": "Clean Code",
+    "author": "Robert C. Martin",
+    "category": "Programming"
+  },
+  {
+    "id": 2,
+    "title": "The Pragmatic Programmer",
+    "author": "Andrew Hunt",
+    "category": "Programming"
+  },
+  {
+    "id": 3,
+    "title": "You Don't Know JS",
+    "author": "Kyle Simpson",
+    "category": "JavaScript"
+  },
+  {
+    "id": 4,
+    "title": "HTML & CSS: Design and Build Websites",
+    "author": "Jon Duckett",
+    "category": "Web Development"
+  },
+  {
+    "id": 5,
+    "title": "JavaScript: The Good Parts",
+    "author": "Douglas Crockford",
+    "category": "JavaScript"
+  },
+  {
+    "id": 6,
+    "title": "Eloquent JavaScript",
+    "author": "Marijn Haverbeke",
+    "category": "JavaScript"
+  },
+  {
+    "id": 7,
+    "title": "Learning Web Design",
+    "author": "Jennifer Niederst Robbins",
+    "category": "Web Development"
+  },
+  {
+    "id": 8,
+    "title": "Introduction to Algorithms",
+    "author": "Thomas H. Cormen",
+    "category": "Computer Science"
+  },
+  {
+    "id": 9,
+    "title": "Design Patterns",
+    "author": "Erich Gamma",
+    "category": "Software Engineering"
+  },
+  {
+    "id": 10,
+    "title": "Refactoring",
+    "author": "Martin Fowler",
+    "category": "Software Engineering"
+  },
+  {
+    "id": 11,
+    "title": "Effective JavaScript",
+    "author": "David Herman",
+    "category": "JavaScript"
+  },
+  {
+    "id": 12,
+    "title": "Programming Principles and Practice",
+    "author": "Bjarne Stroustrup",
+    "category": "Programming"
+  },
+  {
+    "id": 13,
+    "title": "Code Complete",
+    "author": "Steve McConnell",
+    "category": "Software Engineering"
+  },
+  {
+    "id": 14,
+    "title": "The Clean Coder",
+    "author": "Robert C. Martin",
+    "category": "Software Engineering"
+  },
+  {
+    "id": 15,
+    "title": "Head First JavaScript",
+    "author": "Michael Morrison",
+    "category": "JavaScript"
+  },
+  {
+    "id": 16,
+    "title": "Learning SQL",
+    "author": "Alan Beaulieu",
+    "category": "Databases"
+  },
+  {
+    "id": 17,
+    "title": "Computer Networking Basics",
+    "author": "James Kurose",
+    "category": "Networking"
+  },
+  {
+    "id": 18,
+    "title": "Introduction to Computer Science",
+    "author": "David J. Eck",
+    "category": "Computer Science"
+  },
+  {
+    "id": 19,
+    "title": "Web Accessibility",
+    "author": "Sarah Horton",
+    "category": "Web Development"
+  },
+  {
+    "id": 20,
+    "title": "Data Structures Made Easy",
+    "author": "Narasimha Karumanchi",
+    "category": "Computer Science"
+  }
+]

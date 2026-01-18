@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #BookTable {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        font-family: Arial, sans-serif;
+      }
+
+      #BookTable th,
+      #BookTable td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: center;
+      }
+
+      #BookTable th {
+        background-color: #2c3e50;
+        color: #fff;
+      }
+
+      #BookTable tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+
+      #BookTable tr:hover {
+        background-color: #f1f1f1;
+      }
+
+      #BookTable button {
+        padding: 6px 12px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      #BookTable button:hover {
+        background-color: #2980b9;
+      }
+      .filter-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        margin: 20px 0;
+      }
+
+      .filter-container label {
+        font-size: 16px;
+        font-weight: 600;
+        color: #333;
+      }
+
+      .filter-container select {
+        padding: 8px 12px;
+        font-size: 15px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .filter-container select:hover {
+        border-color: #3498db;
+      }
+
+      .filter-container select:focus {
+        outline: none;
+        border-color: #3498db;
+        box-shadow: 0 0 4px rgba(52, 152, 219, 0.4);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="filter-container">
+      <label for="category">Choose a category:</label>
+      <select name="categories" id="category" onchange="filterBooks()">
+        <option value="all">All</option>
+        <option value="Computer Science">Computer Science</option>
+        <option value="Networking">Networking</option>
+        <option value="Databases">Databases</option>
+        <option value="Software Engineering">Software Engineering</option>
+        <option value="Web Development">Web Development</option>
+        <option value="JavaScript">JavaScript</option>
+        <option value="Programming">Programming</option>
+      </select>
+    </div>
+
+    <table id="BookTable">
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Category</th>
+        <th>Reserve button</th>
+      </tr>
+      <tbody></tbody>
+    </table>
+    <script src="./js/main.js"></script>
+  </body>
+</html>

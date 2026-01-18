@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reservations Page</title>
+    <style>
+      #BooksTable {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        font-family: Arial, sans-serif;
+      }
+
+      #BooksTable th,
+      #BooksTable td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: center;
+      }
+
+      #BooksTable th {
+        background-color: #2c3e50;
+        color: #fff;
+      }
+
+      #BooksTable tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+
+      #BooksTable tr:hover {
+        background-color: #f1f1f1;
+      }
+
+      #BooksTable button {
+        padding: 6px 12px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      #BooksTable button:hover {
+        background-color: #2980b9;
+      }
+      .btns {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 60px;
+      }
+      #deleteAll {
+        padding: 6px 12px;
+        background-color: #d02752;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-align: center;
+        /* margin-top: 20px; */
+      }
+      #number {
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="btns">
+      <span id="number"></span>
+      <button id="deleteAll">Clear all reservations</button>
+    </div>
+    <table id="BooksTable">
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Remove button</th>
+      </tr>
+      <tbody></tbody>
+      <script src="./js/Reservations.js"></script>
+    </table>
+  </body>
+</html>

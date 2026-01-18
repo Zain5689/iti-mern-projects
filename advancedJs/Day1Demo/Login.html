@@ -1,0 +1,119 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form name="LoginForm" action="./Index.html">
+      <table>
+        <tr>
+          <th>Email</th>
+          <td>
+            <input type="email" name="email" />
+          </td>
+        </tr>
+        <tr>
+          <th>Password</th>
+          <td>
+            <input type="password" name="password" />
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <label id="errormessage"></label>
+            <input type="submit" value="login" />
+          </td>
+        </tr>
+      </table>
+    </form>
+
+    <script>
+      function checkUser() {
+        var cookies = document.cookie;
+        cookies = cookies.replace("; ", "&");
+        //console.log(cookies);
+
+        //key=value; key2=value2; key3=value3
+        //key=value&key2=value2&key3=value3
+        var params = new URLSearchParams(cookies);
+        console.log(params.get("user"));
+
+        if (params.get("user") != null) {
+          location.assign("http://127.0.0.1:5500/Index.html");
+        }
+      }
+      checkUser();
+
+      document.forms[0].onsubmit = function (e) {
+        e.preventDefault();
+        //0. get values:
+        debugger;
+        var emailTxt = e.target.elements["email"];
+        var passwordTxt = e.target.elements["password"];
+
+        //1. validate value in text boxes
+        var validEmail = ValidateEmail(emailTxt.value);
+        var validPassword = PasswordValidation(passwordTxt.value);
+
+        //2. if valid => Index (something to check login)
+        if (validEmail && validPassword) {
+          //a. Get User Data
+          var xhr = new XMLHttpRequest();
+          xhr.open("GET", "http://127.0.0.1:5500/Data.json");
+          xhr.onload = function () {
+            if (xhr.status == 200) {
+              var data = JSON.parse(xhr.responseText);
+              //b. loop over data to check existance of email & password
+              debugger;
+              var found = false;
+              for (user of data) {
+                if (
+                  user.Email == emailTxt.value &&
+                  user.Password == passwordTxt.value
+                ) {
+                  found = true;
+                  break;
+                }
+              }
+
+              if (!found) {
+                //e.preventDefault();
+                document.getElementById("errormessage").innerText =
+                  "Wrong Email or Password";
+              } else {
+                var date = new Date();
+                date.setDate(date.getDate() + 1);
+                document.cookie = `user=${emailTxt.value};expires= ${date.toUTCString()}`;
+                location.assign("http://127.0.0.1:5500/Index.html");
+              }
+            }
+          };
+
+          xhr.send();
+        }
+
+        //3. if not valid stop submitting => show error messages
+        else {
+          //e.preventDefault();
+          document.getElementById("errormessage").innerText =
+            "Wrong Email or Password";
+        }
+      };
+
+      function ValidateEmail(email) {
+        var emailRegex = new RegExp(
+          /^[a-zA-Z]+[a-zA-Z\.\_0-9]*(\@gmail\.com)$/,
+        );
+        return emailRegex.test(email);
+      }
+
+      function PasswordValidation(password) {
+        var passwordRegex = new RegExp(
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$/,
+        );
+        return passwordRegex.test(password);
+      }
+    </script>
+  </body>
+</html>

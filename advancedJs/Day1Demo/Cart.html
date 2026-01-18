@@ -1,0 +1,99 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+</head>
+<body>
+    <table id="ProductsTable">
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Quantity</th>
+        </tr>
+        <tbody></tbody>
+    </table>
+    
+
+    <script>
+        getCart();
+        function getCart(){
+            var cart = JSON.parse(localStorage.getItem("Cart")) || [];
+            for(item of cart){
+                var productId = item.Product;
+                var quantity = item.Quantity;
+                getItemData(productId,quantity);
+            }
+        }
+
+        function getItemData(productId,quantity){
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET","https://fakestoreapi.com/products/"+productId);
+            xhr.onload=function(){
+                if(xhr.status == 200)
+                {
+                    var data = JSON.parse(xhr.responseText);
+                    displayData(data, quantity);
+                }
+            }
+            xhr.send();
+        }
+
+        function displayData(product, Quantity){
+            var pTable = document.querySelector("#ProductsTable>tbody");
+            var tr = document.createElement("tr");
+            tr.innerHTML = `
+                <td>${product.id}</td>
+                <td>${product.title}</td>
+                <td>${product.description}</td>
+                <td>${product.price}</td>
+                <td>
+                    <input type='number' value='${Quantity}' onChange="changeValue(this,${product.id})"/>
+                </td>
+            `;
+            pTable.appendChild(tr);
+        }
+
+        function changeValue(element, productId){
+            var cart = JSON.parse(localStorage.getItem("Cart"));
+
+            //console.log(element);
+            if(element.value != 0){
+                for(item of cart){
+                    if(item.Product == productId){
+                        item.Quantity = parseInt(element.value);
+                        break;
+                    }
+                }
+            }
+            else{
+                var sure = confirm("Are you sure you want to delete this item?");
+                if(sure){
+                    index = -1;
+                    for(var i=0; i<cart.length; i++){
+                        if(cart[i].Product == productId){
+                            index = i;
+                            break;
+                        }
+                    }
+
+                    if(index != -1){
+                        cart.splice(index,1);
+
+                        var pTable = document.querySelector("#ProductsTable>tbody");
+                        pTable.removeChild(element.parentNode.parentNode);
+                    }
+                }
+                else{
+                    element.value = 1;
+                }
+            }
+
+            //console.log(productId);
+            localStorage.setItem("Cart",JSON.stringify(cart));
+        }
+    </script>
+</body>
+</html>
