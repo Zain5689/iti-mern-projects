@@ -1,0 +1,19 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IIFE</title>
+</head>
+<body>
+    <script>
+        //immediate invoking function expression (IIFE)
+        (function(){
+            var cookies = document.cookie;
+            cookies = cookies.replace("; ","&");
+            var params = new URLSearchParams(cookies);
+            if(params.get("User") == null)
+                location.assign("./Login.html");
+        })();
+    </script>
+</body>
+</html>

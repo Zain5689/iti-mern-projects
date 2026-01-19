@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables</title>
+</head>
+<body>
+    <script>
+        // //Value Type Variables:
+        // var x = 10;
+        // var y = 20;
+
+        // //passing by value for value type variables
+        // function swap(a,b){
+        //     var temp = a;
+        //     a = b;
+        //     b = temp;
+        // }
+
+        // console.log(x)
+        // console.log(y)
+        // swap(x,y);
+        // console.log(x)
+        // console.log(y)
+
+
+        //Reference Type Variables
+        var arr = [1,2,3,4];
+        
+        //passing by value for reference type
+        function multi(items){
+            for(var i=0; i<items.length; i++)
+                items[i]*=10;
+        }
+        console.log(arr);
+        multi(arr);
+        console.log(arr);
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inner Function</title>
+</head>
+<body>
+    <input type="button" value="get random color" onclick="displayRandomly()"/>
+    <script>
+        function displayRandomly(){ 
+            //inner declerative function is hoisted here
+            
+            var arr = ["red","green","blue","yellow"];
+            console.log(arr[randomIndex()]);
+
+            function randomIndex(){
+                var rIndex = Math.round(Math.random()*arr.length);
+                return rIndex;
+            }
+            //console.log(rIndex);
+
+            //inner function can access outer function variables
+            //inner function local variables is not accessable outside it
+            //inner function is not accessable outside outer function
+        }
+
+        //randomIndex();
+    </script>
+</body>
+</html>

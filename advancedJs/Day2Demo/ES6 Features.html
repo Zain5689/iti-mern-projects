@@ -1,0 +1,72 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6 Features</title>
+</head>
+<body>
+    <script>
+        function test(){
+            for(let i=0; i<3; i++){
+                console.log(i);
+            }
+
+            console.log(i);
+        }
+        // test();
+        // console.log(i);
+
+
+        // {
+        //     //console.log(x);
+        //     let x = 10;
+        //     console.log("in {}: "+x);
+
+        //     //let x = "A";
+        // }
+
+        // console.log("out {}: "+x);
+
+        //console.log(_PI);
+        const _PI = 3.14;
+        //_PI = 3.15;
+
+        // const arr = [];
+
+        // arr.push(10);
+        // arr.push(20);
+
+        // console.log(arr);
+
+        var arr = [1,2,3];
+        var arr2 = [...arr,4,5,6];
+        console.log(arr2);
+
+        function sum(a,b,c){
+            console.log(a);
+            console.log(b);
+            console.log(c);
+            return a+b+c;
+        }
+
+        console.log(sum(...arr2));
+
+        function max(...items){
+            if(items.length == 0)
+                return;
+            
+            var maxResult = items[0];
+            for(item of items){
+                if(item>maxResult){
+                    maxResult = item;
+                }
+            }
+            return maxResult;
+        }
+
+        console.log(max(1,4,7,2,1,7,8,4,0));
+
+        var [a,b,...rest]=[10,20,30,40,50];
+    </script>
+</body>
+</html>

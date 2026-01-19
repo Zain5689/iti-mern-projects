@@ -237,5 +237,32 @@ var colors = ["red", "yellow", "green", "black", "brown"];
 // console.log(Math.random()); //0-1
 
 // var date = new Date();
-var date = new Date(2025, 3, 1);
-console.log(date);
+var date = new Date();
+// console.log(date);
+
+// console.log(date.getFullYear());
+// console.log(date.getMonth() + 1);
+// console.log(date.getDay());
+// console.log(date.getDate());
+
+// console.log(date.toLocaleString());
+// console.log(date.toLocaleDateString());
+// console.log(date.toLocaleTimeString());
+
+// var name = "ayaabc mahmoud";
+// for (var i = 0; i < name.length; i++) {
+//       console.log( name[i] );
+
+// }
+
+// var date1 = new Date(2024, 4, 28);
+// var date2 = new Date(2024, 4, 24);
+// console.log(date1);
+
+// if (date1 == date2) {
+//   console.log("equal");
+// } else {
+//   console.log("not equal");
+// }
+// var d = date1 - date2;
+// console.log(d);

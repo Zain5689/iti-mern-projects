@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closur</title>
+</head>
+<body>
+    <script>
+        function generateGreeting(){
+            var name = prompt("Enter Your Name: ");
+            var nameRegex = new RegExp(/^[a-zA-Z]{3,}\s{1}[a-zA-Z]{3,}$/);
+            if(nameRegex.test(name) == true){
+                return greetingTime;
+            }
+
+            function greetingTime(){
+                var time = (new Date()).toLocaleTimeString();
+                if(time.includes("AM"))
+                    return "Good morning "+name;
+                else
+                    return "Good afternoon "+name;
+            }
+        }
+
+        var result = generateGreeting();
+        console.log(result);
+        document.write(result());
+    </script>
+</body>
+</html>

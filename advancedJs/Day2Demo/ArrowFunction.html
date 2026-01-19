@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow Function</title>
+</head>
+<body>
+    <input type="button" value="1" id="btn">
+    <script>
+        document.getElementById("btn").onclick=function(e){
+            //how to access btn here:
+            // console.log(document.getElementById("btn").value);
+            // console.log(e.target.value);
+            //console.log(this);
+
+            window.setInterval(()=>{
+                var value = parseInt(this.value);
+                this.value = ++value;
+                //console.log(this);
+            },1000);
+        }
+
+
+
+
+        // var sum = function(x,y){
+        //     return x+y;
+        // }
+
+        // var sum = (x,y)=>x+y;
+        // console.log(sum(1,2));
+
+        // var arr = [10,20,30,12,1,23,2];
+        // arr.sort((a,b)=>a-b);
+        // console.log(arr);
+    </script>
+</body>
+</html>

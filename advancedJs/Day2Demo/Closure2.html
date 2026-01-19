@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure 2</title>
+</head>
+<body>
+    <script>
+        function Test(){
+            var arr = [];
+            for(var i = 0; i<3; i++){
+                arr.push((
+                    function(x){ return function(){ alert(x);}}
+                )(i))
+            }
+            return arr;
+        }
+
+        var functions = Test();
+        console.log(functions);
+        functions[0]();
+        functions[1]();
+        functions[2]();
+    </script>
+</body>
+</html>
