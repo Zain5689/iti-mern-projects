@@ -1,0 +1,49 @@
+<Dept name="SD">
+	<Head>
+		<Name>Eng.Hany Safwat</Name>
+		<Tel>123</Tel>
+		<EMail>hsafwat@iti.gov.eg</EMail>
+	</Head>
+	<Categories>
+		<Category Name="Programming Languages">
+			<Courses No="2">
+				<Course>
+					<Name>JAVA</Name>
+					<Hours>30</Hours>
+				</Course>
+				<Course>
+					<Name>CSharp</Name>
+					<Hours>80</Hours>
+				</Course>
+			</Courses>
+		</Category>	
+		<Category Name="Web Development">
+			<Courses No="3">
+				<Course>
+					<Name>HTML</Name>
+					<Hours>15</Hours>
+				</Course>
+				<Course>
+					<Name>JavaScript</Name>
+					<Hours>36</Hours>
+				</Course>
+				<Course>
+					<Name>ASP.Net</Name>
+					<Hours>30</Hours>
+				</Course>
+			</Courses>
+		</Category>
+		<Category Name="Database Development">
+			<Courses No="2">
+				<Course>
+					<Name>Oracle</Name>
+					<Hours>50</Hours>
+				</Course>
+				<Course>
+					<Name>MS SQL Server</Name>
+					<Hours>70</Hours>
+				</Course>
+			</Courses>
+		</Category>
+	</Categories>
+</Dept>

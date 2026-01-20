@@ -234,7 +234,7 @@ var colors = ["red", "yellow", "green", "black", "brown"];
 // console.log(Math.round(3.6)); // to closest Int Num
 // console.log(Math.ceil(3.2)); // to largest Int Num
 // console.log(Math.floor(3.9)); // to lowest  Int Num
-// console.log(Math.random()); //0-1
+// console.log(Math.random()); //Random value from 0-1
 
 // var date = new Date();
 var date = new Date();
