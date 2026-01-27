@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab3</title>
+
+    <style>
+      :root {
+        --primary: #4f46e5;
+        --secondary: #0ea5e9;
+        --bg: #f8fafc;
+        --text: #1e293b;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: var(--bg);
+        color: var(--text);
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+      }
+
+      h1 {
+        margin-bottom: 2rem;
+        font-weight: 700;
+        color: var(--primary);
+      }
+
+      .container {
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+      }
+
+      input {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        box-sizing: border-box; /* لضمان عدم خروج الـ input عن الحاوية */
+        outline-color: var(--primary);
+      }
+
+      button {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 0.5rem;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: opacity 0.2s;
+      }
+
+      #addCourse {
+        background-color: var(--primary);
+        color: white;
+      }
+
+      #Instructor {
+        background-color: var(--secondary);
+        color: white;
+      }
+
+      button:hover {
+        opacity: 0.9;
+      }
+
+      #result {
+        margin-top: 1.5rem;
+        padding: 1rem;
+        border-left: 4px solid var(--secondary);
+        background: #f0f9ff;
+        border-radius: 4px;
+        text-align: left;
+        min-height: 50px;
+      }
+
+      .course-list-preview {
+        font-size: 0.8rem;
+        color: #64748b;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Lab 3: ES6 Features</h1>
+    <form action="">
+      <input id="courseName" placeholder="Course name" />
+
+      <button id="addCourse">Add Course</button>
+    </form>
+
+    <button id="Instructor">Get Random Instructor</button>
+    <div id="result"></div>
+    <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/course.js"></script>
+    <script type="module" src="./js/api.js"></script>
+    <script type="module" src="./js/storage.js"></script>
+  </body>
+</html>
