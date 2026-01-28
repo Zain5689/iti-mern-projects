@@ -5,37 +5,36 @@ import { createObservable } from "./Observable.js";
 import { getData } from "./storage.js";
 
 const course$ = createObservable();
-
 course$.subscribe((msg) => console.log("Observer 1:", msg));
 
 //  Create a button 'Add Course' (Event).
-// addCourse.addEventListener("click", (e) => {
-//   e.preventDefault();
+addCourse.addEventListener("click", (e) => {
+  e.preventDefault();
 
-//   // 1. Synchronous Validation (Call Stack)
-//   if (courseName.value === "") {
-//     course$.emit("Validation failed: Name is required");
-//     return;
-//   }
-//   course$.emit("Validating inputs...");
+  // 1. Synchronous Validation (Call Stack)
+  if (courseName.value === "") {
+    course$.emit("Validation failed: Name is required");
+    return;
+  }
+  course$.emit("Validating inputs...");
 
-//   // 2. Start Async Operation (Event Queue)
-//   setTimeout(() => {
-//     course$.emit("Course saved!");
+  // 2. Start Async Operation (Event Queue)
+  setTimeout(() => {
+    course$.emit("Course saved!");
 
-//     // 3. Callback Hell (Async inside Async)
-//     setTimeout(() => {
-//       course$.emit("Fetching instructors...");
+    // 3. Callback Hell (Async inside Async)
+    setTimeout(() => {
+      course$.emit("Fetching instructors...");
 
-//       setTimeout(() => {
-//         course$.emit("Instructor assigned: Ali");
-//         setTimeout(() => {
-//           course$.emit("Course started!");
-//         }, 1000);
-//       }, 1000);
-//     }, 1000);
-//   }, 1000);
-// });
+      setTimeout(() => {
+        course$.emit("Instructor assigned: Ali");
+        setTimeout(() => {
+          course$.emit("Course started!");
+        }, 1000);
+      }, 1000);
+    }, 1000);
+  }, 1000);
+});
 
 // Refactor Callback Hell using Promises, then using Async/Await.
 // Scene 9: Callback Hell using promise
