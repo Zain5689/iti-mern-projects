@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration</title>
+    <link rel="stylesheet" href="./style/regisre.css" />
+  </head>
+  <body>
+    <form action="./index.html">
+      <h1>Registration</h1>
+      <div>
+        <label for="username">Username</label>
+        <input
+          required
+          type="text"
+          id="username"
+          oninvalid="setCustomValidity('please enter your name')"
+          oninput="setCustomValidity('')"
+        />
+      </div>
+
+      <div>
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          oninvalid="setCustomValidity('please enter your email')"
+          oninput="setCustomValidity('')"
+          required
+        />
+      </div>
+      <div>
+        <label for="phoen">Phone</label>
+        <input
+          type="tel"
+          id="phone"
+          required
+          pattern="^01(0|1|2|5)[0-9]{8}$"
+          oninvalid="setCustomValidity('plz enter the right phone num')"
+          oninput="setCustomValidity('')"
+        />
+      </div>
+      <div>
+        <label for="experience">Experience Level (Years)</label>
+        <input
+          type="range"
+          id="experience"
+          min="0"
+          max="10"
+          step="1"
+          oninput="this.nextElementSibling.value = this.value"
+        />
+        <output>5</output>
+      </div>
+
+      <div>
+        <label for="pass">Password</label>
+        <input type="password" id="pass" required />
+      </div>
+
+      <div>
+        <label for="confirmPass">Confirm Password</label>
+        <input
+          type="password"
+          id="confirmPass"
+          required
+          oninput="
+            setCustomValidity(
+              this.value !== document.getElementById('pass').value
+                ? 'Passwords do not match'
+                : '',
+            )
+          "
+        />
+      </div>
+
+      <input type="submit" />
+    </form>
+  </body>
+</html>
