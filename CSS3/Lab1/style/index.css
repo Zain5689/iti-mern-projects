@@ -22,7 +22,7 @@
 }
 
 body {
-  width: 60%;
+  width: 70%;
   margin: 0 auto;
   background-color: var(--bg-light);
   color: var(--text-dark);
@@ -33,10 +33,11 @@ body {
 nav {
   position: fixed;
   top: 20px;
-  width: 60%;
+  width: 70%;
+  padding: 10px 20px;
   display: flex;
   border-radius: 20px;
-  justify-content: center;
+  justify-content: space-between;
   background-color: var(--nav-bg);
   backdrop-filter: blur(10px);
   z-index: 1000;
@@ -80,6 +81,49 @@ nav ul li a i {
   font-size: 2rem;
   transition: var(--transition);
 }
+nav .contact {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 16px;
+  background-color: rgba(95, 45, 237, 0.05);
+  border-radius: 50px;
+  gap: 15px;
+  transition: all 0.3s ease;
+}
+
+nav .contact img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #5f2ded;
+  transition: transform 0.3s ease;
+}
+
+nav .contact .info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 110px;
+  font-family: inherit;
+  color: #333;
+  font-weight: 500;
+  opacity: 1;
+}
+.collapsed {
+  width: 0px !important;
+}
+nav .contact .info i {
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+nav .contact:hover img {
+  transform: scale(1.1);
+}
 
 /* **************  section   **************** */
 
@@ -115,8 +159,7 @@ h1 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
-  padding: 20px;
-  max-width: 1200px;
+  padding: 20px 0;
   margin: 0 auto;
 }
 
