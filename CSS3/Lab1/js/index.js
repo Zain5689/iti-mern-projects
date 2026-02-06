@@ -13,14 +13,30 @@ contact.addEventListener("mouseleave", function () {
 });
 
 // contact-chip
-var closeBtn = document.getElementsByClassName("close-btn")[0];
-var content = document.getElementById("info");
-var avatar = document.getElementById("avatar");
+const contactTrigger = document.getElementById("contactTrigger");
+const msgBox = document.getElementById("msgBox");
+const info = document.getElementById("info");
+const closeBtn = document.getElementById("closeBtn");
+const avatar = document.getElementById("avatar");
 
-closeBtn.addEventListener("click", (e) => {
-  content.classList.add("collapsed");
+contactTrigger.addEventListener("click", (e) => {
+  e.stopPropagation();
+  msgBox.classList.toggle("show");
 });
 
-avatar.addEventListener("click", () => {
-  content.classList.toggle("collapsed");
+closeBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  info.classList.add("collapsed");
+  msgBox.classList.remove("show");
+});
+
+avatar.addEventListener("click", (e) => {
+  if (info.classList.contains("collapsed")) {
+    e.stopPropagation();
+    info.classList.remove("collapsed");
+  }
+});
+
+document.addEventListener("click", () => {
+  msgBox.classList.remove("show");
 });
