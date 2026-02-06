@@ -1,0 +1,163 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+/* font  */
+
+@font-face {
+  font-family: SpaceGrotesk;
+  src: url(./../Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf);
+}
+/* font  */
+body {
+  background-color: #0d1117;
+  width: 80%;
+  margin: 10px auto;
+  line-height: 1.6;
+  font-family: SpaceGrotesk;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  padding: 0 40px;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 10px;
+  background-color: #f8fbff;
+  border-radius: 12px;
+  border-left: 8px solid #5f2ded;
+}
+
+header img {
+  border-radius: 50%;
+  border: 3px solid #5f2ded;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(95, 45, 237, 0.2);
+}
+
+header h1 {
+  font-size: 2.2rem;
+  color: #1a1a1b;
+  letter-spacing: -1px;
+}
+
+header h3 {
+  color: #5f2ded;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+main .left,
+main .right {
+  width: 50%;
+  padding: 35px;
+  background-color: #f8fbff;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+h3 {
+  font-size: 1.25rem;
+  margin-bottom: 18px;
+  color: #1a1a1b;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 8px;
+}
+
+p {
+  color: #4a5568;
+  margin-bottom: 12px;
+  font-size: 1rem;
+  padding: 10px;
+}
+
+b {
+  color: #2d3748;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.skill-item {
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.skill-item:hover {
+  transform: translateY(-5px);
+}
+
+.circular-meter {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background: conic-gradient(#5f2ded calc(var(--val) * 1%), #cbd5e0 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.circular-meter::after {
+  content: counter(val) "%";
+  counter-reset: val var(--val);
+  width: 60px;
+  height: 60px;
+  background: #f8fbff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #5f2ded;
+}
+
+meter {
+  display: none;
+}
+
+footer {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem;
+  background-color: #f8fbff;
+  color: #718096;
+  font-weight: 500;
+  border-radius: 12px;
+}
+
+.contact,
+.language,
+.skill,
+.achievement,
+.education,
+.work {
+  margin-bottom: 30px;
+}
+
+i {
+  font-size: 1.1rem;
+  padding: 5px;
+  color: #5f2ded;
+  font-weight: bold;
+}

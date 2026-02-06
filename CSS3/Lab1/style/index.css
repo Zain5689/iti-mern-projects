@@ -1,0 +1,146 @@
+:root {
+  --primary: #5f2ded;
+  --bg-light: #f8f9fa;
+  --nav-bg: rgba(242, 227, 187, 0.8);
+  --text-dark: #333;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* font  */
+
+@font-face {
+  font-family: SpaceGrotesk;
+  src: url(./../Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf);
+}
+/* font  */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* font-family: "Poppins", "Segoe UI", system-ui, sans-serif; */
+}
+
+body {
+  width: 60%;
+  margin: 0 auto;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.6;
+  padding-top: 80px;
+}
+
+nav {
+  position: fixed;
+  top: 20px;
+  width: 60%;
+  display: flex;
+  border-radius: 20px;
+  justify-content: center;
+  background-color: var(--nav-bg);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  /* border-bottom: 2px solid var(--primary); */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  gap: 60px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  padding: 10px;
+  font-weight: bold;
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: var(--transition);
+  cursor: pointer;
+}
+nav ul li.active {
+  background-color: var(--primary);
+  border-radius: 50%;
+}
+nav ul li.active a,
+nav ul li a:hover {
+  color: var(--bg-light);
+}
+nav ul li a:hover {
+  background-color: var(--primary);
+  border-radius: 50%;
+}
+
+nav ul li a i {
+  font-size: 2rem;
+  transition: var(--transition);
+}
+
+/* **************  section   **************** */
+
+section {
+  padding: 60px 0;
+}
+section h1,
+p {
+  margin-bottom: 20px;
+  font-family: SpaceGrotesk;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #5f2ded;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: 0.3s;
+  margin-top: 30px;
+}
+
+/* Gallery Grid Layout */
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 3rem;
+}
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.photo-item {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #eee;
+}
+
+.photo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease-in-out;
+}
+
+.photo-item:hover img {
+  transform: scale(1.15);
+}
+
+.photo-item {
+  position: relative;
+  cursor: pointer;
+}

@@ -1,0 +1,96 @@
+/* h1{
+  animation: ;
+  -webkit-animation: ;
+  -moz-animation: ;
+  -o-animation: ;
+
+  color: ;
+  background-color: ;
+} */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.parent {
+  width: 50%;
+  height: 300px;
+  background-color: aqua;
+  /* padding-top: 50px;
+  padding-left: 50px; */
+  /* padding: 50px 0 0 50px;
+  padding: 20px 10px 20px;
+  padding: 20px 15px;
+  padding: 20px; */
+
+  /* border-color: blue;
+  border-width: 5px;
+  border-style: double; */
+
+  /* border:double 5px  blue; */
+  /* margin-bottom: 50px; */
+  display: inline-block;
+  /* margin-right: 50px; */
+}
+/*     top
+left          right
+bottom
+
+*/
+
+/* .child{
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  } */
+
+/* .two{
+    width: 50%;
+    height: 300px;
+    background-color: blueviolet;
+    margin-top: 20px;
+    display: inline-block;
+    margin-left: 20px;
+} */
+
+.one {
+  width: 20%;
+  height: 100px;
+  background-color: aqua;
+}
+.two {
+  width: 20%;
+  height: 100px;
+  background-color: blueviolet;
+}
+.three {
+  width: 20%;
+  height: 100px;
+  background-color: brown;
+}
+
+.box {
+  border: 3px solid black;
+  height: 400px;
+
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  /* flex-wrap: wrap; */
+  /* align-content: space-between; */
+  /* gap: 1px; */
+}
+/* 
+@font-face {
+  font-family: hamada;
+  src: url(./Caveat_Brush/CaveatBrush-Regular.ttf);
+}
+
+p{
+  font-family: hamada;
+} */
+
+
+
