@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>analog clock using Canvas</title>
+    <link rel="stylesheet" href="./style/canvas .css" />
+  </head>
+  <body>
+    <h1>analog clock using Canvas</h1>
+    <div class="clock">
+      <canvas
+        id="clock"
+        width="400"
+        height="400"
+        style="background-color: #ccc"
+      ></canvas>
+    </div>
+
+    <div class="btn">
+      <button class="svg-btn">
+        <svg viewBox="0 0 200 60">
+          <defs>
+            <linearGradient id="grad">
+              <stop offset="0%" stop-color="#6a11cb" />
+              <stop offset="100%" stop-color="#2575fc" />
+            </linearGradient>
+          </defs>
+
+          <rect x="0" y="0" width="200" height="60" rx="30" fill="url(#grad)">
+            <animate
+              attributeName="x"
+              from="-200"
+              to="0"
+              dur="1.5s"
+              repeatCount="2"
+            />
+          </rect>
+
+          <text x="100" y="38" text-anchor="middle" fill="white" font-size="20">
+            Click Me
+          </text>
+        </svg>
+      </button>
+    </div>
+
+    <script src="./js/canvas .js"></script>
+  </body>
+</html>

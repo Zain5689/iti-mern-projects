@@ -8,6 +8,7 @@ body {
   align-items: center;
   padding: 30px;
   justify-content: center;
+  position: relative;
 }
 .svg {
   display: flex;
@@ -92,4 +93,16 @@ h1 {
   justify-content: center;
   align-items: center;
   gap: 30px;
+}
+
+a {
+  text-decoration: none;
+  background-color: #5f2ded;
+  color: aliceblue;
+  padding: 10px 20px;
+  font-size: 20px;
+  border-radius: 10px;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
 }
