@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  /* display: flex; */
+  align-items: center;
+  padding: 30px;
+  justify-content: center;
+}
+.svg {
+  display: flex;
+  align-items: center;
+  padding: 30px;
+  justify-content: center;
+}
+.human-face-svg {
+  width: 200px;
+  height: auto;
+}
+
+.eye,
+.face,
+.mouth {
+  transition: fill 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover effects */
+.face:hover {
+  fill: antiquewhite;
+}
+.eye:hover {
+  fill: #5f2ded;
+}
+
+.mouth:hover {
+  stroke: #ff9800;
+}
+
+#tooltip {
+  position: absolute;
+  background: black;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, -120%);
+  transition: 0.2s;
+}
+/* smile */
+.smile {
+  width: 200px;
+  height: auto;
+}
+h1 {
+  text-align: center;
+}
+
+.canvas-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.canvas-container canvas {
+  border: 2px solid #333;
+  cursor: pointer;
+}
+
+/* draw canvas */
+.drawcanvas_1 {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  margin-top: 50px;
+}
+h1 {
+  margin: 40px 0;
+}
+.drawcanvas_1 canvas {
+  width: 300px;
+  height: 300px;
+  border: 2px solid #000;
+  cursor: crosshair;
+}
+.contain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}

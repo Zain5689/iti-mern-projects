@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>simple face</title>
+    <link rel="stylesheet" href="./style/index.css" />
+  </head>
+  <body>
+    <h1>use svg</h1>
+    <div class="svg">
+      <div>
+        <svg viewBox="0 0 200 240" class="human-face-svg">
+          <circle
+            cx="100"
+            cy="110"
+            r="90"
+            class="organ face"
+            data-name="Face"
+            fill="#FFF7CD"
+          />
+
+          <circle
+            cx="70"
+            cy="90"
+            r="12"
+            class="organ eye"
+            data-name="Left Eye"
+            fill="white"
+            stroke="#333"
+          />
+          <circle cx="70" cy="90" r="5" fill="#333" pointer-events="none" />
+
+          <circle
+            cx="130"
+            cy="90"
+            r="12"
+            class="organ eye"
+            data-name="Right Eye"
+            fill="white"
+            stroke="#333"
+          />
+          <circle cx="130" cy="90" r="5" fill="#333" pointer-events="none" />
+
+          <path
+            d="M70 160 Q100 190 130 160"
+            class="organ mouth"
+            data-name="Mouth"
+            fill="none"
+            stroke="#FAB95B"
+            stroke-width="5"
+            stroke-linecap="round"
+          />
+        </svg>
+      </div>
+      <!-- smile svg -->
+      <div class="smile">
+        <svg
+          width="200px"
+          height="200px"
+          class="smile"
+          viewBox="-3 0 32 32"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            class="organ"
+            data-name="Face Outline"
+            d="M12.8 3.2c-7.093 0-12.8 5.707-12.8 12.8s5.707 12.8 12.8 12.8c7.093 0 12.8-5.707 12.8-12.8s-5.707-12.8-12.8-12.8zM12.8 27.733c-6.453 0-11.733-5.28-11.733-11.733s5.28-11.733 11.733-11.733c6.453 0 11.733 5.28 11.733 11.733s-5.28 11.733-11.733 11.733z"
+            fill="#000000"
+          ></path>
+
+          <path
+            class="organ"
+            data-name="Mouth"
+            d="M19.467 19.040c-0.267-0.107-0.587-0.053-0.693 0.213-1.173 2.293-3.467 3.68-5.973 3.68-2.56 0-4.8-1.387-5.973-3.68-0.107-0.267-0.427-0.373-0.693-0.213-0.267 0.107-0.373 0.427-0.267 0.693 1.333 2.613 3.947 4.267 6.933 4.267 2.933 0 5.6-1.653 6.88-4.267 0.16-0.267 0.053-0.587-0.213-0.693z"
+            fill="#000000"
+          ></path>
+
+          <path
+            class="organ"
+            data-name="Left Eye"
+            d="M10.133 13.333c0 0.884-0.716 1.6-1.6 1.6s-1.6-0.716-1.6-1.6c0-0.884 0.716-1.6 1.6-1.6s1.6 0.716 1.6 1.6z"
+            fill="#000000"
+          ></path>
+
+          <path
+            class="organ"
+            data-name="Right Eye"
+            d="M18.667 13.333c0 0.884-0.716 1.6-1.6 1.6s-1.6-0.716-1.6-1.6c0-0.884 0.716-1.6 1.6-1.6s1.6 0.716 1.6 1.6z"
+            fill="#000000"
+          ></path>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Tooltip -->
+    <div id="tooltip"></div>
+    <div class="contain">
+      <div>
+        <h1>Use canvas</h1>
+        <div class="canvas-container">
+          <canvas id="faceCanvas" width="300" height="300"></canvas>
+
+          <img src="./sad.png" id="sad" hidden />
+          <img src="./smiley.png" id="smile" hidden />
+        </div>
+      </div>
+
+      <div>
+        <h1>draw Canvas</h1>
+        <div class="drawcanvas_1">
+          <canvas id="drawCanvas_1" width="300" height="300"></canvas>
+        </div>
+      </div>
+    </div>
+    <script src="./js/index.js"></script>
+  </body>
+</html>
