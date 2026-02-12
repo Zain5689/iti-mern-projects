@@ -1,0 +1,8 @@
+🗒️ Clamp(min , val ,max) 
+🗒️ secret in img 
+📓 Table => Horizontal scrolling
+    1- overflow
+    2- data-label
+📓 accessibility is very important
+📓 css framework == bootstrap
+📓 cdn 

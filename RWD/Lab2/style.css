@@ -1,0 +1,130 @@
+/* ===== Hero / Jumbotron ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --brand-teal: rgba(44, 102, 122, 0.75);
+  --brand-orange: #f39c12;
+  --text-muted: #999;
+  --text-dark: #444;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+img {
+  width: 100%;
+  height: 100%;
+}
+.title {
+  color: var(--brand-teal);
+}
+.icon {
+  background: var(--brand-teal);
+}
+.btn {
+  background: var(--brand-orange);
+  border-radius: 30px;
+}
+.btn.disabled {
+  background: #fff19b;
+  border: none;
+}
+.jumbotron {
+  background:
+    linear-gradient(var(--brand-teal), var(--brand-teal)),
+    url("https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=80");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 120px 0;
+  text-align: center;
+  height: 60vh;
+}
+
+/* Soft glow overlay */
+.jumbotron::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top,
+    rgba(255, 255, 255, 0.02),
+    transparent 60%
+  );
+}
+
+/* ===== Service Boxes ===== */
+.box {
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Overlay for text readability */
+.box::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.05);
+  transition: 0.4s;
+}
+
+.box span {
+  position: relative;
+  z-index: 2;
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Background images */
+.box1 {
+  background-image:
+    linear-gradient(var(--brand-teal), var(--brand-teal)),
+    url("./Images/h1.jpg");
+}
+.box2 {
+  background-image:
+    linear-gradient(var(--brand-teal), var(--brand-teal)),
+    url("./Images/h2.jpg");
+}
+.box3 {
+  background-image:
+    linear-gradient(var(--brand-teal), var(--brand-teal)),
+    url("./Images/h3.jpg");
+}
+/* contact */
+
+.contact-section {
+  background:
+    linear-gradient(var(--brand-teal), var(--brand-teal)),
+    url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80");
+  background-size: cover;
+  color: white;
+  padding: 80px 0;
+}
+.social-icons i {
+  font-size: 1.5rem;
+  margin: 0 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.social-icons i:hover {
+  color: var(--brand-orange);
+}
