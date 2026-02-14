@@ -15,8 +15,873 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
+    <style>
+      body {
+        font-family:
+          "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+      }
+    </style>
   </head>
   <body>
+    <!-- * Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container">
+        <a class="navbar-brand" href="#"
+          ><i class="fa-solid fa-font-awesome m-lg-2 text-primary"></i>LOGO</a
+        >
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active text-primary" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">project </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">service </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">contact </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- * Slider -->
+    <div id="carouselExampleCaptions" class="carousel slide">
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img
+            src="https://static.vecteezy.com/system/resources/thumbnails/071/427/529/small/creative-workspace-featuring-a-camera-smartphone-and-printeds-during-a-productive-session-photo.jpg"
+            class="d-block w-100"
+            style="max-height: 500px"
+            alt="..."
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h5>First slide label</h5>
+            <p>Some representative placeholder content for the first slide.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img
+            src="./Images/h2.jpg"
+            class="d-block w-100"
+            style="max-height: 500px"
+            alt="..."
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Second slide label</h5>
+            <p>Some representative placeholder content for the second slide.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img
+            src="./Images/h3.jpg"
+            class="d-block w-100"
+            style="max-height: 500px"
+            alt="..."
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Third slide label</h5>
+            <p>Some representative placeholder content for the third slide.</p>
+          </div>
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <!-- * Service -->
+    <div class="container">
+      <div class="row my-5">
+        <div class="col-sm-4 mb-3 mb-sm-0">
+          <div class="card service-card border-0 shadow-lg p-4 text-center">
+            <div class="icon-wrapper mb-3">
+              <i
+                class="fa-regular fa-thumbs-up bg-primary text-white fs-1 rounded-circle p-3"
+              ></i>
+            </div>
+
+            <div class="card-body p-0">
+              <h5
+                class="card-title fw-bold text-uppercase mb-3"
+                style="letter-spacing: 1px"
+              >
+                Reliability
+              </h5>
+              <p class="card-text text-muted small">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Aspernatur eligendi ullam nesciunt deserunt, autem nemo
+                veritatis.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card service-card border-0 shadow-lg p-4 text-center">
+            <div class="icon-wrapper mb-3">
+              <i
+                class="fa-solid fa-key bg-primary text-white fs-1 rounded-circle p-3"
+              ></i>
+            </div>
+
+            <div class="card-body p-0">
+              <h5
+                class="card-title fw-bold text-uppercase mb-3"
+                style="letter-spacing: 1px"
+              >
+                Reliability
+              </h5>
+              <p class="card-text text-muted small">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Aspernatur eligendi ullam nesciunt deserunt, autem nemo
+                veritatis.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card service-card border-0 shadow-lg p-4 text-center">
+            <div class="icon-wrapper mb-3">
+              <i
+                class="fa-regular fa-thumbs-up bg-primary text-white fs-1 rounded-circle p-3"
+              ></i>
+            </div>
+
+            <div class="card-body p-0">
+              <h5
+                class="card-title fw-bold text-uppercase mb-3"
+                style="letter-spacing: 1px"
+              >
+                Reliability
+              </h5>
+              <p class="card-text text-muted small">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Aspernatur eligendi ullam nesciunt deserunt, autem nemo
+                veritatis.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- * Price -->
+    <div class="bg-dark-subtle">
+      <div class="container p-5">
+        <h1 class="text-center">
+          Hosto <span class="text-primary">Plans</span> $
+          <span class="text-primary">Pricing</span>
+        </h1>
+        <p class="text-center mb-4">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique
+          voluptate delectus culpa fugiat .
+        </p>
+        <div class="row my-5">
+          <div class="col-sm-6 col-lg-3 mb-4">
+            <div class="card border-0 shadow-lg text-center h-100 pricing-card">
+              <div class="bg-primary text-white py-3 rounded-top">
+                <h3
+                  class="fs-5 fw-bold text-uppercase mb-0"
+                  style="letter-spacing: 1px"
+                >
+                  Service 1
+                </h3>
+              </div>
+
+              <div class="price-header bg-light p-4 border-bottom">
+                <div class="d-flex justify-content-center align-items-start">
+                  <span class="fs-4 mt-2 fw-bold text-primary">$</span>
+                  <h1 class="display-4 fw-bold mb-0 text-dark">9</h1>
+                  <div class="text-start ms-1">
+                    <div class="fs-5 fw-bold text-primary">.45</div>
+                    <div
+                      class="small text-muted text-uppercase fw-bold"
+                      style="font-size: 0.65rem"
+                    >
+                      Per Month
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-body px-4 py-4">
+                <ul class="list-unstyled mb-0">
+                  <li
+                    class="d-flex align-items-center justify-content-center gap-3 mb-3"
+                  >
+                    <i class="fa-solid fa-circle-check text-primary"></i>
+                    <span class="text-secondary">High Quality Design</span>
+                  </li>
+                  <li
+                    class="d-flex align-items-center justify-content-center gap-3 mb-3"
+                  >
+                    <i class="fa-solid fa-circle-check text-primary"></i>
+                    <span class="text-secondary">24/7 Support</span>
+                  </li>
+                  <li
+                    class="d-flex align-items-center justify-content-center gap-3 mb-3"
+                  >
+                    <i class="fa-solid fa-circle-check text-primary"></i>
+                    <span class="text-secondary">Unlimited Revisions</span>
+                  </li>
+                  <li
+                    class="d-flex align-items-center justify-content-center gap-3"
+                  >
+                    <i class="fa-solid fa-circle-check text-primary"></i>
+                    <span class="text-secondary">Free Installation</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="card-footer bg-white border-0 pb-4">
+                <a
+                  href="#"
+                  class="btn btn-primary w-100 rounded-pill py-2 fw-bold text-uppercase shadow-sm"
+                >
+                  Get Started
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3 mb-4">
+            <div class="card border-0 shadow-lg text-center h-100 pricing-card">
+              <div class="bg-primary text-white py-3 rounded-top">
+                <h3
+                  class="fs-5 fw-bold text-uppercase mb-0"
+                  style="letter-spacing: 1px"
+                >
+                  Service 1
+                </h3>
+              </div>
+
+              <div class="price-header bg-light p-4 border-bottom">
+                <div class="d-flex justify-content-center align-items-start">
+                  <span class="fs-4 mt-2 fw-bold text-primary">$</span>
+                  <h1 class="display-4 fw-bold mb-0 text-dark">9</h1>
+                  <div class="text-start ms-1">
+                    <div class="fs-5 fw-bold text-primary">.45</div>
+                    <div
+                      class="small text-muted text-uppercase fw-bold"
+                      style="font-size: 0.65rem"
+                    >
+                      Per Month
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-body px-4 py-4">
+                <ul class="list-unstyled mb-0">
+                  <li
+                    class="d-flex align-items-center justify-content-center gap-3 mb-3"
+                  >
+                    <i class="fa-solid fa-circle-check text-primary"></i>
+                    <span class="text-secondary">High Quality Design</span>
+                  </li>
+                  <li
+                    class="d-flex align-items-center justify-content-center gap-3 mb-3"
+                  >
+                    <i class="fa-solid fa-circle-check text-primary"></i>
+                    <span class="text-secondary">24/7 Support</span>
+                  </li>
+                  <li
+                    class="d-flex align-items-center justify-content-center gap-3 mb-3"
+                  >
+                    <i class="fa-solid fa-circle-check text-primary"></i>
+                    <span class="text-secondary">Unlimited Revisions</span>
+                  </li>
+                  <li
+                    class="d-flex align-items-center justify-content-center gap-3"
+                  >
+                    <i class="fa-solid fa-circle-check text-primary"></i>
+                    <span class="text-secondary">Free Installation</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="card-footer bg-white border-0 pb-4">
+                <a
+                  href="#"
+                  class="btn btn-primary w-100 rounded-pill py-2 fw-bold text-uppercase shadow-sm"
+                >
+                  Get Started
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3 mb-4">
+            <div class="card border-0 shadow-lg text-center h-100 pricing-card">
+              <div class="bg-primary text-white py-3 rounded-top">
+                <h3
+                  class="fs-5 fw-bold text-uppercase mb-0"
+                  style="letter-spacing: 1px"
+                >
+                  Service 1
+                </h3>
+              </div>
+
+              <div class="price-header bg-light p-4 border-bottom">
+                <div class="d-flex justify-content-center align-items-start">
+                  <span class="fs-4 mt-2 fw-bold text-primary">$</span>
+                  <h1 class="display-4 fw-bold mb-0 text-dark">9</h1>
+                  <div class="text-start ms-1">
+                    <div class="fs-5 fw-bold text-primary">.45</div>
+                    <div
+                      class="small text-muted text-uppercase fw-bold"
+                      style="font-size: 0.65rem"
+                    >
+                      Per Month
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-body px-4 py-4">
+                <ul class="list-unstyled mb-0">
+                  <li
+                    class="d-flex align-items-center justify-content-center gap-3 mb-3"
+                  >
+                    <i class="fa-solid fa-circle-check text-primary"></i>
+                    <span class="text-secondary">High Quality Design</span>
+                  </li>
+                  <li
+                    class="d-flex align-items-center justify-content-center gap-3 mb-3"
+                  >
+                    <i class="fa-solid fa-circle-check text-primary"></i>
+                    <span class="text-secondary">24/7 Support</span>
+                  </li>
+                  <li
+                    class="d-flex align-items-center justify-content-center gap-3 mb-3"
+                  >
+                    <i class="fa-solid fa-circle-check text-primary"></i>
+                    <span class="text-secondary">Unlimited Revisions</span>
+                  </li>
+                  <li
+                    class="d-flex align-items-center justify-content-center gap-3"
+                  >
+                    <i class="fa-solid fa-circle-check text-primary"></i>
+                    <span class="text-secondary">Free Installation</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="card-footer bg-white border-0 pb-4">
+                <a
+                  href="#"
+                  class="btn btn-primary w-100 rounded-pill py-2 fw-bold text-uppercase shadow-sm"
+                >
+                  Get Started
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3 mb-4">
+            <div class="card border-0 shadow-lg text-center h-100 pricing-card">
+              <div class="bg-primary text-white py-3 rounded-top">
+                <h3
+                  class="fs-5 fw-bold text-uppercase mb-0"
+                  style="letter-spacing: 1px"
+                >
+                  Service 1
+                </h3>
+              </div>
+
+              <div class="price-header bg-light p-4 border-bottom">
+                <div class="d-flex justify-content-center align-items-start">
+                  <span class="fs-4 mt-2 fw-bold text-primary">$</span>
+                  <h1 class="display-4 fw-bold mb-0 text-dark">9</h1>
+                  <div class="text-start ms-1">
+                    <div class="fs-5 fw-bold text-primary">.45</div>
+                    <div
+                      class="small text-muted text-uppercase fw-bold"
+                      style="font-size: 0.65rem"
+                    >
+                      Per Month
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-body px-4 py-4">
+                <ul class="list-unstyled mb-0">
+                  <li
+                    class="d-flex align-items-center justify-content-center gap-3 mb-3"
+                  >
+                    <i class="fa-solid fa-circle-check text-primary"></i>
+                    <span class="text-secondary">High Quality Design</span>
+                  </li>
+                  <li
+                    class="d-flex align-items-center justify-content-center gap-3 mb-3"
+                  >
+                    <i class="fa-solid fa-circle-check text-primary"></i>
+                    <span class="text-secondary">24/7 Support</span>
+                  </li>
+                  <li
+                    class="d-flex align-items-center justify-content-center gap-3 mb-3"
+                  >
+                    <i class="fa-solid fa-circle-check text-primary"></i>
+                    <span class="text-secondary">Unlimited Revisions</span>
+                  </li>
+                  <li
+                    class="d-flex align-items-center justify-content-center gap-3"
+                  >
+                    <i class="fa-solid fa-circle-check text-primary"></i>
+                    <span class="text-secondary">Free Installation</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="card-footer bg-white border-0 pb-4">
+                <a
+                  href="#"
+                  class="btn btn-primary w-100 rounded-pill py-2 fw-bold text-uppercase shadow-sm"
+                >
+                  Get Started
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- * Feature -->
+    <div class="container p-5">
+      <h1 class="text-center">
+        Key Feature of <span class="text-primary">Hosto</span>
+      </h1>
+      <p class="fs-5 text-center">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
+      </p>
+      <div class="row my-5">
+        <div class="col-sm-4 mb-3 mb-sm-0">
+          <div class="card service-card border-0 shadow-lg p-4">
+            <div class="fs-3 mb-3 border-bottom border-1">Feature 1</div>
+            <div class="card-body p-0 d-flex justify-content-between">
+              <div>
+                <p class="card-text text-muted small">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Aspernatur eligendi ullam nesciunt deserunt, autem nemo
+                  veritatis.
+                </p>
+
+                <a href="#" class="btn py-2 fw-bold text-uppercase shadow-sm">
+                  Get Started
+                </a>
+              </div>
+              <img
+                src="https://img.freepik.com/premium-psd/mobile-app-screen-mockup_772836-1151.jpg?semt=ais_wordcount_boost&w=740&q=80"
+                class="expert-img rounded-5"
+                style="width: 150px; height: 150px"
+                alt="Expert"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 mb-3 mb-sm-0">
+          <div class="card service-card border-0 shadow-lg p-4">
+            <div class="fs-3 mb-3 border-bottom border-1">Feature 1</div>
+            <div class="card-body p-0 d-flex justify-content-between">
+              <div>
+                <p class="card-text text-muted small">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Aspernatur eligendi ullam nesciunt deserunt, autem nemo
+                  veritatis.
+                </p>
+
+                <a href="#" class="btn py-2 fw-bold text-uppercase shadow-sm">
+                  Get Started
+                </a>
+              </div>
+              <img
+                src="https://www.dennemeyer.com/fileadmin/a/blog/Everyday_IP_Spreading_the_word_about_mobile_phones/Everyday-IP_Spreading-the-word-about-mobile-phones_12.jpg"
+                class="expert-img rounded-5"
+                style="width: 150px; height: 150px"
+                alt="Expert"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 mb-3 mb-sm-0">
+          <div class="card service-card border-0 shadow-lg p-4">
+            <div class="fs-3 mb-3 border-bottom border-1">Feature 1</div>
+            <div class="card-body p-0 d-flex justify-content-between">
+              <div>
+                <p class="card-text text-muted small">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Aspernatur eligendi ullam nesciunt deserunt, autem nemo
+                  veritatis.
+                </p>
+
+                <a href="#" class="btn py-2 fw-bold text-uppercase shadow-sm">
+                  Get Started
+                </a>
+              </div>
+              <img
+                src="https://img.freepik.com/premium-psd/mobile-app-screen-mockup_772836-1151.jpg?semt=ais_wordcount_boost&w=740&q=80"
+                class="expert-img rounded-5"
+                style="width: 150px; height: 150px"
+                alt="Expert"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row my-5">
+        <div class="col-sm-4 mb-3 mb-sm-0">
+          <div class="card service-card border-0 shadow-lg p-4">
+            <div class="fs-3 mb-3 border-bottom border-1">Feature 1</div>
+            <div class="card-body p-0 d-flex justify-content-between">
+              <div>
+                <p class="card-text text-muted small">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Aspernatur eligendi ullam nesciunt deserunt, autem nemo
+                  veritatis.
+                </p>
+
+                <a href="#" class="btn py-2 fw-bold text-uppercase shadow-sm">
+                  Get Started
+                </a>
+              </div>
+              <img
+                src="https://img.freepik.com/premium-psd/mobile-app-screen-mockup_772836-1151.jpg?semt=ais_wordcount_boost&w=740&q=80"
+                class="expert-img rounded-5"
+                style="width: 150px; height: 150px"
+                alt="Expert"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 mb-3 mb-sm-0">
+          <div class="card service-card border-0 shadow-lg p-4">
+            <div class="fs-3 mb-3 border-bottom border-1">Feature 1</div>
+            <div class="card-body p-0 d-flex justify-content-between">
+              <div>
+                <p class="card-text text-muted small">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Aspernatur eligendi ullam nesciunt deserunt, autem nemo
+                  veritatis.
+                </p>
+
+                <a href="#" class="btn py-2 fw-bold text-uppercase shadow-sm">
+                  Get Started
+                </a>
+              </div>
+              <img
+                src="https://www.dennemeyer.com/fileadmin/a/blog/Everyday_IP_Spreading_the_word_about_mobile_phones/Everyday-IP_Spreading-the-word-about-mobile-phones_12.jpg"
+                class="expert-img rounded-5"
+                style="width: 150px; height: 150px"
+                alt="Expert"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 mb-3 mb-sm-0">
+          <div class="card service-card border-0 shadow-lg p-4">
+            <div class="fs-3 mb-3 border-bottom border-1">Feature 1</div>
+            <div class="card-body p-0 d-flex justify-content-between">
+              <div>
+                <p class="card-text text-muted small">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Aspernatur eligendi ullam nesciunt deserunt, autem nemo
+                  veritatis.
+                </p>
+
+                <a href="#" class="btn py-2 fw-bold text-uppercase shadow-sm">
+                  Get Started
+                </a>
+              </div>
+              <img
+                src="https://img.freepik.com/premium-psd/mobile-app-screen-mockup_772836-1151.jpg?semt=ais_wordcount_boost&w=740&q=80"
+                class="expert-img rounded-5"
+                style="width: 150px; height: 150px"
+                alt="Expert"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- * Images Section -->
+    <section class="py-5 bg-white border-top">
+      <div class="container">
+        <div
+          class="row row-cols-2 row-cols-md-4 row-cols-lg-6 g-3 justify-content-center align-items-center text-center"
+        >
+          <div class="col">
+            <div
+              class="client-text-box bg-primary text-white py-4 rounded shadow-sm fw-bold"
+            >
+              LOGO 1
+            </div>
+          </div>
+
+          <div class="col">
+            <div
+              class="client-text-box bg-success text-white py-4 rounded shadow-sm fw-bold"
+            >
+              LOGO 2
+            </div>
+          </div>
+
+          <div class="col">
+            <div
+              class="client-text-box bg-info text-white py-4 rounded shadow-sm fw-bold"
+            >
+              LOGO 3
+            </div>
+          </div>
+
+          <div class="col">
+            <div
+              class="client-text-box bg-warning text-dark py-4 rounded shadow-sm fw-bold"
+            >
+              LOGO 4
+            </div>
+          </div>
+
+          <div class="col">
+            <div
+              class="client-text-box bg-danger text-white py-4 rounded shadow-sm fw-bold"
+            >
+              LOGO 5
+            </div>
+          </div>
+
+          <div class="col">
+            <div
+              class="client-text-box bg-secondary text-white py-4 rounded shadow-sm fw-bold"
+            >
+              LOGO 6
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- *footer  -->
+    <footer class="bg-dark text-white pt-5 pb-3">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-3 col-md-6">
+            <h5
+              class="fw-bold mb-4 text-uppercase small"
+              style="letter-spacing: 1px"
+            >
+              About Us
+            </h5>
+            <p class="text-secondary small lh-lg">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+              semper eu turpis sed, mollis vehicula neque.
+            </p>
+            <div class="mt-4 small text-secondary">
+              <p class="mb-2">
+                <i class="fa-solid fa-location-dot me-2 text-info"></i> 123
+                Street Name, City, Country
+              </p>
+              <p class="mb-2">
+                <i class="fa-solid fa-phone me-2 text-info"></i> +1 234 567 890
+              </p>
+              <p class="mb-0">
+                <i class="fa-solid fa-envelope me-2 text-info"></i>
+                info@hostodomain.com
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6">
+            <h5
+              class="fw-bold mb-4 text-uppercase small"
+              style="letter-spacing: 1px"
+            >
+              Navigation
+            </h5>
+            <ul class="list-unstyled small">
+              <li class="mb-2">
+                <a
+                  href="#"
+                  class="text-secondary text-decoration-none hover-link"
+                  >Web Hosting</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-secondary text-decoration-none"
+                  >Reseller Hosting</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-secondary text-decoration-none"
+                  >VPS Hosting</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-secondary text-decoration-none"
+                  >Dedicated Servers</a
+                >
+              </li>
+              <li class="mb-0">
+                <a href="#" class="text-secondary text-decoration-none"
+                  >Domain Registration</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-md-6">
+            <h5
+              class="fw-bold mb-4 text-uppercase small"
+              style="letter-spacing: 1px"
+            >
+              Support
+            </h5>
+            <ul class="list-unstyled small">
+              <li class="mb-2">
+                <a href="#" class="text-secondary text-decoration-none">FAQ</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-secondary text-decoration-none"
+                  >Knowledgebase</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-secondary text-decoration-none"
+                  >Submit Ticket</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-secondary text-decoration-none"
+                  >Contact Us</a
+                >
+              </li>
+              <li class="mb-0">
+                <a href="#" class="text-secondary text-decoration-none"
+                  >Live Chat</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-md-6">
+            <h5
+              class="fw-bold mb-4 text-uppercase small"
+              style="letter-spacing: 1px"
+            >
+              Resources
+            </h5>
+            <ul class="list-unstyled small">
+              <li class="mb-2">
+                <a href="#" class="text-secondary text-decoration-none">News</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-secondary text-decoration-none"
+                  >Community</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-secondary text-decoration-none"
+                  >Sitemap</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-secondary text-decoration-none"
+                  >Terms of Service</a
+                >
+              </li>
+              <li class="mb-0">
+                <a href="#" class="text-secondary text-decoration-none"
+                  >Privacy Policy</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <h5
+              class="fw-bold mb-4 text-uppercase small"
+              style="letter-spacing: 1px"
+            >
+              Tags
+            </h5>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge bg-primary opacity-75 fw-normal p-2"
+                >Hosting</span
+              >
+              <span class="badge bg-primary opacity-75 fw-normal p-2"
+                >Domain</span
+              >
+              <span class="badge bg-primary opacity-75 fw-normal p-2"
+                >Server</span
+              >
+              <span class="badge bg-primary opacity-75 fw-normal p-2">VPS</span>
+              <span class="badge bg-primary opacity-75 fw-normal p-2"
+                >Cloud</span
+              >
+              <span class="badge bg-primary opacity-75 fw-normal p-2"
+                >Reseller</span
+              >
+              <span class="badge bg-primary opacity-75 fw-normal p-2"
+                >Web Design</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <hr class="mt-5 mb-4 border-secondary opacity-25" />
+        <div class="text-center">
+          <p class="small text-secondary mb-0">
+            &copy; 2026 Hostodomains. All Rights Reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
