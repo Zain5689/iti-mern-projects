@@ -1,0 +1,37 @@
+
+div.dotted {
+    border : 2px dotted red;
+}
+.small{
+    background-color:pink;
+    width:300px;
+    margin:10px;
+}
+.error {
+    border : 1px solid red;
+}
+img {
+    border: 2px solid black;
+}
+div{
+	display: inline-block;
+	position:relative;
+	left:100px;
+	margin:20px;
+}
+#red-div{
+	width:200px;
+	height:200px;
+	background: red;
+}
+#blue-div{
+	width:200px;
+	height:200px;
+	background: blue;
+}
+
+body{
+	margin:100px auto;
+	text-align: center;
+	vertical-align: middle;
+}

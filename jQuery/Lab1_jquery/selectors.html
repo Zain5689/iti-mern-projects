@@ -1,0 +1,153 @@
+<!doctype html>
+<html
+  lang="en"
+  xmlns:mso="urn:schemas-microsoft-com:office:office"
+  xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Selectors Exercise</title>
+    <style>
+      section {
+        border: 1px solid #cacaca;
+        border-radius: 1px;
+        min-height: 200px;
+        margin: 20px;
+        padding: 10px;
+      }
+      h1 {
+        text-align: center;
+      }
+      a {
+        display: block;
+        margin: 10px;
+        line-height: 50px;
+      }
+      section:not(:nth-child(6)) {
+        text-align: center;
+      }
+      .container1 div {
+        border: 1px solid #cacaca;
+        width: 150px;
+        display: inline-block;
+        text-align: center;
+        height: 10em;
+        line-height: 10em;
+      }
+      .container1 p {
+        margin: 0;
+      }
+      figure {
+        border: 1px solid #cacaca;
+        width: 150px;
+        padding: 10px;
+        display: inline-block;
+      }
+      input:not([type="checkbox"]) {
+        display: block;
+        margin: 5px auto;
+      }
+      table td,
+      table th {
+        padding: 10px;
+        border: 1px solid #cacaca;
+      }
+    </style>
+
+    <!--[if gte mso 9
+      ]><xml>
+        <mso:CustomDocumentProperties>
+          <mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor
+            msdt:dt="string"
+            >lec41@mcitegypt.onmicrosoft.com</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor
+          >
+          <mso:Order msdt:dt="string">14300.0000000000</mso:Order>
+          <mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author
+            msdt:dt="string"
+            >lec41@mcitegypt.onmicrosoft.com</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author
+          >
+          <mso:ContentTypeId msdt:dt="string">0x0101</mso:ContentTypeId>
+        </mso:CustomDocumentProperties>
+      </xml><!
+    [endif]-->
+  </head>
+  <body>
+    <header>
+      <h1>Welcome to JQuery Course</h1>
+    </header>
+    <section class="container1">
+      <div class="red">
+        <p class="cyan">Hello Ahmed</p>
+      </div>
+      <div class="blue">
+        <p class="pink">Hello Ibrahim</p>
+      </div>
+      <div class="green">
+        <p class="orange">Hello Habiba</p>
+      </div>
+    </section>
+    <section class="container2">
+      <a href="http://www.google.com">website</a>
+      <a href="http://www.ieee.org">website</a>
+      <a href="https://www.facebook.com">website</a>
+    </section>
+    <section class="container3">
+      <figure>
+        <img src="img/Coffee.png" alt="" width="100" height="100" />
+        <figcaption>Fig.1 - Coffee</figcaption>
+      </figure>
+      <figure>
+        <img src="img/Pepsi.png" alt="" width="100" height="100" />
+        <figcaption>Fig.2 - Pepsi</figcaption>
+      </figure>
+      <figure>
+        <img src="img/Lemon.png" alt="" width="100" height="100" />
+        <figcaption>Fig.3 - Lemon Juice</figcaption>
+      </figure>
+      <figure>
+        <img src="img/tea.png" alt="" width="100" height="100" />
+        <figcaption>Fig.4 - Tea</figcaption>
+      </figure>
+    </section>
+    <section class="container4">
+      <table>
+        <tr class="h-row">
+          <th>Name</th>
+          <th>Email</th>
+          <th>Age</th>
+        </tr>
+        <tr class="row1">
+          <td class="col-name my-name">Ahmed</td>
+          <td class="col-email">ahmed@gmail.com</td>
+          <td class="col-age">19</td>
+        </tr>
+        <tr class="row2">
+          <td class="col-name your-name">Islam</td>
+          <td class="col-email">islam@gmail.com</td>
+          <td class="col-age">17</td>
+        </tr>
+        <tr class="row3">
+          <td class="col-name">Amany</td>
+          <td class="col-email">amany@gmail.com</td>
+          <td class="col-age">21</td>
+        </tr>
+      </table>
+    </section>
+    <section class="container5">
+      <ul>
+        <li class="task1">Bring Milk</li>
+        <li class="task2">Buy Bike</li>
+        <li class="task3">Learn JQuery</li>
+        <li class="task4">
+          <ol>
+            <li>mini-task1</li>
+            <li>mini-task2</li>
+            <li>mini-task3</li>
+          </ol>
+        </li>
+      </ul>
+    </section>
+    <script src="js/jquery-3.1.1.js"></script>
+    <script src="js/selector.js"></script>
+  </body>
+</html>
