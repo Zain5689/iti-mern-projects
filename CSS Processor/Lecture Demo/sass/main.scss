@@ -1,0 +1,268 @@
+// Single-Line Comment
+/*
+Multi-Line Comment
+*/
+
+// @import "";  // Old syntax ❌
+@use 'variable'; // we don't write the underscore or .scss extension
+
+// Built-in Modules
+
+// Color Module
+@use 'sass:color';
+
+// Math Module
+@use 'sass:math';
+
+// Color Module Example
+.button {
+	background-color: #3498db;
+
+	&:hover {
+		background-color: color.scale(#3498db, $lightness: -20%);
+	}
+}
+
+// String Module
+// @use "sass:string"; /* Error: @use rules must be written before any other rules. */
+
+// List Module
+// @use 'sass:list'; /* Error: @use rules must be written before any other rules. */
+// $fonts: ('Roboto', 'Open Sans', 'Arial');
+// list.append($list, $val, $separator: auto)
+
+// Map Module
+// @use 'sass:map'; /* Error: @use rules must be written before any other rules. */
+$theme-colors: (
+	'primary': #0d6efd,
+	'danger': #dc3545,
+	'success': #198754,
+);
+
+// Math Module Example
+.button {
+	// map-get($map, $key) => Built-in function to retrieve value from amp using key
+	color: map-get($theme-colors, 'primary');
+
+	// width: 100% / 3; /* ❌ Deprecated */
+
+	// Math Module Example
+	width: math.div(100%, 3);
+}
+
+// Unit Awareness
+// math.div(100px, 2); ✅
+// math.div(100%, 2); ✅
+// math.div(100px, 2px); ❌
+
+// Variables
+/* Syntax:
+$variable-name: value;
+*/
+
+/* Types:
+  1. Numbers => $gap: 16px;
+  2. Strings => $font: "Roboto";
+  3. Colors => $danger: red;
+*/
+
+// Design Tokens: Variables representing design decisions
+$primary: red;
+
+.btn {
+	color: $primary;
+	// Dot notation
+	background-color: variable.$secondary;
+}
+// Nesting
+// The 3-level Rule => max 3 level of nesting
+
+/*
+  nav{}
+  nav ul{}
+  nav ul li{}
+  nav ul li a{}
+*/
+
+nav {
+	background-color: burlywood;
+
+	ul {
+		list-style: none;
+
+		li {
+			display: inline-block;
+
+			a {
+				color: aliceblue;
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+// Parent Selector & (Ampersand)
+.button {
+	color: white;
+
+	&:hover {
+		background-color: black;
+	}
+}
+
+// BEM Convention
+// B => Block
+// UI standalone component
+// Example: .header, .container, .menu, .checkbox, .card
+
+// E => Element (__ double underscore/dander)
+// A part of a block
+// Example: .card__image, .menu__item, .checkbox__input, .header__logo
+
+// M => Modifier (-- double hyphens/dashes)
+// A flag on a block/element used to change appearance/behavior/state
+// Example: .menu__item--active, .btn--primary, .model--open
+
+.card {
+	// Block
+	&__title {
+		// Element
+		font-size: 20px;
+	}
+
+	&--active {
+		// Modifier
+		border: 2px solid red;
+	}
+}
+
+// Functions
+/* Syntax
+@function function_name($parameter){
+	@return value;
+}
+*/
+
+// @use 'sass:math';
+@function px-to-rem($px) {
+	@return math.div($px, 16px) * 1rem;
+}
+
+.text {
+	font-size: px-to-rem(24px);
+}
+
+// Mixins: reusable block of styles
+/* Syntax
+@mixin mixin-name {
+	css rules
+}
+*/
+
+@mixin center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.card {
+	@include center;
+}
+
+.grid {
+	@include center;
+}
+
+// Parametrized Mixins
+/* Syntax
+@mixin mixin-name($parameter) {
+	css rules
+}
+*/
+
+@mixin flex-center($direction) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: center;
+	align-items: center;
+}
+
+.row {
+	@include flex-center(row);
+}
+
+.column {
+	@include flex-center(column);
+}
+
+// Media Queries => Maps + Parametrized Mixins
+$breakpoints: (
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1200px,
+);
+
+// Parametrized Mixins with content
+@mixin respond($size) {
+	@media (min-width: map-get($breakpoints, $size)) {
+		@content; // Placeholder for injected styles
+	}
+}
+
+.card {
+	padding: 1rem;
+	@include respond(md) {
+		padding: 2rem;
+	}
+}
+
+// Flow Control
+
+// Normal Flow => Sequential
+// Iterational/Looping
+$fonts: ('Roboto', 'Open Sans', 'Arial');
+@each $font in $fonts {
+	.font-#{$font} {
+		font-family: $font;
+	}
+}
+
+@for $i from 1 through 12 {
+	.col-#{$i} {
+		width: math.div($i * 100%, 12);
+	}
+}
+
+// Selection/Condition Statements
+@if condition {
+} @else {
+}
+
+/*
+$theme-colors: (
+	'primary': #0d6efd,
+	'danger': #dc3545,
+	'success': #198754,
+);
+*/
+
+@each $name, $color in $theme-colors {
+	.text-#{$name} {
+		@if (color.lightness($color) > 50%) {
+			color: black;
+		} @else {
+			color: white;
+		}
+	}
+}
+
+// Final Project: RWD + Bootstrap + CSS Preprocessors
+// UI Only
+// Landing Page
+// Products Page
+// Product Details
+// Cart + Checkout
+// User Page
+// Bonus: Add Logic from the previous JS Project
+// Bonus: About / Contact

@@ -1,0 +1,12 @@
+@use "../abstracts/config";
+@use "sass:map";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  margin-bottom: map.get(config.$spacing-scale, "lg");
+}

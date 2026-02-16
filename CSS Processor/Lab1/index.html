@@ -3,10 +3,95 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Sass Framework Showcase</title>
     <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
-    <button class="btn">click</button>
+    <section class="hero">
+      <div class="container">
+        <div class="col-12">
+          <h1>Mastering CSS Preprocessors</h1>
+          <p>
+            A fully responsive framework built with Sass @use, Maps, and
+            Functions.
+          </p>
+          <div style="margin-top: 2rem">
+            <button class="button button--primary">Get Started</button>
+            <button class="button button--dark">View Documentation</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="products">
+      <div class="container">
+        <div class="col-12">
+          <h2 style="text-align: center; margin-bottom: 3rem">
+            Our Featured Courses
+          </h2>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card card--primary">
+            <div class="card__title">Sass Architecture</div>
+            <div class="card__body">
+              <p>
+                Learn how to organize large-scale projects using the 7-1 pattern
+                and @use rules.
+              </p>
+            </div>
+            <div class="card__footer">
+              <button class="button button--primary">Enroll Now</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card card--success">
+            <div class="card__title">Responsive Design</div>
+            <div class="card__body">
+              <p>
+                Master mobile-first development using custom mixins and
+                automated grid systems.
+              </p>
+            </div>
+            <div class="card__footer">
+              <button class="button button--success">View Details</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card card--danger">
+            <div class="card__title">BEM Methodology</div>
+            <div class="card__body">
+              <p>
+                Write cleaner, more maintainable CSS by following the Block
+                Element Modifier naming convention.
+              </p>
+            </div>
+            <div class="card__footer">
+              <button class="button button--danger">Read More</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer
+      style="
+        background: #020617;
+        color: white;
+        padding: 1rem 0;
+        margin-top: 5rem;
+        text-align: center;
+      "
+    >
+      <div class="container">
+        <div class="col-12">
+          <p>&copy; 2026 ITI Lab Assignment. Built with Passion & Sass.</p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

@@ -1,0 +1,17 @@
+@use "../abstracts/config";
+@use "../abstracts/mixins";
+@use "sass:map";
+
+.button {
+  @include mixins.button-base;
+
+  @each $name, $color in config.$colors {
+    &--#{$name} {
+      background-color: $color;
+      color: white;
+      &:hover {
+        filter: brightness(0.9);
+      }
+    }
+  }
+}

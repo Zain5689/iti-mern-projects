@@ -1,0 +1,23 @@
+$colors: (
+  primary: #0ac4e0,
+  primary-dark: #0284c7,
+  dark: #222,
+  primary-light: #f0f9ff,
+  text-main: #f8fafc,
+  success: green,
+  danger: #a82323,
+);
+
+$spacing-scale: (
+  sm: 0.5rem,
+  md: 1rem,
+  lg: 2rem,
+  xl: 4rem,
+);
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1200px,
+);
+$columns: 12;

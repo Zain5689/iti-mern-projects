@@ -1,0 +1,201 @@
+.button {
+	background-color: #3498db;
+}
+.button:hover {
+	background-color: rgb(32.6560669456, 123.3673640167, 184.1439330544);
+}
+
+.button {
+	color: #0d6efd;
+	width: 33.3333333333%;
+}
+
+/*
+Multi-Line Comment
+*/
+/* Syntax:
+$variable-name: value;
+*/
+/* Types:
+  1. Numbers => $gap: 16px;
+  2. Strings => $font: "Roboto";
+  3. Colors => $danger: red;
+*/
+.btn {
+	color: red;
+	background-color: gray;
+}
+
+/* Types:
+  1. Numbers => $gap: 16px;
+  2. Strings => $font: "Roboto";
+  3. Colors => 
+*/
+/*
+  nav{}
+  nav ul{}
+  nav ul li{}
+  nav ul li a{}
+*/
+nav {
+	background-color: burlywood;
+}
+nav ul {
+	list-style: none;
+}
+nav ul li {
+	display: inline-block;
+}
+nav ul li a {
+	color: aliceblue;
+	text-decoration: none;
+}
+
+.button {
+	color: white;
+}
+.button:hover {
+	background-color: black;
+}
+
+.card__title {
+	font-size: 20px;
+}
+.card--active {
+	border: 2px solid red;
+}
+
+/* Syntax
+@function function_name($parameter){
+	@return value;
+}
+*/
+.text {
+	font-size: 1.5rem;
+}
+
+/* Syntax
+@mixin mixin-name {
+	css rules
+}
+*/
+.card {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.grid {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Syntax
+@mixin mixin-name($parameter) {
+	css rules
+}
+*/
+.row {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.column {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.card {
+	padding: 1rem;
+}
+@media (min-width: 768px) {
+	.card {
+		padding: 2rem;
+	}
+}
+
+.font-Roboto {
+	font-family: 'Roboto';
+}
+
+.font-Open Sans {
+	font-family: 'Open Sans';
+}
+
+.font-Arial {
+	font-family: 'Arial';
+}
+
+.col-1 {
+	width: 8.3333333333%;
+}
+
+.col-2 {
+	width: 16.6666666667%;
+}
+
+.col-3 {
+	width: 25%;
+}
+
+.col-4 {
+	width: 33.3333333333%;
+}
+
+.col-5 {
+	width: 41.6666666667%;
+}
+
+.col-6 {
+	width: 50%;
+}
+
+.col-7 {
+	width: 58.3333333333%;
+}
+
+.col-8 {
+	width: 66.6666666667%;
+}
+
+.col-9 {
+	width: 75%;
+}
+
+.col-10 {
+	width: 83.3333333333%;
+}
+
+.col-11 {
+	width: 91.6666666667%;
+}
+
+.col-12 {
+	width: 100%;
+}
+
+/*
+$theme-colors: (
+	'primary': #0d6efd,
+	'danger': #dc3545,
+	'success': #198754,
+);
+*/
+.text-primary {
+	color: black;
+}
+
+.text-danger {
+	color: black;
+}
+
+.text-success {
+	color: white;
+}
+
+/*# sourceMappingURL=main.css.map */

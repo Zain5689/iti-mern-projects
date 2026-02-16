@@ -1,0 +1,17 @@
+@use "../abstracts/mixins";
+@use "../abstracts/config";
+@use "sass:map";
+
+.hero {
+  padding: map.get(config.$spacing-scale, "xl") 0;
+  text-align: center;
+  background-color: #f4f4f4;
+
+  @include mixins.respond("md") {
+    padding: map.get(config.$spacing-scale, "lg") * 3 0;
+  }
+}
+
+.products {
+  padding: map.get(config.$spacing-scale, "lg") 0;
+}

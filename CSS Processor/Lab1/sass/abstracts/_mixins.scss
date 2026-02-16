@@ -1,0 +1,28 @@
+@use "sass:map";
+@use "config";
+@use "functions";
+
+@mixin respond($size) {
+  $width: map.get(config.$breakpoints, $size);
+  @if $width {
+    @media (min-width: $width) {
+      @content;
+    }
+  }
+}
+
+@mixin button-base($bg-color: #3498db, $text-color: #fff) {
+  display: inline-block;
+  padding: map.get(config.$spacing-scale, "md")
+    map.get(config.$spacing-scale, "lg");
+  background-color: $bg-color;
+  color: $text-color;
+  border-radius: functions.px-to-rem(4);
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

@@ -1,0 +1,19 @@
+@use "../abstracts/config";
+@use "../abstracts/functions";
+@use "../abstracts/mixins";
+
+@for $i from 1 through config.$columns {
+  .col-#{$i} {
+    width: functions.calculate-col-width($i);
+  }
+}
+
+@each $name, $size in config.$breakpoints {
+  @include mixins.respond($name) {
+    @for $i from 1 through config.$columns {
+      .col-#{$name}-#{$i} {
+        width: functions.calculate-col-width($i);
+      }
+    }
+  }
+}

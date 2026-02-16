@@ -1,0 +1,10 @@
+@use "sass:math";
+@use "config";
+
+@function calculate-col-width($span) {
+  @return math.percentage(math.div($span, config.$columns));
+}
+
+@function px-to-rem($px) {
+  @return math.div($px, 16) * 1rem;
+}

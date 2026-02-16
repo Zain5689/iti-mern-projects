@@ -1,0 +1,176 @@
+Physical Pixel: Real Hardware dot screen
+
+CSS/Logical Pixel: Virtual unit used by CSS
+Created by Browser
+Scales Automatically
+
+
+DPR: Device Pixel Ratio = Physical Pixel / Logical Pixel
+Example:
+DPR = 3
+1 CSS Pixel = 3 Physical
+
+
+Physical width = 1170 pixels
+CSS width = 390 pixels
+
+
+Viewport: Area where the browser lays out the page
+
+Layout Viewport: used for CSS layout Calculations
+Width used by media queries
+Default value (Historically): 980px
+
+Visual Viewport: What the user actually sees
+Changes when you zoom
+Smaller than Layout Viewport when Zoomed
+
+
+Desktops
+Average Width 960px - 1024px
+
+Browser phones as Desktops
+Fake width = 980px => Zooming out
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+device-width => use device's logical width not the Fake desktop width
+
+Phone CSS Width => 360px - 430px
+Tablet CSS Width => 768px - 1024px
+Desktops  CSS Width => 1200px+
+
+
+initial-scale=1.0
+1 CSS Pixel = 1 Logical Pixel
+
+Media Query is a CSS Condition
+
+
+
+Flexbox: one-dimensional layout system
+Component-Level
+
+Flex Container: element control its direct children using flexbox
+
+Grid: Two-dimensional
+Page-Level
+
+Grid Container
+
+
+grid-auto-rows
+grid-auto-columns
+grid-auto-flow
+subgrid
+
+
+
+Typography
+px Fixed Pixel ❌
+em Relative to Parent ⚠️
+rem Relative Root(html) ✅
+Default Browser Behavior
+html {
+  font-size: 16px;
+} // never hard-code
+% Relative to container ✅⚠️
+
+
+Table Disaster
+Strategy 1: Horizontal Scrolling (Safest)
+Strategy 2: Stack Rows as Cards
+
+CSS Framework
+Pre-written collection
+Prebuilt layouts
+Pre-Style components
+Predefined responsive behavior
+
+
+// bootstrap@5.3.8
+
+Grid System: Flexbox
+1 column => width: 8.33%
+2 column => width: 16.67%
+3 column => width: 25%
+4 column => width: 33.33%
+6 column => width: 50%
+12 column => width: 100%
+
+Bootstrap Grid Structure
+.container
+    |_________ .row
+                 |_________  .col
+
+
+
+.col-{breakpoint}-{number}
+breakpoint and larger
+
+
+breakpoints
+Breakpoint	Class infix	Dimensions
+Extra small	None	<576px
+Small	sm	≥576px
+Medium	md	≥768px
+Large	lg	≥992px
+Extra large	xl	≥1200px
+Extra extra large	xxl	≥1400px
+
+
+Utility Class
+text-align: center => text-center
+padding: => p-3
+padding-top: => pt-4
+margin: => m-3
+margin-top: => mt-4
+background-color: => bg-light
+
+
+Utility Scales
+0 => 0rem
+1 => 0.25rem
+2 => 0.5rem
+3 => 1rem
+4 => 1.5rem
+5 => 3rem
+
+Utility Colors
+Theme colors 
+-primary
+-secondary
+-success
+-danger
+-warning
+-info
+-light
+-dark
+
+
+
+.container => fixed
+mobile => 100%
+Desktop => fixed-width
+
+
+.container-fluid
+full-width => from edge to edge in screen all-sizes
+
+
+.container-{breakpoint}
+.container-md
+
+100% on mobile/small tablets, start to act like fixed container when the screen hits md (768px) mark.
+
+
+
+Critical Rule: Don't Nest containers
+
+
+
+
+.object-fit-cover => fill entire box with cropping
+.object-fit-contain => show entire image inside box, leave empty spaces
+.object-fit-scale similar to contain, but won't upscale small images

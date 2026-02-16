@@ -1,0 +1,79 @@
+Compiler scss => css
+
+Ruby sass
+LibSass
+Dart Sass ✅
+
+
+.css => Browser-Ready Rules
+.sass => Older Syntax ❌
+.scss => Developer-only ✅
+
+
+1. (One-time Only) Install Node.js
+Terminal: node --version
+Terminal: npm --version
+
+2. (One-time Only) Terminal: npm i -g sass
+
+
+one-time compilation
+Terminal: sass sass/main.scss css/main.css
+
+
+Watch Mode => Terminal must be running in the background
+Terminal: sass --watch source_folder:destination_folder
+Press Ctrl-C to stop
+
+In Development Phase (Readable CSS)
+Terminal: sass --watch source_folder:destination_folder --style=expanded
+
+
+In Production Phase (Optimized CSS)
+Terminal: sass --watch source_folder:destination_folder --style=compressed
+
+
+The 7-1 Pattern (Folder Organization)
+scss/
+  |________ abstracts/
+  |             |________ _variables.scss
+  |             |________ _functions.scss
+  |             |________ _mixins.scss
+  |             |________ _placeholders.scss
+  |             
+  |________ base/
+  |           |________ _reset.scss
+  |           |________ _typography.scss
+  |           |________ _styles.scss
+  |
+  |________ components/ # Buttons/Cards/Models
+  |________ layout/ # Header/Footer/Grid System
+  |________ pages/ # Page-specific styles
+  |________ themes/ # Color themes, dark mode
+  |________ vendors/ # Third-Party Libraries (Bootstrap, plugins)
+  |________ main.scss # Single entry point
+
+
+Vendor Prefixes
+-webkit-border-radius (Chrome/Safari)
+-moz-border-radius (Mozilla)
+-ms-border-radius (IE)
+-o-border-radius (Opera)
+border-radius (Standard)
+
+Compass 2010 - 2018
+Compass => Spirit Sheet - Calculate X-Y - Generate CSS to display them
+@include border-radius(5px);
+
+PostCSS (Autoprefixer)
+npm install postcss-cli autoprefixer -D
+
+
+// CommonJS => in postcss.conf.js
+module.exports = {
+  plugins: [
+    require('autopefixer'),
+  ],
+};
+
+npx postcss css/main.css -o css/main.css

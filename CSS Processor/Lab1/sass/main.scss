@@ -1,4 +1,14 @@
-@use "variables";
-.btn {
-  color: variables.$primary-color;
+@use "base/reset";
+@use "base/typography";
+@use "layout/grid";
+@use "components/button";
+@use "components/card";
+@use "pages/home";
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
 }
