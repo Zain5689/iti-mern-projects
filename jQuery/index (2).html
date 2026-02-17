@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!--Downloaded-->
+    <!-- <script src="jquery.min.js"></script> -->
+    <!--CDNJS-->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/4.0.0-rc.1/jquery.min.js"
+      integrity="sha512-MXe5EK5gyK+fbhwQy/dukwz9fw71HZcsM4KsyDBDTvMyjymkiO0M5qqU0lF4vqLI4VnKf1+DIKf1GM6RFkO8PA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <style>
+      #box {
+        width: 200px;
+        height: 100px;
+        padding: 10px;
+        border: 5px solid #008;
+        margin: 15px;
+        background-color: aquamarine;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">Hello from box div</div>
+    <button id="measure">Measure Box</button>
+    <p id="output">This will be the Measurements output</p>
+
+    <form>
+      <input id="my-input" type="text" />
+      <input type="submit" />
+    </form>
+
+    <div>
+      <p id="p1">This is P1</p>
+    </div>
+
+    <div id="container"></div>
+
+    <script>
+      $("#measure").click(() => {
+        const box = $("#box");
+        const results = `
+			       <p><strong>width():</strong> ${box.width()}</p>
+			       <p><strong>height():</strong> ${box.height()}</p>
+			       <p><strong>innerWidth():</strong> ${box.innerWidth()}</p>
+			       <p><strong>innerHeight():</strong> ${box.innerHeight()}</p>
+			       <p><strong>outerWidth():</strong> ${box.outerWidth()}</p>
+			       <p><strong>outerHeight():</strong> ${box.outerHeight()}</p>
+			       <p><strong>outerWidth(true):</strong> ${box.outerWidth(true)}</p>
+			       <p><strong>outerHeight(true):</strong> ${box.outerHeight(true)}</p>
+			     `;
+
+        $("#output").html(results);
+      });
+
+      // Mouse Events:
+      // click - dblclick - contextmenu - mousedowm - mouseup - hover - mouseenter - mouseleave - mousemove
+
+      // Keyboard Events:
+      // keydown - keyup - keypress
+
+      // Form Events:
+      // Form => submit - reset
+      // Form Controls => focus - blur - change - select
+
+      $("#box").dblclick(function () {
+        $(this).css("background", "green");
+      });
+
+      $("#box").hover(
+        function () {
+          $(this).css("background", "lightblue");
+        }, // Mouse Enter
+        function () {
+          $(this).css("background", "red"); // Mouse Leave
+        },
+      );
+
+      $("#my-input").keydown(function (e) {
+        console.log(e.target.value);
+      });
+
+      $("form").submit((e) => {
+        e.preventDefault();
+        const obj = $("#my-input").val();
+        console.log("Form Submitted:", obj);
+      });
+
+      // $('#my-input').blur(function () {
+      // 	$(this).css('border', '2px solid red');
+      // });
+
+      // Multiple Events
+      // on => jQuery 1.7
+      // $(selector).on(eventType, [child Selector], [data], handlerFunction)
+
+      // 1-Only One Event
+      // $('#my-input').on('blur', function () {
+      // 	$(this).css('border', '2px solid red');
+      // });
+
+      // 2-Multiple Events
+      // $('#my-input').on('blur click mouseover', function () {
+      // 	$(this).css('border', '2px solid red');
+      // });
+
+      // 3-Mapping
+      $("#my-input").on({
+        click: function () {
+          $(this).css("border", "2px solid blue");
+        },
+        blur: function () {
+          $(this).css("border", "2px solid green");
+        },
+        mouseover: function () {
+          $(this).css("border", "2px solid brown");
+        },
+      });
+
+      // jQuery use bubbling phase by default
+      // .bind
+      // .live
+      // .delegate
+
+      // 4-Event Delegation
+      // $('.item').on('click', function () {
+      // 	$(this).css('border', '2px solid brown');
+      // });
+
+      $("#container").on("click", ".item", function () {
+        $(this).css("border", "2px solid brown");
+      });
+
+      $("#container").append("<div class='item'>New</div>");
+
+      // Ajax => send request - receive response - manipulate DOM
+
+      // 5. Pass data to handler
+      $("#measure").on("click", { name: "Hassan", age: 33 }, function (e) {
+        console.log(e.data.name);
+        console.log(e.data.age);
+      });
+
+      // 6. Delegation (Element not exist) + Data
+      $("#container").on("click", ".item", { role: "admin" }, function (e) {
+        if (e.data.role == "admin") {
+          console.log("You are admin");
+        } else {
+          console.log("Access Denied");
+        }
+      });
+
+      // .one() => only run once
+      $("#p1").one("click", () => {
+        alert("Clicked Once");
+      });
+
+      // event => user action
+      // manually trigger any event
+      // $("btn[type='submit']").trigger("click")
+
+      // UI Effects and animation
+      // $(selector).hide([duration], [easing], [callback])
+      // $(selector).show()
+      // $(selector).toggle()
+      // $('#p1').hide();
+      // $('#p1').toggle(2000, function () {
+      // 	$(this).css({
+      // 		background: 'blue',
+      // 		color: 'white',
+      // 	});
+      // });
+      // $('#p1').slideToggle(2000, 'swing');
+      // $('#p1').fadeOut(2000);
+      // $('#p1').hide();
+      // $('#p1').fadeIn(2000);
+      // $('#p1').fadeToggle(2000);
+      // $('#p1').fadeTo(2000, 0.3);
+
+      // .animate()
+      $("#p1").animate(
+        {
+          width: "300px",
+          height: "100px",
+          opacity: 0.5,
+        },
+        1000,
+        "linear",
+        function () {
+          // alert('Animation Done');
+        },
+      );
+
+      // jQuery.ajax
+      $.ajax({
+        url: "https://api.thecatapi.com/v1/images/0XYvRd7oD",
+        method: "GET",
+        // data: { id: 5 },
+        // dataType: 'json',
+        success: function (response) {
+          console.log(response);
+          // DOM Manipulation
+        },
+        error: function (xhr, status, error) {
+          console.error(error);
+        },
+        // timeout: 5000,
+        // beforeSend: function () {},
+        // headers: {},
+      });
+
+      // object Object
+
+      $.get(
+        "https://api.thecatapi.com/v1/images/0XYvRd7oD",
+        function (response) {
+          console.log(response);
+          // DOM Manipulation
+        },
+      );
+
+      // Custom plugin
+      /*
+			$.fn.pluginName = function(options){
+				return this.each(function(){
+
+
+				})
+			}
+			*/
+
+      // Duck Typing
+      $.fn.colorify = function (options) {
+        let settings = $.extend(
+          {
+            color: "blue",
+            background: "white",
+          },
+          options,
+        );
+        return this.each(function () {
+          $(this).css({
+            color: settings.color,
+            background: settings.background,
+          });
+        });
+      };
+
+      // $('#p1').colorify({
+      // 	color: 'red',
+      // 	background: 'lightyellow',
+      // });
+
+      // Conflict with with other liberires
+      // var jq = jQuery.noConflict();
+    </script>
+  </body>
+</html>
