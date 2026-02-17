@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+	<head>
+		<title>CRUD</title>
+		<style type="text/css">
+		</style>
+		<script type="text/javascript" src="js/jquery-1.11.2.js"></script>
+		<script type="text/javascript" src="js/crud.js"></script>
+	
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor msdt:dt="string">lec41@mcitegypt.onmicrosoft.com</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor>
+<mso:Order msdt:dt="string">19900.0000000000</mso:Order>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author msdt:dt="string">lec41@mcitegypt.onmicrosoft.com</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author>
+<mso:ContentTypeId msdt:dt="string">0x0101</mso:ContentTypeId>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+	<body>
+		<h3>Add New Person</h3>
+		<label>Name</label>
+		<input type="text" id="name" name="name"/>
+		<br><br>
+		<label>Age</label>
+		<input type="text" id="age" name="age"/>
+		<br><br>
+		<button id="add">Add new Person</button>
+		<br>
+		<hr>
+		<h3>Persons List</h3>
+		<input type="text" placeholder="search" id="search-item"/>
+		<button id="search">search</button>
+		<br><br>
+		<table id="persons-list" border="1" cellpadding="25">
+			<thead>
+				<th>Name</th>
+				<th>Age</th>
+				<th>Delete</th>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</body>	
+</html>

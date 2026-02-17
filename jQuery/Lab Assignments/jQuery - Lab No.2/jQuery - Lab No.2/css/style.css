@@ -1,0 +1,33 @@
+
+div.dotted {
+    border : 2px dotted red;
+}
+.small{
+    background-color:pink;
+    width:300px;
+    margin:10px;
+}
+.error {
+    color :red;
+}
+img {
+    border: 2px solid black;
+}
+#red-div{
+	width:200px;
+	height:200px;
+	background: red;
+}
+div{
+	text-align: center;
+	display: inline-block;
+}
+
+body{
+	margin:200px auto;
+	text-align: center;
+	vertical-align: middle;
+}
+#chessboard  { border-collapse: collapse; border-spacing: 0; }
+#chessboard { padding: 0px; margin: 0 auto; margin-top: 30px; border: 2px solid #181818; }
+#chessboard tr td { width: 60px; height: 60px; }
