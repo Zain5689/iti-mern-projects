@@ -1,4 +1,3 @@
-// Duck Typing
 $.fn.ghost = function (options) {
   let settings = $.extend(
     {
@@ -21,5 +20,5 @@ $.fn.ghost = function (options) {
 
 $(".box").ghost({
   opacity: "0.1",
-  background: 500,
+  duration: 500,
 });
