@@ -1,21 +1,21 @@
-// // bubble sort
-// // [4, 3, 7, 1, 2, 5]  // len = 6
-// function bubbleSort(arr) {
-//   let arrLength = arr.length;
-//   for (let i = 0; i < arrLength - 1; i++) {
-//     for (let j = 0; j < arrLength - i - 1; j++) {
-//       if (arr[j] > arr[j + 1]) {
-//         [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
-//       }
-//     }
-//   }
-//   return arr;
-// }
+// bubble sort
+// [4, 3, 7, 1, 2, 5]  // len = 6
+function bubbleSort(arr) {
+  let arrLength = arr.length;
+  for (let i = 0; i < arrLength - 1; i++) {
+    for (let j = 0; j < arrLength - i - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+      }
+    }
+  }
+  return arr;
+}
 
-// document.getElementById("bubbleResult").innerHTML =
-//   `<br>Sorted array: ${bubbleSort([4, 3, 7, 1, 2, 5]).join(" , ")}`;
+document.getElementById("bubbleResult").innerHTML =
+  `<br>Sorted array: ${bubbleSort([4, 3, 7, 1, 2, 5]).join(" , ")}`;
 
-// // Quick sort
+// Quick sort
 // function quickSort(arr) {
 //   if (arr.length <= 1) {
 //     return arr;
