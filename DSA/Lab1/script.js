@@ -16,26 +16,26 @@ document.getElementById("bubbleResult").innerHTML =
   `<br>Sorted array: ${bubbleSort([4, 3, 7, 1, 2, 5]).join(" , ")}`;
 
 // Quick sort
-// function quickSort(arr) {
-//   if (arr.length <= 1) {
-//     return arr;
-//   }
-//   const pivot = arr[arr.length - 1];
-//   const left = [];
-//   const right = [];
+function quickSort(arr) {
+  if (arr.length <= 1) {
+    return arr;
+  }
+  const pivot = arr[arr.length - 1];
+  const left = [];
+  const right = [];
 
-//   for (let i = 0; i < arr.length - 1; i++) {
-//     if (arr[i] < pivot) {
-//       left.push(arr[i]);
-//     } else {
-//       right.push(arr[i]);
-//     }
-//   }
-//   return [...quickSort(left), pivot, ...quickSort(right)];
-// }
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (arr[i] < pivot) {
+      left.push(arr[i]);
+    } else {
+      right.push(arr[i]);
+    }
+  }
+  return [...quickSort(left), pivot, ...quickSort(right)];
+}
 
-// document.getElementById("quickResult").innerHTML =
-//   `<br>Sorted array: ${quickSort([4, 3, 7, 1, 2, 5]).join(" , ")}`;
+document.getElementById("quickResult").innerHTML =
+  `<br>Sorted array: ${quickSort([4, 3, 7, 1, 2, 5]).join(" , ")}`;
 
 // // linear search
 // document.getElementById("btn").addEventListener("click", function () {
