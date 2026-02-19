@@ -37,22 +37,22 @@ function quickSort(arr) {
 document.getElementById("quickResult").innerHTML =
   `<br>Sorted array: ${quickSort([4, 3, 7, 1, 2, 5]).join(" , ")}`;
 
-// // linear search
-// document.getElementById("btn").addEventListener("click", function () {
-//   const arr = [4, 3, 7, 1, 2, 5];
-//   const num = parseInt(document.getElementById("searchInput").value);
-//   let found = false;
-//   for (let i = 0; i < arr.length; i++) {
-//     if (arr[i] === num) {
-//       found = true;
-//       break;
-//     }
-//   }
-//   if (found) {
-//     document.getElementById("searchResult").innerHTML +=
-//       `<br>Number ${num} found in the array.`;
-//   } else {
-//     document.getElementById("searchResult").innerHTML +=
-//       `<br>Number ${num} not found in the array.`;
-//   }
-// });
+// linear search
+document.getElementById("btn").addEventListener("click", function () {
+  const arr = [4, 3, 7, 1, 2, 5];
+  const num = parseInt(document.getElementById("searchInput").value);
+  let found = false;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === num) {
+      found = true;
+      break;
+    }
+  }
+  if (found) {
+    document.getElementById("searchResult").innerHTML +=
+      `<br>Number ${num} found in the array.`;
+  } else {
+    document.getElementById("searchResult").innerHTML +=
+      `<br>Number ${num} not found in the array.`;
+  }
+});
