@@ -102,68 +102,68 @@ console.log("==========After pop=====");
 list.print();
 
 console.log("=============================");
-// // Apply Stack on Double LinkedList
+// Apply Stack on Double LinkedList
 
-// class DoubleNode {
-//   constructor(value) {
-//     this.value = value;
-//     this.next = null;
-//     this.prev = null;
-//   }
-// }
+class DoubleNode {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+    this.prev = null;
+  }
+}
 
-// class StackDoubleLinkedList {
-//   constructor() {
-//     this.top = null;
-//   }
+class StackDoubleLinkedList {
+  constructor() {
+    this.top = null;
+  }
 
-//   isEmpty() {
-//     return this.top === null;
-//   }
+  isEmpty() {
+    return this.top === null;
+  }
 
-//   push(element) {
-//     let newNode = new DoubleNode(element);
-//     if (this.isEmpty()) {
-//       this.top = newNode;
-//     } else {
-//       newNode.next = this.top;
-//       this.top.prev = newNode;
-//       this.top = newNode;
-//     }
-//   }
+  push(element) {
+    let newNode = new DoubleNode(element);
+    if (this.isEmpty()) {
+      this.top = newNode;
+    } else {
+      newNode.next = this.top;
+      this.top.prev = newNode;
+      this.top = newNode;
+    }
+  }
 
-//   pop() {
-//     if (this.isEmpty()) {
-//       console.log("Stack is empty");
-//       return null;
-//     }
-//     let poppedValue = this.top.value;
-//     this.top = this.top.next;
-//     if (this.top) {
-//       this.top.prev = null;
-//     }
-//     return poppedValue;
-//   }
+  pop() {
+    if (this.isEmpty()) {
+      console.log("Stack is empty");
+      return null;
+    }
+    let poppedValue = this.top.value;
+    this.top = this.top.next;
+    if (this.top) {
+      this.top.prev = null;
+    }
+    return poppedValue;
+  }
 
-//   print() {
-//     if (this.isEmpty()) {
-//       console.log("Stack is empty");
-//       return;
-//     }
-//     let current = this.top;
-//     while (current) {
-//       console.log(current.value);
-//       current = current.next;
-//     }
-//   }
-// }
+  print() {
+    if (this.isEmpty()) {
+      console.log("Stack is empty");
+      return;
+    }
+    let current = this.top;
+    while (current) {
+      console.log(current.value);
+      current = current.next;
+    }
+  }
+}
 
-// let doubleList = new StackDoubleLinkedList();
-// doubleList.push(1);
-// doubleList.push(2);
-// doubleList.push(3);
-// doubleList.push(4);
-// doubleList.print();
-// doubleList.pop();
-// console.log("==========after pop=============");
-// doubleList.print();
+let doubleList = new StackDoubleLinkedList();
+doubleList.push(1);
+doubleList.push(2);
+doubleList.push(3);
+doubleList.push(4);
+doubleList.print();
+doubleList.pop();
+console.log("==========after pop=============");
+doubleList.print();
