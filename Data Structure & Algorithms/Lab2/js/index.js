@@ -117,3 +117,4 @@ list.Print();
 
 console.log(`Number of Nodes: ${list.countNodes()}`);
 console.log(`Search for 20: ${list.SearchNode(20)}`);
+console.log(`Search for 1000: ${list.SearchNode(1000)}`);
