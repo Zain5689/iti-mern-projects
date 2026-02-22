@@ -46,62 +46,62 @@ console.log("=============================");
 
 // Apply Stack on Single LinkedList
 
-// class Node {
-//   constructor(value) {
-//     this.value = value;
-//     this.next = null;
-//   }
-// }
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
 
-// class StackSingleLinkedList {
-//   constructor() {
-//     this.top = null;
-//   }
+class StackSingleLinkedList {
+  constructor() {
+    this.top = null;
+  }
 
-//   isEmpty() {
-//     return this.top === null;
-//   }
+  isEmpty() {
+    return this.top === null;
+  }
 
-//   push(element) {
-//     let newNode = new Node(element);
-//     newNode.next = this.top;
-//     this.top = newNode;
-//   }
+  push(element) {
+    let newNode = new Node(element);
+    newNode.next = this.top;
+    this.top = newNode;
+  }
 
-//   pop() {
-//     if (this.isEmpty()) {
-//       console.log("Stack is empty");
-//       return null;
-//     }
-//     let poppedValue = this.top.value;
-//     this.top = this.top.next;
-//     return poppedValue;
-//   }
+  pop() {
+    if (this.isEmpty()) {
+      console.log("Stack is empty");
+      return null;
+    }
+    let poppedValue = this.top.value;
+    this.top = this.top.next;
+    return poppedValue;
+  }
 
-//   print() {
-//     if (this.isEmpty()) {
-//       console.log("Stack is empty");
-//       return;
-//     }
-//     let current = this.top;
-//     while (current) {
-//       console.log(current.value);
-//       current = current.next;
-//     }
-//   }
-// }
+  print() {
+    if (this.isEmpty()) {
+      console.log("Stack is empty");
+      return;
+    }
+    let current = this.top;
+    while (current) {
+      console.log(current.value);
+      current = current.next;
+    }
+  }
+}
 
-// let list = new StackSingleLinkedList();
-// list.push(1);
-// list.push(2);
-// list.push(3);
-// list.push(4);
-// list.print();
-// list.pop();
-// console.log("==========After pop=====");
-// list.print();
+let list = new StackSingleLinkedList();
+list.push(1);
+list.push(2);
+list.push(3);
+list.push(4);
+list.print();
+list.pop();
+console.log("==========After pop=====");
+list.print();
 
-// console.log("=============================");
+console.log("=============================");
 // // Apply Stack on Double LinkedList
 
 // class DoubleNode {
