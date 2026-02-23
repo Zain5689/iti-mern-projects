@@ -107,71 +107,70 @@ list.print();
 console.log("===================");
 // Apply Stack on Double LinkedList
 
-// class DoubleNode {
-//   constructor(value) {
-//     this.value = value;
-//     this.next = null;
-//     this.prev = null;
-//   }
-// }
+class DoubleNode {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+    this.prev = null;
+  }
+}
 
-// class QueueDoubleLinkedList {
-//   constructor() {
-//     this.heap = null;
-//     this.tail = null;
-//   }
+class QueueDoubleLinkedList {
+  constructor() {
+    this.front = null;
+    this.tail = null;
+  }
 
-//   isEmpty() {
-//     return this.heap === null;
-//   }
+  isEmpty() {
+    return this.front === null;
+  }
 
-//   enQueue(element) {
-//     let newNode = new DoubleNode(element);
-//     if (this.isEmpty()) {
-//       this.heap = newNode;
-//       this.tail = newNode;
-//     } else {
-//       this.tail.next = newNode;
-//       newNode.prev = this.tail;
-//       this.tail = newNode;
-//     }
-//   }
+  enQueue(element) {
+    let newNode = new DoubleNode(element);
+    if (this.isEmpty()) {
+      this.front = newNode;
+      this.tail = newNode;
+    } else {
+      this.tail.next = newNode;
+      newNode.prev = this.tail;
+      this.tail = newNode;
+    }
+  }
 
-//   deQueue() {
-//     if (this.isEmpty()) {
-//       console.log("Queue is empty");
-//       return null;
-//     }
-//     let removedValue = this.heap.value;
-//     this.heap = this.heap.next;
-//     if (this.heap) {
-//       this.heap.prev = null;
-//     } else {
-//       newNode.next = this.top;
-//       this.top.prev = newNode;
-//       this.top = newNode;
-//     }
-//   }
+  deQueue() {
+    if (this.isEmpty()) {
+      console.log("Queue is empty");
+      return null;
+    }
+    let removedValue = this.front.value;
+    this.front = this.front.next;
+    if (this.front) {
+      this.front.prev = null;
+    } else {
+      this.tail = null;
+    }
+    return removedValue;
+  }
 
-//   print() {
-//     if (this.isEmpty()) {
-//       console.log("Queue is empty");
-//       return;
-//     }
-//     let current = this.heap;
-//     while (current) {
-//       console.log(current.value);
-//       current = current.next;
-//     }
-//   }
-// }
+  print() {
+    if (this.isEmpty()) {
+      console.log("Queue is empty");
+      return;
+    }
+    let current = this.front;
+    while (current) {
+      console.log(current.value);
+      current = current.next;
+    }
+  }
+}
 
-// let doubleList = new QueueDoubleLinkedList();
-// doubleList.enQueue(1);
-// doubleList.enQueue(2);
-// doubleList.enQueue(3);
-// doubleList.enQueue(4);
-// doubleList.print();
-// doubleList.deQueue();
-// console.log("=======after remove=====");
-// doubleList.print();
+let doubleList = new QueueDoubleLinkedList();
+doubleList.enQueue(1);
+doubleList.enQueue(2);
+doubleList.enQueue(3);
+doubleList.enQueue(4);
+doubleList.print();
+doubleList.deQueue();
+console.log("=======after remove=====");
+doubleList.print();
