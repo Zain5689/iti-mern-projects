@@ -12,7 +12,7 @@ class QueueArray {
   }
 
   enQueue(element) {
-    this.items.push(element);
+    return this.items.push(element);
   }
 
   deQueue() {
@@ -20,11 +20,13 @@ class QueueArray {
       console.log("Queue is Empty");
       return;
     }
-    this.items.shift();
+    return this.items.shift();
   }
 
   print() {
-    console.log(this.items.join("  => "));
+    for (const element of this.items) {
+      console.log(element);
+    }
   }
 }
 
@@ -36,6 +38,7 @@ queueArray.enQueue(3);
 queueArray.print();
 
 queueArray.deQueue(3);
+console.log("=== After remove ===");
 queueArray.print();
 
 console.log("==================");
@@ -78,6 +81,11 @@ class QueueSingleLinkedList {
 
     let removedValue = this.front.value;
     this.front = this.front.next;
+
+    if (this.front === null) {
+      this.tail = null;
+    }
+
     return removedValue;
   }
 
@@ -101,11 +109,12 @@ list.enQueue(3);
 list.enQueue(4);
 list.print();
 list.deQueue();
-console.log("===== After remove =====");
+console.log("=== After remove ===");
+
 list.print();
 
 console.log("===================");
-// Apply Stack on Double LinkedList
+// Apply Queue on Double LinkedList
 
 class DoubleNode {
   constructor(value) {
@@ -172,5 +181,6 @@ doubleList.enQueue(3);
 doubleList.enQueue(4);
 doubleList.print();
 doubleList.deQueue();
-console.log("=======after remove=====");
+console.log("=== After remove ===");
+
 doubleList.print();
