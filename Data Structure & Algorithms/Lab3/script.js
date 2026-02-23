@@ -1,12 +1,8 @@
-// Apply Stack on Array, Single LinkedList and Double LinkedList
-// Functions (Push Pop Print)
-
 // Apply Stack on Array
 class StackArray {
   constructor() {
     this.stack = [];
   }
-
   isEmpty() {
     return this.stack.length === 0;
   }
@@ -29,7 +25,7 @@ class StackArray {
   }
 
   print() {
-    console.log(this.stack.join(" -> "));
+    console.log(this.stack.join("  <= "));
   }
 }
 
@@ -40,9 +36,10 @@ stackArray.push(3);
 stackArray.push(4);
 stackArray.print();
 stackArray.pop();
+console.log("=============After Pop================");
 stackArray.print();
 
-console.log("=============================");
+console.log("=============SingleLinkedList================");
 
 // Apply Stack on Single LinkedList
 
@@ -101,7 +98,7 @@ list.pop();
 console.log("==========After pop=====");
 list.print();
 
-console.log("=============================");
+console.log("============DoubleLinkedList=================");
 // Apply Stack on Double LinkedList
 
 class DoubleNode {
