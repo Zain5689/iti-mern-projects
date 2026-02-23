@@ -24,7 +24,7 @@ class QueueArray {
   }
 
   print() {
-    console.log(this.items);
+    console.log(this.items.join("  => "));
   }
 }
 
@@ -36,3 +36,142 @@ queueArray.enQueue(3);
 queueArray.print();
 
 queueArray.deQueue(3);
+queueArray.print();
+
+console.log("==================");
+
+// Apply Queue on Single LinkedList
+
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+
+class QueueSingleLinkedList {
+  constructor() {
+    this.front = null;
+    this.tail = null;
+  }
+
+  isEmpty() {
+    return this.front === null;
+  }
+
+  enQueue(element) {
+    let newNode = new Node(element);
+    if (this.isEmpty()) {
+      this.front = newNode;
+      this.tail = newNode;
+    } else {
+      this.tail.next = newNode;
+      this.tail = newNode;
+    }
+  }
+
+  deQueue() {
+    if (this.isEmpty()) {
+      console.log("Queue is empty");
+      return null;
+    }
+
+    let removedValue = this.front.value;
+    this.front = this.front.next;
+    return removedValue;
+  }
+
+  print() {
+    if (this.isEmpty()) {
+      console.log("Queue is empty");
+      return;
+    }
+    let current = this.front;
+    while (current) {
+      console.log(current.value);
+      current = current.next;
+    }
+  }
+}
+
+let list = new QueueSingleLinkedList();
+list.enQueue(1);
+list.enQueue(2);
+list.enQueue(3);
+list.enQueue(4);
+list.print();
+list.deQueue();
+console.log("===== After remove =====");
+list.print();
+
+console.log("===================");
+// Apply Stack on Double LinkedList
+
+// class DoubleNode {
+//   constructor(value) {
+//     this.value = value;
+//     this.next = null;
+//     this.prev = null;
+//   }
+// }
+
+// class QueueDoubleLinkedList {
+//   constructor() {
+//     this.heap = null;
+//     this.tail = null;
+//   }
+
+//   isEmpty() {
+//     return this.heap === null;
+//   }
+
+//   enQueue(element) {
+//     let newNode = new DoubleNode(element);
+//     if (this.isEmpty()) {
+//       this.heap = newNode;
+//       this.tail = newNode;
+//     } else {
+//       this.tail.next = newNode;
+//       newNode.prev = this.tail;
+//       this.tail = newNode;
+//     }
+//   }
+
+//   deQueue() {
+//     if (this.isEmpty()) {
+//       console.log("Queue is empty");
+//       return null;
+//     }
+//     let removedValue = this.heap.value;
+//     this.heap = this.heap.next;
+//     if (this.heap) {
+//       this.heap.prev = null;
+//     } else {
+//       newNode.next = this.top;
+//       this.top.prev = newNode;
+//       this.top = newNode;
+//     }
+//   }
+
+//   print() {
+//     if (this.isEmpty()) {
+//       console.log("Queue is empty");
+//       return;
+//     }
+//     let current = this.heap;
+//     while (current) {
+//       console.log(current.value);
+//       current = current.next;
+//     }
+//   }
+// }
+
+// let doubleList = new QueueDoubleLinkedList();
+// doubleList.enQueue(1);
+// doubleList.enQueue(2);
+// doubleList.enQueue(3);
+// doubleList.enQueue(4);
+// doubleList.print();
+// doubleList.deQueue();
+// console.log("=======after remove=====");
+// doubleList.print();
