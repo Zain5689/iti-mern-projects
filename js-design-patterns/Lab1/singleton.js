@@ -14,8 +14,8 @@ class CEO {
   }
 }
 
-let CEO1 = new CEO("Alice Smith", 52, "123 Executive Way");
-let CEO2 = new CEO("Bob Jones", 40, "789 Fake St");
+let CEO1 = new CEO("zainab ", 52, "cairo");
+let CEO2 = new CEO("Bob", 40, "giza");
 console.log("CEO 1:", CEO1);
 console.log("CEO 2:", CEO2);
 
@@ -40,6 +40,6 @@ class ConfigureVals {
 
 const config1 = new ConfigureVals(10, 20, "Circle");
 console.log("Config 1:", config1);
-const config2 = new ConfigureVals(100, 200, "Square");
+const config2 = new ConfigureVals();
 console.log("Config 2:", config2);
 console.log("==================================");
