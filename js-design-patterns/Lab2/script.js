@@ -83,32 +83,32 @@ pizza = new FreshTomato(pizza);
 console.log(pizza.getDescription());
 console.log(pizza.getCost());
 
-// // 3
-// class DB {
-//   connect() {}
-// }
-// class MySqlBD extends DB {
-//   connect() {
-//     console.log("connect to Mysql");
-//   }
-// }
-// class MongoDB extends DB {
-//   connect() {
-//     console.log("connect to MongoDB");
-//   }
-// }
+// 3
+class DB {
+  connect() {}
+}
+class MySqlBD extends DB {
+  connect() {
+    console.log("connect to Mysql");
+  }
+}
+class MongoDB extends DB {
+  connect() {
+    console.log("connect to MongoDB");
+  }
+}
 
-// class Application {
-//   constructor(database) {
-//     this.database = database;
-//   }
+class Application {
+  constructor(database) {
+    this.database = database;
+  }
 
-//   start() {
-//     this.database.connect();
-//   }
-// }
+  start() {
+    this.database.connect();
+  }
+}
 
-// // Usage
-// const mysql = new MySQLDatabase();
-// const app = new Application(mysql);
-// app.start();
+// Usage
+const mysql = new MySQLDatabase();
+const app = new Application(mysql);
+app.start();
