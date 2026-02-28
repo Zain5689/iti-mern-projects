@@ -1,0 +1,5 @@
+1-Consider that we have A store that sell products and  every day the store put new products into the store and the store want to let every people that interested with store that new product is in the store now.
+
+2-Suppose we are building an application for a pizza store and we need to model their pizza classes. Assume they offer four types of pizzas namely Peppy Paneer, Farmhouse, Margherita  and Chicken Fiesta.and we want to add Toppings like FreshTomato. choose the best design pattern to solve this problem.
+
+3-Search for example of Dependency inversion principle and implement it.
