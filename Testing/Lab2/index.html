@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Mocha Tests - Array Function</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unpkg.com/mocha/mocha.css" />
+  </head>
+  <body>
+    <div id="mocha"></div>
+
+    <script src="https://unpkg.com/mocha/mocha.js"></script>
+    <script src="https://unpkg.com/chai@4/chai.js"></script>
+
+    <script>
+      mocha.setup("bdd");
+      const expect = chai.expect;
+      const assert = chai.assert;
+      const should = chai.should();
+
+      const createArray = (number) => Array.from(Array(number).keys());
+
+      describe("Testing createArray Functionality", function () {
+        before(function (done) {
+          this.timeout(6000);
+          setTimeout(done, 5000);
+        });
+
+        let counter = 1;
+
+        beforeEach(() => {
+          counter++;
+        });
+
+        it("should return a value of type array (Expect Style)", function () {
+          const result = createArray(counter);
+          expect(result).to.be.an("array");
+        });
+
+        it("should have correct length and include 1 when input is 3 (Should Style)", function () {
+          const result = createArray(3);
+          result.should.be.an("array");
+          result.should.have.lengthOf(3);
+          result.should.include(1);
+        });
+
+        it("should verify the array using Assert style", function () {
+          const result = createArray(counter);
+          assert.isArray(result, "Result must be an array");
+          assert.equal(result.length, counter, "Length should match counter");
+        });
+
+        it("should handle invalid inputs in the future");
+      });
+
+      mocha.run();
+    </script>
+  </body>
+</html>
