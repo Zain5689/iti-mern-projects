@@ -1,0 +1,16 @@
+{
+  "name": "lab3",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "script.js",
+  "scripts": {
+    "test": "nodemon --exec jasmine"
+  },
+  "devDependencies": {
+    "jasmine": "^6.1.0",
+    "nodemon": "^3.1.14"
+  }
+}
