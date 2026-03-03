@@ -9,6 +9,10 @@ describe("testing math utilities", () => {
   it("sum function return 0 for empty array", () => {
     expect(sum([])).toEqual(0);
   });
+  // test for one value
+  it("sum function of one value", () => {
+    expect(sum([1])).toEqual(1);
+  });
 
   // test for sum with negative  value
   it("sum function should work with negative  value", () => {
@@ -20,7 +24,6 @@ describe("testing math utilities", () => {
     // expect(sum([2, "b", 1])).toEqual(3);
     expect(sum([1, "a", 2])).toEqual("1a2");
   });
-
   // sum negative numbers correctly
   it("should sum negative numbers correctly", () => {
     expect(sum([-1, -2, -3])).toBe(-6);
@@ -28,6 +31,10 @@ describe("testing math utilities", () => {
   // sum decimal  numbers correctly
   it("should sum decimal numbers correctly", () => {
     expect(sum([1.5, 2.5])).toBe(4);
+  });
+  // test sum null numbers
+  it("should sum with  null numbers correctly ", () => {
+    expect(sum([1, 2, null])).toBe(3);
   });
 
   /**************************************************** */
@@ -48,4 +55,10 @@ describe("testing math utilities", () => {
   it("positive function should ignore non-numeric values", () => {
     expect(positive([1, "a", 2])).toEqual([1, 2]);
   });
+  // sum decimal  numbers correctly
+  it("positive sum decimal numbers correctly", () => {
+    expect(positive([1.5, 2.5])).toEqual([1.5, 2.5]);
+  });
 });
+
+/******************************************** */
