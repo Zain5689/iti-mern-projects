@@ -7,10 +7,14 @@
   "type": "module",
   "main": "script.js",
   "scripts": {
-    "test": "nodemon --exec jasmine"
+    "test": "karma start"
   },
   "devDependencies": {
     "jasmine": "^6.1.0",
+    "jasmine-core": "^6.1.0",
+    "karma": "^6.4.4",
+    "karma-chrome-launcher": "^3.2.0",
+    "karma-jasmine": "^5.1.0",
     "nodemon": "^3.1.14"
   }
 }
