@@ -1,0 +1,339 @@
+Please enter a MongoDB connection string (Default: mongodb://localhost/):
+
+Current Mongosh Log ID: 69aaa101cd1eceaa637c2906
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.7.0
+Using MongoDB:          8.2.0
+Using Mongosh:          2.7.0
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+
+To help improve our products, anonymous usage data is collected and sent to MongoDB periodically (https://www.mongodb.com/legal/privacy-policy).
+You can opt-out by running the disableTelemetry() command.
+
+------
+   The server generated these startup warnings when booting
+   2026-02-28T12:13:38.394+02:00: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> show dbs
+ACME_Corp     112.00 KiB
+DATA_SCURITY   64.00 KiB
+admin          40.00 KiB
+config         36.00 KiB
+local          72.00 KiB
+school         40.00 KiB
+test> use FacultySystemDB
+switched to db FacultySystemDB
+FacultySystemDB> db.createCollection("student")
+{ ok: 1 }
+FacultySystemDB> show collections
+student
+FacultySystemDB> db.student.insertMany({fName:”Mrihan”,lName:”Mohamed”,age:26,faculty:{name:”FCI”,address:”Minia”},grades:[{cname:”c#”,grade:60,pass:true},{cnFacultySystemDB> db.student.insertMany([{fname:"mirhan",lname:"mahamed",age:26,faculty:{name:"FCI",addess:"minia"},grages:[{cname:"c#",grade:60},{cname:"js",gFacultySystemDB> db.student.insertMany([{fname:"mirhan",lname:"mahamed",age:26,faculty:{name:"FCI",addess:"minia"},grages:[{cname:"c#",grade:60},{cname:"js",grade:100,pass:true}],isFaire:false}, {fname:"zainab",lname:"hilal",age:23,faculty:{name:"FCAI",addess:"BN"},grages:[{cname:"HTML",grade:60},{cname:"css",grade:100,pass:true}],isFaire:false}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('69aab676cd1eceaa637c2907'),
+    '1': ObjectId('69aab676cd1eceaa637c2908')
+  }
+}
+FacultySystemDB> db.student.insertOne({fname:"zainab",lname:"hilal",age:23,faculty:{name:"FCAI",addess:"BN"},grages:[{cname:"HTML",grade:60},{cname:"css",gradFacultySystemDB> db.student.insertOne({fname:"Ahmed",lname:"Hassan",age:30,faculty:{name:"FCAI",addess:"BN"},grages:[{cname:"C",grade:60},{cname:"css",grade:40,pass:false}],isFaire:true})
+{
+  acknowledged: true,
+  insertedId: ObjectId('69aab720cd1eceaa637c2909')
+}
+FacultySystemDB> db.student.find()
+[
+  {
+    _id: ObjectId('69aab676cd1eceaa637c2907'),
+    fname: 'mirhan',
+    lname: 'mahamed',
+    age: 26,
+    faculty: { name: 'FCI', addess: 'minia' },
+    grages: [ { cname: 'c#', grade: 60 }, { cname: 'js', grade: 100, pass: true } ],
+    isFaire: false
+  },
+  {
+    _id: ObjectId('69aab676cd1eceaa637c2908'),
+    fname: 'zainab',
+    lname: 'hilal',
+    age: 23,
+    faculty: { name: 'FCAI', addess: 'BN' },
+    grages: [
+      { cname: 'HTML', grade: 60 },
+      { cname: 'css', grade: 100, pass: true }
+    ],
+    isFaire: false
+  },
+  {
+    _id: ObjectId('69aab720cd1eceaa637c2909'),
+    fname: 'Ahmed',
+    lname: 'Hassan',
+    age: 30,
+    faculty: { name: 'FCAI', addess: 'BN' },
+    grages: [ { cname: 'C', grade: 60 }, { cname: 'css', grade: 40, pass: false } ],
+    isFaire: true
+  }
+]
+FacultySystemDB> db.student.find({fname:"zainab"})
+[
+  {
+    _id: ObjectId('69aab676cd1eceaa637c2908'),
+    fname: 'zainab',
+    lname: 'hilal',
+    age: 23,
+    faculty: { name: 'FCAI', addess: 'BN' },
+    grages: [
+      { cname: 'HTML', grade: 60 },
+      { cname: 'css', grade: 100, pass: true }
+    ],
+    isFaire: false
+  }
+]
+FacultySystemDB> db.student.find({$or:{fname:"Ahmed"},{lname:"Ahmed"}})
+Uncaught:
+SyntaxError: Unexpected token (1:37)
+
+> 1 | db.student.find({$or:{fname:"Ahmed"},{lname:"Ahmed"}})
+    |                                      ^
+  2 |
+
+FacultySystemDB> db.student.find({$or:[{fname:"Ahmed"},{lname:"Ahmed"}]})
+[
+  {
+    _id: ObjectId('69aab720cd1eceaa637c2909'),
+    fname: 'Ahmed',
+    lname: 'Hassan',
+    age: 30,
+    faculty: { name: 'FCAI', addess: 'BN' },
+    grages: [ { cname: 'C', grade: 60 }, { cname: 'css', grade: 40, pass: false } ],
+    isFaire: true
+  }
+]
+FacultySystemDB>  db.student.find({age: {$lt:26}})
+[
+  {
+    _id: ObjectId('69aab676cd1eceaa637c2908'),
+    fname: 'zainab',
+    lname: 'hilal',
+    age: 23,
+    faculty: { name: 'FCAI', addess: 'BN' },
+    grages: [
+      { cname: 'HTML', grade: 60 },
+      { cname: 'css', grade: 100, pass: true }
+    ],
+    isFaire: false
+  }
+]
+FacultySystemDB>  db.student.find({isFaire:true})
+[
+  {
+    _id: ObjectId('69aab720cd1eceaa637c2909'),
+    fname: 'Ahmed',
+    lname: 'Hassan',
+    age: 30,
+    faculty: { name: 'FCAI', addess: 'BN' },
+    grages: [ { cname: 'C', grade: 60 }, { cname: 'css', grade: 40, pass: false } ],
+    isFaire: true
+  }
+]
+FacultySystemDB>  db.student.find({fname:{$ne:"Ahmed"} })
+[
+  {
+    _id: ObjectId('69aab676cd1eceaa637c2907'),
+    fname: 'mirhan',
+    lname: 'mahamed',
+    age: 26,
+    faculty: { name: 'FCI', addess: 'minia' },
+    grages: [ { cname: 'c#', grade: 60 }, { cname: 'js', grade: 100, pass: true } ],
+    isFaire: false
+  },
+  {
+    _id: ObjectId('69aab676cd1eceaa637c2908'),
+    fname: 'zainab',
+    lname: 'hilal',
+    age: 23,
+    faculty: { name: 'FCAI', addess: 'BN' },
+    grages: [
+      { cname: 'HTML', grade: 60 },
+      { cname: 'css', grade: 100, pass: true }
+    ],
+    isFaire: false
+  }
+]
+FacultySystemDB> db.student.find({$and:[{age:{$gte:21}},{faculty:{$ne:null}}]})
+[
+  {
+    _id: ObjectId('69aab676cd1eceaa637c2907'),
+    fname: 'mirhan',
+    lname: 'mahamed',
+    age: 26,
+    faculty: { name: 'FCI', addess: 'minia' },
+    grages: [ { cname: 'c#', grade: 60 }, { cname: 'js', grade: 100, pass: true } ],
+    isFaire: false
+  },
+  {
+    _id: ObjectId('69aab676cd1eceaa637c2908'),
+    fname: 'zainab',
+    lname: 'hilal',
+    age: 23,
+    faculty: { name: 'FCAI', addess: 'BN' },
+    grages: [
+      { cname: 'HTML', grade: 60 },
+      { cname: 'css', grade: 100, pass: true }
+    ],
+    isFaire: false
+  },
+  {
+    _id: ObjectId('69aab720cd1eceaa637c2909'),
+    fname: 'Ahmed',
+    lname: 'Hassan',
+    age: 30,
+    faculty: { name: 'FCAI', addess: 'BN' },
+    grages: [ { cname: 'C', grade: 60 }, { cname: 'css', grade: 40, pass: false } ],
+    isFaire: true
+  }
+]
+FacultySystemDB> db.students.find(
+|   { firstName: "Ahmed" },
+|   { firstName: 1, lastName: 1, isFired: 1, _id: 0 }
+| )
+
+FacultySystemDB> db.student.find(
+|   { firstName: "Ahmed" },
+|   { firstName: 1, lastName: 1, isFired: 1, _id: 0 }
+| )
+
+FacultySystemDB> db.student.find(
+|   { fname: "Ahmed" },
+|   { fname: 1, lname: 1, isFire: 1 }
+| )
+[
+  {
+    _id: ObjectId('69aab720cd1eceaa637c2909'),
+    fname: 'Ahmed',
+    lname: 'Hassan'
+  }
+]
+FacultySystemDB> db.student.updateOne(
+|   { fname: "Ahmed" },
+|   { $set: { lname: "Ali" } }
+| )
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+FacultySystemDB> db.student.updateMany(
+|   { fname: "Ahmed" },
+|   { $set: { lname: "Ali" } }
+| )
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+FacultySystemDB> db.student.replaceOne(
+|   { fname: "Ahmed" },
+|   {
+|     firstName: "Ahmed",
+|     lastName: "Ali",
+|     age: 22,
+|     faculty: "CS",
+|     isFired: false
+|   }
+| )
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+FacultySystemDB> db.student.deleteMany({isFaire:true})
+{ acknowledged: true, deletedCount: 0 }
+FacultySystemDB> db.student.drop()
+true
+FacultySystemDB> db.dropDatabase()
+{ ok: 1, dropped: 'FacultySystemDB' }
+FacultySystemDB> show dbs
+ACME_Corp     112.00 KiB
+DATA_SCURITY   64.00 KiB
+admin          40.00 KiB
+config        108.00 KiB
+local          72.00 KiB
+school         40.00 KiB
+FacultySystemDB> use FacultySystemV2
+switched to db FacultySystemV2
+FacultySystemV2> db.students.insertMany([
+| {
+|   firstName: "Ahmed",
+|   lastName: "Ali",
+|   isFired: false,
+|   facultyID: 1,
+|   courses: [
+|     { courseID: 101, grade: 85 },
+|     { courseID: 102, grade: 90 }
+|   ]
+| },
+| {
+|   firstName: "Sara",
+|   lastName: "Hassan",
+|   isFired: false,
+|   facultyID: 2,
+|   courses: [
+|     { courseID: 101, grade: 88 },
+|     { courseID: 103, grade: 92 }
+|   ]
+| }
+| ])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('69aabd44cd1eceaa637c290a'),
+    '1': ObjectId('69aabd44cd1eceaa637c290b')
+  }
+}
+FacultySystemV2> db.faculty.insertMany([
+| {
+|   name: "Computer Science",
+|   address: "Beni Suef"
+| },
+| {
+|   name: "Information Systems",
+|   address: "Cairo"
+| }
+| ])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('69aabd71cd1eceaa637c290c'),
+    '1': ObjectId('69aabd71cd1eceaa637c290d')
+  }
+}
+FacultySystemV2> db.courses.insertMany([
+| {
+|   courseName: "Database",
+|   finalMark: 100
+| },
+| {
+|   courseName: "Algorithms",
+|   finalMark: 100
+| },
+| {
+|   courseName: "Operating Systems",
+|   finalMark: 100
+| }
+| ])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('69aabd79cd1eceaa637c290e'),
+    '1': ObjectId('69aabd79cd1eceaa637c290f'),
+    '2': ObjectId('69aabd79cd1eceaa637c2910')
+  }
+}
