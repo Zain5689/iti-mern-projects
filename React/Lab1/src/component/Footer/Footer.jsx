@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Facebook, Linkedin, Mail, Phone, Twitch } from "lucide-react";
+import "./Footer.css";
 export class Footer extends Component {
   render() {
     return (
@@ -8,11 +9,11 @@ export class Footer extends Component {
           <div className="personalInfo">
             <h3>GET IN TOUCH</h3>
             <div className="email">
-              <Mail />
+              <Mail size={20} />
               <a>example@email.com</a>
             </div>
             <div className="phone">
-              <Phone />
+              <Phone size={20} />
               <a>01125938547</a>
             </div>
           </div>
@@ -21,9 +22,9 @@ export class Footer extends Component {
           </div>
           <div className="socialInfo">
             <div className="icons">
-              <Linkedin />
-              <Facebook />
-              <Twitch />
+              <Linkedin size={20} />
+              <Facebook size={20} />
+              <Twitch size={20} />
             </div>
             <p>copyright@2026</p>
           </div>
