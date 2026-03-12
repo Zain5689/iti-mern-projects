@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.skills {
+  background: linear-gradient(90deg, #222, #444);
+  color: #fff;
+  padding: 60px 5%;
+}
+
+.skills h2 {
+  font-size: 3rem;
+  color: #ff9800;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.skills .desc {
+  text-align: center;
+  color: #ccc;
+  max-width: 700px;
+  margin: 0 auto 50px;
+}
+
+.skillsContain {
+  padding: 40px 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.left h3 {
+  color: #ff9800;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.left ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.left ul li {
+  font-size: 1.2rem;
+  padding: 5px 15px;
+  border-left: 3px solid #ff9800;
+  background: rgba(255, 152, 0, 0.1);
+}
+
+.skillBar {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+
+.skill-item {
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+.skill-info {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.progress-bar {
+  width: 100%;
+  background-color: #333;
+  height: 20px;
+
+  border-radius: 10px;
+  overflow: hidden;
+}
+.percentage {
+  text-align: end;
+}
+.progress-fill {
+  background-color: #ff9800;
+  height: 100%;
+  border-radius: 10px;
+  transition: width 1s ease-in-out;
+}
+
+@media (min-width: 992px) {
+  .skillsContain {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .left {
+    flex: 1;
+  }
+
+  .right {
+    flex: 3;
+  }
+
+  .left ul {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .skills h2 {
+    font-size: 2.2rem;
+  }
+}
