@@ -5,6 +5,7 @@ import user1 from "./assets/user1.jpg";
 import user2 from "./assets/user2.jpg";
 import Moderator from "./assets/Moderator.jpg";
 import TaskItem from "./components/TaskItem ";
+import { List } from "@mui/material";
 
 function App() {
   return (
@@ -55,15 +56,19 @@ function App() {
       </div>
 
       {/* Task2 */}
-      <div className="min-h-screen bg-gray-50 p-8 font-sans">
-        <h1 className="text-3xl text-amber-950 font-bold text-center  mb-10">
-          Tasks
+      <div className="min-h-screen   p-8 font-sans">
+        <h1 className="text-4xl text-amber-900 font-extrabold text-center mb-10 ">
+          Task Board
         </h1>
-        <TaskItem taskName="React" />
-        <TaskItem taskName="js" />
-        <TaskItem taskName="css" />
-        <TaskItem taskName="Tailwind" />
-        <TaskItem taskName="Html" />
+        <div className="max-w-xl mx-auto">
+          <List>
+            <TaskItem taskName="Read documentation" />
+            <TaskItem taskName="Setup Tailwind" />
+            <TaskItem taskName="Build UserCard component" />
+            <TaskItem taskName="Test responsive layout" />
+            <TaskItem taskName="Polish UI with MUI" />
+          </List>
+        </div>
       </div>
     </>
   );
