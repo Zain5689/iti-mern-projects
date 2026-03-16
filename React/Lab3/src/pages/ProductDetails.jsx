@@ -6,7 +6,7 @@ const ProductDetails = () => {
 
   return (
     <>
-      <div className="max-w-xl mx-auto mt-20 p-10 bg-white shadow-sm rounded-3xl border border-gray-100 text-center">
+      {/* <div className="max-w-xl mx-auto mt-20 p-10 bg-white shadow-sm rounded-3xl border border-gray-100 text-center">
         <h2 className="text-2xl font-bold text-gray-800 mb-4">
           Product Inspection
         </h2>
@@ -21,7 +21,7 @@ const ProductDetails = () => {
         <Link className="bg-amber-900 p-3 rounded-xl text-white" to={"/"}>
           back to the home page
         </Link>
-      </div>
+      </div> */}
     </>
   );
 };
