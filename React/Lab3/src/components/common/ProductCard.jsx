@@ -44,6 +44,7 @@ export function ProductCard({ id, title, price, category, thumbnail }) {
             Details
           </Button>
         </Link>
+
         <Button
           variant="outline"
           className="flex-1 border-black hover:bg-black hover:text-white transition-all"

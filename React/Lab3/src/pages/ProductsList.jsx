@@ -41,7 +41,7 @@ const ProductsList = () => {
 
   if (loading)
     return (
-      <div className="max-w-6xl mx-auto px-6 py-12 mt-4">
+      <div className="max-w-6xl mx-auto px-6 py-12 mt-6">
         <div className="flex flex-col items-center mb-12 space-y-4">
           <Skeleton className="h-10 w-64" />
           <div className="flex gap-3">
@@ -86,7 +86,7 @@ const ProductsList = () => {
     );
 
   return (
-    <div className="max-w-6xl mx-auto px-6 py-12 mt-4">
+    <div className="max-w-6xl mx-auto px-6 py-20 mt-4">
       <div className="text-center mb-12">
         <h1 className="text-4xl font-black text-gray-900 mb-6 uppercase tracking-tighter">
           {category ? `Browsing: ${category}` : "All Products"}
