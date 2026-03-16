@@ -5,20 +5,34 @@ import { ProductCard } from "@/components/common/ProductCard";
 import axios from "axios";
 import { Card, CardHeader } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+} from "@/components/ui/pagination";
 
 const ProductsList = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [total, setTotal] = useState(0);
+
+  const limit = 6;
+  const totalPages = Math.ceil(total / limit);
 
   useEffect(() => {
     const fetchProducts = async () => {
+      setLoading(true);
       try {
-        const instance = axios.create({
-          baseURL: "https://dummyjson.com/",
-        });
-        const response = await instance.get("/products");
+        const skip = (currentPage - 1) * limit;
+        const response = await axios.get(
+          `https://dummyjson.com/products?limit=${limit}&skip=${skip}`,
+        );
         setProducts(response.data.products);
+        setTotal(response.data.total);
+        window.scrollTo({ top: 0, behavior: "smooth" });
       } catch (error) {
         console.error("Error fetching products:", error);
         setError(error.message);
@@ -28,7 +42,7 @@ const ProductsList = () => {
     };
 
     fetchProducts();
-  }, []);
+  }, [currentPage]);
 
   const [searchParams, setSearchParams] = useSearchParams();
   const category = searchParams.get("category");
@@ -50,7 +64,6 @@ const ProductsList = () => {
             <Skeleton className="h-10 w-20 rounded-full" />
           </div>
         </div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {[1, 2, 3, 4, 5, 6].map((i) => (
             <Card
@@ -95,17 +108,29 @@ const ProductsList = () => {
         <div className="flex justify-center gap-3">
           <Button
             variant={category === "beauty" ? "default" : "outline"}
-            onClick={() => setSearchParams({ category: "beauty" })}
+            onClick={() => {
+              setSearchParams({ category: "beauty" });
+              setCurrentPage(1);
+            }}
           >
             Beauty
           </Button>
           <Button
             variant={category === "fragrances" ? "default" : "outline"}
-            onClick={() => setSearchParams({ category: "fragrances" })}
+            onClick={() => {
+              setSearchParams({ category: "fragrances" });
+              setCurrentPage(1);
+            }}
           >
             Fragrances
           </Button>
-          <Button variant="ghost" onClick={() => setSearchParams({})}>
+          <Button
+            variant="ghost"
+            onClick={() => {
+              setSearchParams({});
+              setCurrentPage(1);
+            }}
+          >
             Reset
           </Button>
         </div>
@@ -122,6 +147,60 @@ const ProductsList = () => {
             thumbnail={product.thumbnail}
           />
         ))}
+      </div>
+
+      <div className="mt-16 flex justify-center">
+        <Pagination>
+          <PaginationContent className="flex-wrap justify-center">
+            <PaginationItem>
+              <Button
+                variant="ghost"
+                disabled={currentPage === 1}
+                onClick={() => setCurrentPage((prev) => prev - 1)}
+                className="hover:bg-amber-50"
+              >
+                Previous
+              </Button>
+            </PaginationItem>
+
+            {[...Array(totalPages)].map((_, index) => {
+              const pageNumber = index + 1;
+              if (pageNumber <= 5) {
+                return (
+                  <PaginationItem key={pageNumber}>
+                    <PaginationLink
+                      href="#"
+                      isActive={currentPage === pageNumber}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setCurrentPage(pageNumber);
+                      }}
+                      className={
+                        currentPage === pageNumber
+                          ? "bg-black text-white"
+                          : "hover:bg-amber-50"
+                      }
+                    >
+                      {pageNumber}
+                    </PaginationLink>
+                  </PaginationItem>
+                );
+              }
+              return null;
+            })}
+
+            <PaginationItem>
+              <Button
+                variant="ghost"
+                disabled={currentPage === totalPages}
+                onClick={() => setCurrentPage((prev) => prev + 1)}
+                className="hover:bg-amber-50"
+              >
+                Next
+              </Button>
+            </PaginationItem>
+          </PaginationContent>
+        </Pagination>
       </div>
     </div>
   );
