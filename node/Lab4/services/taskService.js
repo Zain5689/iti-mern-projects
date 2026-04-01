@@ -4,22 +4,24 @@ async function getTasks() {
   return fileStorage.readTasks();
 }
 
-async function addTask(title) {
-  if (!title?.trim()) throw new Error("Title is required");
+async function addTask(text) {
   const tasks = await getTasks();
   const newTask = {
     id: Date.now(),
-    text: title.trim(),
+    text: text.trim(),
     date: new Date().toLocaleTimeString(),
     done: false,
   };
-  tasks.push(newTask);
+  tasks.unshift(newTask);
   await fileStorage.writeTasks(tasks);
   return newTask;
 }
 
-async function saveTasks(tasks) {
-  await fileStorage.writeTasks(tasks);
+async function deleteTask(id) {
+  let tasks = await getTasks();
+  const filtered = tasks.filter((t) => String(t.id) !== String(id));
+  await fileStorage.writeTasks(filtered);
+  return id;
 }
 
-module.exports = { getTasks, addTask, saveTasks };
+module.exports = { getTasks, addTask, deleteTask };

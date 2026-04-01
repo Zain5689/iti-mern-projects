@@ -6,6 +6,7 @@
   --card-bg: #ffffff;
   --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   --success: #00b894;
+  --danger: #ff7675;
 }
 
 * {
@@ -16,11 +17,7 @@
 body {
   background-color: var(--bg);
   color: var(--text);
-  font-family:
-    "Inter",
-    -apple-system,
-    BlinkMacSystemFont,
-    sans-serif;
+  font-family: "Inter", system-ui, sans-serif;
   display: flex;
   justify-content: center;
   min-height: 100vh;
@@ -44,7 +41,6 @@ header {
 h1 {
   font-size: 1.8rem;
   font-weight: 800;
-  letter-spacing: -0.5px;
   margin: 0;
 }
 
@@ -53,7 +49,6 @@ h1 {
   height: 10px;
   border-radius: 50%;
   background: #d1d1d1;
-  position: relative;
 }
 
 .dot.online {
@@ -83,10 +78,9 @@ input {
   padding: 12px;
   outline: none;
   font-size: 1rem;
-  color: var(--text);
 }
 
-button {
+button#addBtn {
   background: var(--accent);
   color: white;
   border: none;
@@ -95,18 +89,6 @@ button {
   border-radius: 12px;
   cursor: pointer;
   font-size: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-button:active {
-  transform: scale(0.95);
 }
 
 .note-card {
@@ -117,42 +99,51 @@ button:active {
   box-shadow: var(--shadow);
   border: 1px solid var(--border);
   position: relative;
-  overflow: hidden;
+  animation: fadeIn 0.4s ease;
 }
 
 .note-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.delete-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: #d1d1d1;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+}
+
+.delete-btn:hover {
+  color: var(--danger);
+  background: #fff5f5;
 }
 
 .note-card p {
   word-wrap: break-word;
   margin: 0 0 10px 0;
   line-height: 1.6;
-  font-size: 1.05rem;
-  font-weight: 400;
 }
 
 .note-card small {
   color: #a0a0a0;
   font-size: 0.75rem;
-  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(15px) scale(0.98);
+    transform: translateY(15px);
   }
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
   }
-}
-
-.notes-grid {
-  display: flex;
-  flex-direction: column;
 }

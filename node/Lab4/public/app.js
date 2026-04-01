@@ -13,15 +13,19 @@ socket.on("disconnect", () => {
 });
 
 socket.on("note:all", (notes) => {
-  notesContainer.innerHTML = notes
-    .filter((n) => n && n.text)
-    .map((n) => renderNote(n))
-    .join("");
+  notesContainer.innerHTML = notes.map((n) => renderNote(n)).join("");
 });
 
 socket.on("note:new", (note) => {
-  if (note && note.text) {
-    notesContainer.insertAdjacentHTML("afterbegin", renderNote(note));
+  notesContainer.insertAdjacentHTML("afterbegin", renderNote(note));
+});
+
+socket.on("note:deleted", (id) => {
+  const card = document.querySelector(`[data-id="${id}"]`);
+  if (card) {
+    card.style.opacity = "0";
+    card.style.transform = "scale(0.9)";
+    setTimeout(() => card.remove(), 300);
   }
 });
 
@@ -33,11 +37,18 @@ document.getElementById("addBtn").onclick = () => {
   }
 };
 
+function deleteNote(id) {
+  console.log("Deleting task with ID:", id);
+  socket.emit("note:delete", id);
+}
+
 function renderNote(note) {
+  const content = note.text || note.title || "Empty Note";
   return `
-    <div class="note-card">
-        <p>${escapeHtml(note.text)}</p>
-        <small style="color: #b2bec3; font-size: 0.7rem;">${note.date || ""}</small>
+    <div class="note-card" data-id="${note.id}">
+        <button class="delete-btn" onclick="deleteNote('${note.id}')">&times;</button>
+        <p>${escapeHtml(content)}</p>
+        <small>${note.date || "Task"}</small>
     </div>
   `;
 }
@@ -47,3 +58,5 @@ function escapeHtml(text) {
   div.textContent = text;
   return div.innerHTML;
 }
+
+window.deleteNote = deleteNote;

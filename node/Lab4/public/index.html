@@ -9,11 +9,16 @@
   <body>
     <div class="app-wrapper">
       <header>
-        <span id="status" class="dot"></span>
+        <div id="status" class="dot"></div>
         <h1>Notes</h1>
       </header>
       <div class="input-group">
-        <input type="text" id="noteInput" placeholder="Write a thought..." />
+        <input
+          type="text"
+          id="noteInput"
+          placeholder="Write a thought..."
+          autocomplete="off"
+        />
         <button id="addBtn">+</button>
       </div>
       <div id="notesContainer" class="notes-grid"></div>

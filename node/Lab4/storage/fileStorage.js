@@ -21,7 +21,8 @@ async function readTasks() {
   await ensureFile();
   try {
     const data = await fs.readFile(filePath, "utf-8");
-    return data.trim() ? JSON.parse(data) : [];
+    const parsed = JSON.parse(data || "[]");
+    return Array.isArray(parsed) ? parsed : [];
   } catch (err) {
     return [];
   }
