@@ -2,25 +2,23 @@ const taskService = require("../services/taskService");
 
 module.exports = function registerTaskSocket(io) {
   io.on("connection", (socket) => {
-    console.log(`client connected:${socket.id}`);
+    console.log(`Client connected: ${socket.id}`);
 
-    // Client requests current task list on connect
     socket.on("task:request", async () => {
       try {
         const tasks = await taskService.getTasks();
-        socket.emit("tasks:list", tasks);
+        socket.emit("note:all", tasks);
       } catch (err) {
-        socket.emit("error", { message: "failed to load tasks" });
+        socket.emit("error", { message: "Failed to load notes" });
       }
     });
 
-    //client creates a task
-    socket.on("task:request", async () => {
+    socket.on("note:create", async (data) => {
       try {
-        const tasks = await taskService.getTasks();
-        socket.emit("tasks:list", tasks);
+        const newTask = await taskService.addTask(data.text);
+        io.emit("note:new", newTask);
       } catch (err) {
-        socket.emit("error", { message: "failed to load tasks" });
+        socket.emit("error", { message: "Failed to create note" });
       }
     });
   });

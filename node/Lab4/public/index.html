@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Simple Notes</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+  </head>
+  <body>
+    <div class="app-wrapper">
+      <header>
+        <span id="status" class="dot"></span>
+        <h1>Notes</h1>
+      </header>
+      <div class="input-group">
+        <input type="text" id="noteInput" placeholder="Write a thought..." />
+        <button id="addBtn">+</button>
+      </div>
+      <div id="notesContainer" class="notes-grid"></div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

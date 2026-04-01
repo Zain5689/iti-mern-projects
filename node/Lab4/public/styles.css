@@ -1,0 +1,158 @@
+:root {
+  --bg: #f4f7f6;
+  --text: #1a1a1a;
+  --accent: #000000;
+  --border: #e0e0e0;
+  --card-bg: #ffffff;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --success: #00b894;
+}
+
+* {
+  box-sizing: border-box;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  padding-top: 60px;
+}
+
+.app-wrapper {
+  width: 100%;
+  max-width: 420px;
+  padding: 25px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+h1 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin: 0;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #d1d1d1;
+  position: relative;
+}
+
+.dot.online {
+  background: var(--success);
+  box-shadow: 0 0 8px var(--success);
+}
+
+.input-group {
+  display: flex;
+  background: var(--card-bg);
+  padding: 8px 12px;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  margin-bottom: 40px;
+  border: 1px solid transparent;
+}
+
+.input-group:focus-within {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 12px;
+  outline: none;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+.note-card {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.note-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.note-card p {
+  word-wrap: break-word;
+  margin: 0 0 10px 0;
+  line-height: 1.6;
+  font-size: 1.05rem;
+  font-weight: 400;
+}
+
+.note-card small {
+  color: #a0a0a0;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.notes-grid {
+  display: flex;
+  flex-direction: column;
+}
