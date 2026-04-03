@@ -1,4 +1,7 @@
-const page = () => {
-  return <div>page</div>;
+import { redirect } from "next/navigation";
+
+const ProfilePage = () => {
+  redirect("/profile/info");
 };
-export default page;
+
+export default ProfilePage;

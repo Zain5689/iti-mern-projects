@@ -1,9 +1,9 @@
 type IProps = {
-  params: Promise<{ slug?: string[] }>;
+  params: Promise<{ id?: string[] }>;
 };
 
 const DocsPage = async ({ params }: IProps) => {
-  const { slug } = await params;
+  const { id } = await params;
 
   return (
     <div className="max-w-4xl mx-auto py-20 px-6">
@@ -17,7 +17,7 @@ const DocsPage = async ({ params }: IProps) => {
       </header>
 
       <div className="bg-gray-50 rounded-3xl p-10 border-2 border-dashed border-gray-200">
-        {!slug ? (
+        {!id ? (
           <div className="space-y-4">
             <h2 className="text-3xl font-black text-black">Docs Home</h2>
             <p className="text-gray-500 text-lg font-medium leading-relaxed">
@@ -32,12 +32,12 @@ const DocsPage = async ({ params }: IProps) => {
                 Current Path
               </h2>
               <div className="flex flex-wrap gap-2">
-                {slug.map((segment, index) => (
+                {id.map((segment, index) => (
                   <div key={index} className="flex items-center gap-2">
                     <span className="px-4 py-2 bg-black text-white text-[10px] font-black uppercase tracking-widest rounded-xl shadow-lg shadow-black/5">
                       {segment}
                     </span>
-                    {index < slug.length - 1 && (
+                    {index < id.length - 1 && (
                       <span className="text-gray-300 font-bold">/</span>
                     )}
                   </div>
@@ -49,7 +49,7 @@ const DocsPage = async ({ params }: IProps) => {
               <p className="text-xl text-gray-600 font-medium italic">
                 Viewing content for:{" "}
                 <span className="text-black font-black not-italic">
-                  "{slug.join(" / ")}"
+                  "{id.join(" / ")}"
                 </span>
               </p>
             </div>
