@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Recipe } from "@/types/recipe";
+import Link from "next/link";
 
 interface RecipeCardProps {
   recipe: Recipe;
@@ -7,7 +8,7 @@ interface RecipeCardProps {
 
 const RecipeCard = ({ recipe }: RecipeCardProps) => {
   return (
-    <div className="group cursor-pointer">
+    <Link href={`/recipes/${recipe.id}`} className="group cursor-pointer block">
       <div className="relative w-full h-64 overflow-hidden rounded-[2.5rem] mb-4 shadow-sm bg-gray-100">
         <Image
           src={recipe.image}
@@ -27,7 +28,7 @@ const RecipeCard = ({ recipe }: RecipeCardProps) => {
       <p className="text-gray-400 text-[10px] font-bold uppercase mt-1 tracking-widest italic">
         Review: {recipe.reviewCount} users
       </p>
-    </div>
+    </Link>
   );
 };
 
