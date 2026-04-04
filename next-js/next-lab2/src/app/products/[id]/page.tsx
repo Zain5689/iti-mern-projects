@@ -11,7 +11,7 @@ export default async function ProductDetailsPage({
   const product = await getAllProductById(id);
 
   return (
-    <main className="max-w-4xl mx-auto py-20 px-6">
+    <main className="max-w-4xl mx-auto py-2 px-6">
       <Link
         href="/products"
         className="text-[10px] font-black uppercase tracking-widest text-gray-400 hover:text-amber-600 transition-colors mb-8 inline-block"
