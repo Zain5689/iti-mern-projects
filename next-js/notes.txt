@@ -1,0 +1,46 @@
+=== caching 
+
+SSR => server side rendering
+  - generate newPage foreach user  
+  - no caching 
+  - websites examples => gold websites
+
+ISR => incremental side  regeneration
+  - cached page every selected time
+  - all user enter in selected time cached page after selected time generate newPage from db and change after selected time
+  -
+
+SSG => static side Generation 
+  - static generate in cache 
+  - generate html page based on fetch data 
+  - generate data in cache although change in db
+  - best for performance because very fast
+  - all users request page give same page
+
+
+==== in practical 
+
+SSR = cache: "no-store" when fetch data under headers 
+or force dynamite  
+
+ISR = next : {revalidate:300} == 60 second
+
+SSG = default in next , cache:"force cache"
+
+
+
+
+=====================
+Interview Question
+
+
+======================
+Route handler 
+
+- Proxy => between app and real server
+- (.env)  not show in client component 
+
+use 
+1 Endpoint 
+2 Proxy
+3 Protect Keys
