@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-time Task Manager</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📝 Real-time Task Manager</h1>
+            <div id="connectionStatus" class="connection-status disconnected">Disconnected</div>
+        </div>
+
+        <div class="form-container">
+            <form id="taskForm" class="task-form">
+                <input 
+                    type="text" 
+                    id="taskInput" 
+                    class="task-input" 
+                    placeholder="Enter a new task..." 
+                    autocomplete="off"
+                    required
+                >
+                <button type="submit" id="submitBtn" class="submit-btn" disabled>Add Task</button>
+            </form>
+        </div>
+
+        <div class="tasks-container">
+            <div class="tasks-header">
+                <h2>All Tasks</h2>
+                <span id="taskCount" class="task-count">0</span>
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="active">Active</button>
+                <button class="filter-btn" data-filter="completed">Completed</button>
+            </div>
+            <div id="errorContainer"></div>
+            <div id="tasksList" class="task-list">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Connecting to server...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

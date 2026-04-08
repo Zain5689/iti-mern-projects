@@ -1,0 +1,24 @@
+{
+  "name": "task-board",
+  "version": "1.0.0",
+  "description": "This is a task board demo using websockets",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "websockets",
+    "http"
+  ],
+  "author": "wesam abousaid",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^17.4.0",
+    "express": "^5.2.1",
+    "mongoose": "^9.3.3",
+    "socket.io": "^4.8.3"
+  }
+}
