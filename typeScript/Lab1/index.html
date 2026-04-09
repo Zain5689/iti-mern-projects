@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1>Task Dashboard</h1>
+        <button id="openFormBtn" class="btn-add">+ Add New Task</button>
+      </header>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Status</th>
+              <th>Deadline</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="taskTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="modal" class="modal-overlay">
+      <div class="modal-content">
+        <h3>Create Task</h3>
+        <form id="taskForm" class="form-group">
+          <input type="text" id="title" placeholder="Title" required />
+          <textarea id="desc" placeholder="Description" required></textarea>
+          <select id="status">
+            <option value="Pending">Pending</option>
+            <option value="InProgress">In Progress</option>
+            <option value="Completed">Completed</option>
+          </select>
+          <input type="date" id="deadline" required />
+          <div class="modal-actions">
+            <button type="button" id="closeFormBtn" class="btn-cancel">
+              Cancel
+            </button>
+            <button type="submit" class="btn-save">Save Task</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
