@@ -1,42 +1,46 @@
-const express = require("express");
-const mongoose = require("mongoose");
 require("dotenv").config();
+const express = require("express");
+const http = require("http");
+const mongoose = require("mongoose");
+const { Server } = require("socket.io");
+const taskRoutes = require("./routes/taskRoutes");
 
-const MONGODB_URI = process.env.MONGODB_URI;
-const PORT = process.env.PORT;
 const app = express();
-
-app.get("/", (req, res) => {
-  res.send("hello from NodeJs server");
+const httpServer = http.createServer(app);
+const io = new Server(httpServer, {
+  cors: { origin: "*" },
 });
 
-// test the connect to mongodb
+const MONGODB_URI =
+  process.env.MONGODB_URI || "mongodb://localhost:27017/FacultySystemDB";
+
 async function connectToMongoDB() {
   try {
     await mongoose.connect(MONGODB_URI);
-    console.log("✅ Connected to MongoDB");
+    console.log("Connected to MongoDB");
   } catch (err) {
-    console.error("❌ MongoDB connection error:", err.message);
-    console.log("\n📋 To run this application, you need:");
-    console.log(
-      "1. Install MongoDB locally: https://www.mongodb.com/try/download/community",
-    );
-    console.log(
-      "2. Or use MongoDB Atlas (cloud): https://www.mongodb.com/cloud/atlas",
-    );
-    console.log(
-      "3. Or update MONGODB_URI in .env file with your connection string",
-    );
-    console.log(
-      "\nFor local MongoDB, run: brew install mongodb-community (on macOS)",
-    );
-    console.log("Then start MongoDB: brew services start mongodb-community");
+    console.error("MongoDB connection error:", err.message);
     process.exit(1);
   }
 }
 
 connectToMongoDB();
 
-app.listen(PORT, () => {
-  console.log("successfully connection on port 3000 ");
+app.use(express.json());
+app.use(express.static("public"));
+
+// Routes
+app.use("/tasks", taskRoutes);
+
+// Socket.IO handlers
+require("./socket/taskSocket")(io);
+
+// 404 catch-all
+app.use((req, res) => {
+  res.status(404).json({ error: "Route not found" });
+});
+
+const PORT = process.env.PORT || 3000;
+httpServer.listen(PORT, () => {
+  console.log(`Server ready on http://localhost:${PORT}`);
 });
