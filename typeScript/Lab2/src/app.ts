@@ -3,7 +3,7 @@ import { TaskStatus } from "./enums/TaskStatus.js";
 
 const manager = new TaskManager();
 
-const dashboardPage = document.getElementById("dashboardPage") as HTMLElement;
+const homePage = document.getElementById("homePage") as HTMLElement;
 const formPage = document.getElementById("formPage") as HTMLElement;
 
 const viewTasksBtn = document.getElementById(
@@ -11,15 +11,15 @@ const viewTasksBtn = document.getElementById(
 ) as HTMLButtonElement;
 const addTaskBtn = document.getElementById("addTaskBtn") as HTMLButtonElement;
 
-const navigateTo = (page: "dashboard" | "form") => {
-  if (page === "dashboard") {
-    dashboardPage.style.display = "block";
+const navigateTo = (page: "home" | "form") => {
+  if (page === "home") {
+    homePage.style.display = "block";
     formPage.style.display = "none";
     viewTasksBtn.classList.add("active");
     addTaskBtn.classList.remove("active");
     renderTasks();
   } else {
-    dashboardPage.style.display = "none";
+    homePage.style.display = "none";
     formPage.style.display = "block";
     viewTasksBtn.classList.remove("active");
     addTaskBtn.classList.add("active");
@@ -73,10 +73,10 @@ document.getElementById("taskForm")?.addEventListener("submit", (e) => {
 
   (e.target as HTMLFormElement).reset();
 
-  navigateTo("dashboard");
+  navigateTo("home");
 });
 
-viewTasksBtn.addEventListener("click", () => navigateTo("dashboard"));
+viewTasksBtn.addEventListener("click", () => navigateTo("home"));
 addTaskBtn.addEventListener("click", () => navigateTo("form"));
 
-navigateTo("dashboard");
+navigateTo("home");
