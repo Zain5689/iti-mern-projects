@@ -1,0 +1,1 @@
+{"version":3,"file":"Log.js","sourceRoot":"","sources":["../../src/decorators/Log.ts"],"names":[],"mappings":"AAAA,MAAM,UAAU,SAAS,CAAC,WAAqB;IAC7C,MAAM,GAAG,GAAG,IAAI,IAAI,EAAE,CAAC;IACvB,OAAO,CAAC,GAAG,CACT,SAAS,WAAW,CAAC,IAAI,mBAAmB,GAAG,CAAC,cAAc,EAAE,EAAE,CACnE,CAAC;AACJ,CAAC"}

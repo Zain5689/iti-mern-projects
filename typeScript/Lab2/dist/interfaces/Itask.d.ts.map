@@ -1,1 +1,1 @@
-{"version":3,"file":"Itask.d.ts","sourceRoot":"","sources":["../../src/interfaces/Itask.ts"],"names":[],"mappings":"AAAA,MAAM,WAAW,KAAK;IAClB,EAAE,EAAC,MAAM,CAAC;IACV,IAAI,EAAC,MAAM,CAAA;CACd"}
+{"version":3,"file":"Itask.d.ts","sourceRoot":"","sources":["../../src/interfaces/Itask.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,KAAK,UAAU,EAAE,MAAM,wBAAwB,CAAC;AAEzD,MAAM,WAAW,KAAK;IACpB,EAAE,EAAE,MAAM,CAAC;IACX,KAAK,EAAE,MAAM,CAAC;IACd,WAAW,EAAE,MAAM,CAAC;IACpB,MAAM,EAAE,UAAU,CAAC;IACnB,QAAQ,EAAE,IAAI,CAAC;CAChB"}

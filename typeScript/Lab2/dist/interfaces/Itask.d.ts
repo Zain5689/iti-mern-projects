@@ -1,5 +1,9 @@
-export interface Itask {
+import { type TaskStatus } from "../enums/TaskStatus.js";
+export interface ITask {
     id: number;
-    name: string;
+    title: string;
+    description: string;
+    status: TaskStatus;
+    deadline: Date;
 }
 //# sourceMappingURL=Itask.d.ts.map

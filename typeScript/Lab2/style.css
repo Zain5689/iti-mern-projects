@@ -189,3 +189,44 @@ td {
 .btn-delete:hover {
   background-color: #fee2e2;
 }
+
+/* Navigation Styles */
+.main-nav {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 0.5rem;
+}
+
+.nav-link {
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #64748b;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.5rem 1rem;
+  transition: 0.3s;
+}
+
+.nav-link.active {
+  color: #f59e0b;
+  border-bottom: 3px solid #f59e0b;
+}
+
+/* Form Container Page */
+.form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  padding: 3rem;
+  border-radius: 2rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.view-section {
+  animation: fadeIn 0.4s ease-out;
+}

@@ -1,1 +1,1 @@
-{"version":3,"file":"TaskManger.d.ts","sourceRoot":"","sources":["../src/TaskManger.ts"],"names":[],"mappings":"AAAA,OAAO,EAAC,KAAK,KAAK,EAAC,MAAM,uBAAuB,CAAC;AAGjD,qBAAa,UAAU;IACnB,OAAO,CAAC,KAAK,CAGX;IAEF,MAAM,IAAG,KAAK,EAAE;IAGhB,OAAO,CAAC,IAAI,EAAC,KAAK,GAAE,IAAI;CAG3B"}
+{"version":3,"file":"TaskManger.d.ts","sourceRoot":"","sources":["../src/TaskManger.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,cAAc,EAAE,MAAM,gCAAgC,CAAC;AAChE,OAAO,EAAE,KAAK,KAAK,EAAE,MAAM,uBAAuB,CAAC;AAGnD,qBACa,WAAY,SAAQ,cAAc,CAAC,KAAK,CAAC;;IAK7C,eAAe,IAAI,MAAM;CAGjC"}

@@ -1,13 +1,66 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <button onclick="getTasks()">get all tasks</button>
-    <input id="txt1" type="text">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <nav class="main-nav">
+        <button id="viewTasksBtn" class="nav-link active">View Tasks</button>
+        <button id="addTaskBtn" class="nav-link">+ New Task</button>
+      </nav>
+
+      <section id="dashboardPage" class="view-section">
+        <header class="header">
+          <h1>Task Dashboard</h1>
+        </header>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>id</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Deadline</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="taskTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="formPage" class="view-section" style="display: none">
+        <div class="form-container">
+          <header class="header">
+            <h1>Create Task</h1>
+          </header>
+          <form id="taskForm" class="form-group">
+            <input type="text" id="title" placeholder="Task Title" required />
+            <textarea
+              id="desc"
+              placeholder="Task Description"
+              rows="4"
+              required
+            ></textarea>
+            <select id="status">
+              <option value="Pending">Pending</option>
+              <option value="InProgress">In Progress</option>
+              <option value="Completed">Completed</option>
+            </select>
+            <input type="date" id="deadline" required />
+            <div class="form-actions">
+              <button type="submit" class="btn-save">Save & Return</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
     <script type="module" src="./dist/app.js"></script>
-</body>
+  </body>
 </html>
