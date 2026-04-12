@@ -1,11 +1,11 @@
-import { BaseRepository } from "./repository/BaseRepository.js";
-import { type ITask } from "./interfaces/Itask.js";
-import { Timestamp } from "./decorators/Log.js";
+import { BaseRepository } from "./BaseRepository.js";
+import { type ITask } from "../interfaces/Itask.js";
+import { Timestamp } from "../decorators/Log.js";
 
 @Timestamp
 export class TaskManager extends BaseRepository<ITask> {
   constructor() {
-    super("tasks_lab_data");
+    super("tasks");
   }
 
   public getPendingCount(): number {

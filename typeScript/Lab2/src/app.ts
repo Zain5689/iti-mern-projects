@@ -1,4 +1,4 @@
-import { TaskManager } from "./TaskManger.js";
+import { TaskManager } from "./repository/TaskManger.js";
 import { TaskStatus } from "./enums/TaskStatus.js";
 
 const manager = new TaskManager();
@@ -52,6 +52,7 @@ const renderTasks = () => {
     .join("");
 };
 
+// handle delete from global scope for simplicity
 (window as any).deleteTaskHandler = (id: number) => {
   manager.delete(id);
   renderTasks();

@@ -9,7 +9,7 @@ import {} from "./interfaces/Itask.js";
 import { Timestamp } from "./decorators/Log.js";
 let TaskManager = class TaskManager extends BaseRepository {
     constructor() {
-        super("tasks_lab_data");
+        super("tasks");
     }
     getPendingCount() {
         return this.items.filter((t) => t.status !== "Completed").length;

@@ -1,33 +1,25 @@
-import { TaskManager } from "./TaskManger.js"; // تأكد من مطابقة الاسم المكتوب في ملفاتك
+import { TaskManager } from "./TaskManger.js";
 import { TaskStatus } from "./enums/TaskStatus.js";
 const manager = new TaskManager();
-// عناصر الصفحة الأساسية (Views)
-const dashboardPage = document.getElementById("dashboardPage");
+const homePage = document.getElementById("homePage");
 const formPage = document.getElementById("formPage");
-// أزرار التنقل (Navigation)
 const viewTasksBtn = document.getElementById("viewTasksBtn");
 const addTaskBtn = document.getElementById("addTaskBtn");
-/**
- * وظيفة الـ Router للتبديل بين الصفحات
- */
 const navigateTo = (page) => {
-    if (page === "dashboard") {
-        dashboardPage.style.display = "block";
+    if (page === "home") {
+        homePage.style.display = "block";
         formPage.style.display = "none";
         viewTasksBtn.classList.add("active");
         addTaskBtn.classList.remove("active");
         renderTasks();
     }
     else {
-        dashboardPage.style.display = "none";
+        homePage.style.display = "none";
         formPage.style.display = "block";
         viewTasksBtn.classList.remove("active");
         addTaskBtn.classList.add("active");
     }
 };
-/**
- * ريندر الجدول
- */
 const renderTasks = () => {
     const tableBody = document.getElementById("taskTableBody");
     const tasks = manager.getAll();
@@ -50,16 +42,11 @@ const renderTasks = () => {
         `)
         .join("");
 };
-/**
- * التعامل مع حذف المهام
- */
+// handle delete from global scope for simplicity
 window.deleteTaskHandler = (id) => {
     manager.delete(id);
     renderTasks();
 };
-/**
- * التعامل مع إرسال الفورم
- */
 document.getElementById("taskForm")?.addEventListener("submit", (e) => {
     e.preventDefault();
     manager.add({
@@ -71,14 +58,9 @@ document.getElementById("taskForm")?.addEventListener("submit", (e) => {
         deadline: new Date(document.getElementById("deadline").value),
     });
     e.target.reset();
-    // العودة التلقائية للجدول بعد الحفظ
-    navigateTo("dashboard");
+    // navigateTo("home");
 });
-/**
- * إعداد مستمعي الأحداث للتنقل
- */
-viewTasksBtn.addEventListener("click", () => navigateTo("dashboard"));
+viewTasksBtn.addEventListener("click", () => navigateTo("home"));
 addTaskBtn.addEventListener("click", () => navigateTo("form"));
-// البدء بصفحة الجدول عند تحميل التطبيق
-navigateTo("dashboard");
+navigateTo("home");
 //# sourceMappingURL=app.js.map
