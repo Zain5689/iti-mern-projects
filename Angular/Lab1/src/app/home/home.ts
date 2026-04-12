@@ -1,15 +1,7 @@
 import { Component } from '@angular/core';
 import { Navbar } from '../navbar/navbar';
 import { Footer } from '../footer/footer';
-
-interface IUser {
-  id: number;
-  name: string;
-  email: string;
-  age: number;
-  image: string;
-  isAdmin: boolean;
-}
+import { IUser } from '../interfaces/user.interface';
 
 @Component({
   selector: 'app-home',
@@ -25,10 +17,10 @@ export class Home {
     email: 'zainabhilal@example.com',
     age: 23,
     image: 'assets/imgs/user.png',
-    isAdmin: false,
+    isAdmin: true,
   };
 
   showAlert(isAdmin: boolean) {
-    alert(isAdmin ? ' Admin Dashboard' : '👤  User Profile');
+    alert(isAdmin ? ' Admin Profile' : '👤  User Profile');
   }
 }
