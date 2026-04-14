@@ -1,0 +1,45 @@
+<nav class="bg-slate-900/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <div class="shrink-0 flex items-center">
+        <span
+          class="text-2xl font-black tracking-tighter bg-linear-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent"
+        >
+          MovieApp
+        </span>
+      </div>
+
+      <div class="hidden md:block">
+        <div class="ml-10 flex items-baseline space-x-2">
+          <a
+            routerLink="/"
+            routerLinkActive="bg-slate-800 text-blue-400"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="px-4 py-2 rounded-md text-sm font-medium hover:bg-slate-800 transition-all text-white"
+            >Home</a
+          >
+
+          <a
+            routerLink="/about"
+            routerLinkActive="bg-slate-800 text-blue-400"
+            class="px-4 py-2 rounded-md text-sm font-medium hover:bg-slate-800 transition-all text-white"
+            >About</a
+          >
+
+          <a
+            routerLink="/contact"
+            routerLinkActive="bg-slate-800 text-blue-400"
+            class="px-4 py-2 rounded-md text-sm font-medium hover:bg-slate-800 transition-all text-white"
+            >Contact</a
+          >
+          <a
+            routerLink="/movies"
+            routerLinkActive="bg-slate-800 text-blue-400"
+            class="px-4 py-2 rounded-md text-sm font-medium hover:bg-slate-800 transition-all text-white"
+            >All Movies</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
