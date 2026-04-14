@@ -1,1 +1,96 @@
-<p>movie-details works!</p>
+@if (movie()) {
+  <div class="max-w-7xl mx-auto relative min-h-screen bg-slate-950 text-white overflow-hidden mt-2">
+    <div class="absolute inset-0 z-0">
+      <img
+        [src]="imgPrefix + movie()?.backdrop_path"
+        class="w-full h-full object-cover opacity-30 blur-md"
+        alt="backdrop"
+      />
+      <div
+        class="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-950/80 to-transparent"
+      ></div>
+    </div>
+
+    <div class="relative z-10 container mx-auto px-6 py-20 lg:py-32">
+      <div class="flex flex-col lg:flex-row gap-12 items-center lg:items-start">
+        <div
+          class="w-72 lg:w-96 shrink-0 shadow-2xl rounded-3xl overflow-hidden border border-slate-800 transform hover:scale-105 transition-transform duration-500"
+        >
+          <img
+            [src]="imgPrefix + movie()?.poster_path"
+            [alt]="movie()?.title"
+            class="w-full h-auto"
+          />
+        </div>
+
+        <div class="flex-1 text-center lg:text-left">
+          <h1 class="text-5xl lg:text-7xl font-black mb-6 tracking-tighter uppercase leading-tight">
+            {{ movie()?.title }}
+          </h1>
+
+          <div
+            class="flex flex-wrap justify-center lg:justify-start gap-4 mb-8 text-sm font-bold uppercase tracking-widest text-slate-300"
+          >
+            <span
+              class="bg-blue-600/20 text-blue-400 px-4 py-1.5 rounded-full border border-blue-600/30"
+            >
+              {{ movie()?.release_date }}
+            </span>
+            <span
+              class="flex items-center gap-1.5 text-yellow-400 bg-yellow-400/10 px-4 py-1.5 rounded-full border border-yellow-400/20"
+            >
+              ★ {{ movie()?.vote_average }}
+            </span>
+            <span class="bg-slate-800 px-4 py-1.5 rounded-full border border-slate-700">
+              {{ movie()?.original_language }}
+            </span>
+          </div>
+
+          <div class="mb-10">
+            <h2
+              class="text-2xl font-bold mb-4 text-blue-500 uppercase tracking-widest border-b border-blue-500/30 inline-block pb-1"
+            >
+              Storyline
+            </h2>
+            <p class="text-slate-300 leading-relaxed text-lg lg:text-xl max-w-3xl font-medium">
+              {{ movie()?.overview }}
+            </p>
+          </div>
+
+          <div class="flex flex-wrap justify-center lg:justify-start gap-4">
+            <button
+              class="bg-blue-600 hover:bg-blue-500 text-white font-black px-10 py-4 rounded-full transition-all shadow-xl shadow-blue-600/30 active:scale-95 flex items-center gap-2"
+            >
+              <span>WATCH NOW</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+
+            <button
+              class="bg-slate-800/50 hover:bg-slate-800 text-white font-bold px-10 py-4 rounded-full border border-slate-700 transition-all active:scale-95"
+            >
+              ADD TO WISHLIST
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+} @else {
+  <div class="h-screen flex flex-col items-center justify-center bg-slate-950 text-white">
+    <div
+      class="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-blue-500 mb-4"
+    ></div>
+    <p class="text-slate-400 font-bold tracking-widest uppercase">Searching the Galaxy...</p>
+  </div>
+}
