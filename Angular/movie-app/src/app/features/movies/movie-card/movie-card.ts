@@ -16,8 +16,6 @@ export class MovieCard {
 
   readonly imgPrefix = imgPrefix;
   goToDetails() {
-    console.log('Movie Object:', this.movie);
-    console.log('Movie ID being sent:', this.movie.id);
     this.router.navigate(['movies/', this.movie.id]);
   }
 }
