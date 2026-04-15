@@ -1,6 +1,9 @@
-<app-navbar></app-navbar>
+<div class="flex flex-col min-h-screen bg-slate-950 selection:bg-blue-500 selection:text-white">
+  <app-navbar></app-navbar>
 
-<main class="grow">
-  <router-outlet></router-outlet>
-</main>
-<app-footer></app-footer>
+  <main class="grow flex flex-col">
+    <router-outlet></router-outlet>
+  </main>
+
+  <app-footer></app-footer>
+</div>

@@ -12,12 +12,12 @@ export const WEBSITE_ROUTES: Routes = [
     title: 'About',
   },
   {
-    path: 'products',
+    path: 'movies',
     loadComponent: () =>
       import('./../../features/movies/movie-list/movie-list').then((c) => c.MovieList),
   },
   {
-    path: 'products/details/:id',
+    path: 'movies/:id',
     loadComponent: () =>
       import('./../../features/movies/movie-details/movie-details').then((c) => c.MovieDetails),
   },
