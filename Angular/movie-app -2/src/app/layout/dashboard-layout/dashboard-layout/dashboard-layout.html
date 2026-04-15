@@ -1,12 +1,29 @@
-<!-- <div class="container-fluid">
-  <div class="row">
-    <div class="co1-3">
-      <app-aside></app-aside>
-    </div>
-    <div class="col-9 bg-body">
-      <router-outlet></router-outlet>
-    </div>
+<div class="flex h-screen overflow-hidden bg-slate-50">
+  <app-aside class="shrink-0"></app-aside>
+
+  <div class="grow flex flex-col h-full overflow-hidden">
+    <header
+      class="h-16 bg-white border-b border-slate-200 flex items-center px-8 justify-between shrink-0 shadow-sm z-10"
+    >
+      <h1 class="text-lg font-bold text-slate-800">Dashboard</h1>
+
+      <div class="flex items-center gap-4">
+        <div class="text-right">
+          <p class="text-sm font-bold text-slate-900 leading-none">Zainab Hilal</p>
+          <p class="text-[10px] text-blue-500 font-medium uppercase mt-1">Admin Access</p>
+        </div>
+        <div
+          class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center font-bold text-slate-600 shadow-inner"
+        >
+          ZH
+        </div>
+      </div>
+    </header>
+
+    <main class="grow overflow-y-auto bg-slate-50/50 p-6 md:p-10">
+      <div class="max-w-6xl mx-auto">
+        <router-outlet></router-outlet>
+      </div>
+    </main>
   </div>
-</div> -->
-<h1>Dashborad</h1>
-<router-outlet></router-outlet>
+</div>

@@ -1,1 +1,62 @@
-<p>dashboard-movie-list works!</p>
+<div class="space-y-6">
+  <div class="flex items-center justify-between">
+    <div>
+      <h2 class="text-2xl font-bold text-slate-800">Movies Management</h2>
+      <p class="text-slate-500 text-sm">View and manage all movies in your database.</p>
+    </div>
+    <button
+      class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-all"
+    >
+      + Add New Movie
+    </button>
+  </div>
+
+  <div class="overflow-hidden border border-slate-200 rounded-xl bg-white shadow-sm">
+    <table class="w-full text-left border-collapse">
+      <thead class="bg-slate-50 border-b border-slate-200">
+        <tr>
+          <th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">
+            Movie
+          </th>
+          <th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">
+            Category
+          </th>
+          <th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">
+            Status
+          </th>
+          <th
+            class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider text-right"
+          >
+            Actions
+          </th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-slate-200">
+        <tr class="hover:bg-slate-50 transition-colors">
+          <td class="px-6 py-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-14 bg-slate-200 rounded flex-shrink-0"></div>
+              <span class="font-medium text-slate-700">Inception</span>
+            </div>
+          </td>
+          <td class="px-6 py-4 text-sm text-slate-600">Sci-Fi</td>
+          <td class="px-6 py-4">
+            <span class="px-2 py-1 text-xs font-medium bg-emerald-100 text-emerald-700 rounded-full"
+              >Published</span
+            >
+          </td>
+          <td class="px-6 py-4 text-right space-x-3">
+            <button class="text-blue-600 hover:text-blue-800 text-sm font-medium">Edit</button>
+            <button class="text-red-500 hover:text-red-700 text-sm font-medium">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <button
+    class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-all"
+    routerLink="/"
+  >
+    Back to Home
+  </button>
+</div>
