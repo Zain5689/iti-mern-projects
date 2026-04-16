@@ -2,7 +2,7 @@ import { Component, Input, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { Movie } from '../../../shared/models/interfaces/movie.model';
 import { CommonModule } from '@angular/common';
-import { imgPrefix } from '../../../core/data';
+import { imgPrefix } from '../../../shared/models/data/movies.data';
 
 @Component({
   selector: 'app-movie-card',

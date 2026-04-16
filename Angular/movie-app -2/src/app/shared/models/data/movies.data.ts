@@ -1,4 +1,4 @@
-import { Movie } from '../shared/models/interfaces/movie.model';
+import { Movie } from '../interfaces/movie.model';
 
 export const MOVIES_DATA: Movie[] = [
   {
