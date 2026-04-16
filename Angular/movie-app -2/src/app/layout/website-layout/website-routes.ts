@@ -4,11 +4,11 @@ export const WEBSITE_ROUTES: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full', title: 'Home' },
   {
     path: 'home',
-    loadComponent: () => import('../../features/pages/home/home').then((c) => c.Home),
+    loadComponent: () => import('../../features/home/home').then((c) => c.Home),
   },
   {
     path: 'about',
-    loadComponent: () => import('../../features/pages/about/about').then((c) => c.About),
+    loadComponent: () => import('../../features/about/about').then((c) => c.About),
     title: 'About',
   },
   {
@@ -25,7 +25,7 @@ export const WEBSITE_ROUTES: Routes = [
   },
   {
     path: 'contact',
-    loadComponent: () => import('./../../features/pages/contact/contact').then((c) => c.Contact),
+    loadComponent: () => import('../../features/contact/contact').then((c) => c.Contact),
     title: 'contact',
   },
 ];
