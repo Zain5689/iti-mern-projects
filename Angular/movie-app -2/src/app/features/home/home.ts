@@ -4,11 +4,12 @@ import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { TestimonialCard } from '../../shared/components/testimonial-card/testimonial-card';
 import { imgPrefix } from '../../shared/models/data/movies.data';
+import { MovieCard } from '../movies/movie-card/movie-card';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [TestimonialCard, CommonModule, RouterModule],
+  imports: [TestimonialCard, CommonModule, RouterModule, MovieCard],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })

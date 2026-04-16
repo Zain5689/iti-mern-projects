@@ -2,21 +2,6 @@ import { Movie } from '../interfaces/movie.model';
 
 export const MOVIES_DATA: Movie[] = [
   {
-    id: 1523145,
-    title: 'Your Heart Will Be Broken',
-    original_title: 'Твоё сердце будет разбито',
-    poster_path: '/7wIBfBl2gejt6xHxNSK0reVIm7E.jpg',
-    backdrop_path: '/1x9e0qWonw634NhIsRdvnneeqvN.jpg',
-    overview:
-      'High school student Polina is saved from bullying at her new school and makes a deal with the main bully Bars: he must pretend to be her boyfriend and protect her, and she must do everything he says. During this game, the couple develops real feelings, but her family and classmates have reasons to separate the lovers.',
-    release_date: '2026-03-26',
-    vote_average: 7.129,
-    vote_count: 58,
-    popularity: 732.3257,
-    original_language: 'ru',
-    adult: false,
-  },
-  {
     id: 1226863,
     title: 'The Super Mario Galaxy Movie',
     original_title: 'The Super Mario Galaxy Movie',
@@ -89,6 +74,21 @@ export const MOVIES_DATA: Movie[] = [
     vote_count: 1382,
     popularity: 308.6168,
     original_language: 'en',
+    adult: false,
+  },
+  {
+    id: 1523145,
+    title: 'Your Heart Will Be Broken',
+    original_title: 'Твоё сердце будет разбито',
+    poster_path: '/7wIBfBl2gejt6xHxNSK0reVIm7E.jpg',
+    backdrop_path: '/1x9e0qWonw634NhIsRdvnneeqvN.jpg',
+    overview:
+      'High school student Polina is saved from bullying at her new school and makes a deal with the main bully Bars: he must pretend to be her boyfriend and protect her, and she must do everything he says. During this game, the couple develops real feelings, but her family and classmates have reasons to separate the lovers.',
+    release_date: '2026-03-26',
+    vote_average: 7.129,
+    vote_count: 58,
+    popularity: 732.3257,
+    original_language: 'ru',
     adult: false,
   },
 ];
