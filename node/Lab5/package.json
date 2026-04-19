@@ -1,13 +1,16 @@
 {
   "name": "lab5",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Real-time Task Board with MongoDB",
+  "main": "server.js",
   "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "dev:debug": "nodemon --inspect server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Zainab",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
@@ -15,5 +18,8 @@
     "express": "^5.2.1",
     "mongoose": "^9.4.1",
     "socket.io": "^4.8.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
   }
 }

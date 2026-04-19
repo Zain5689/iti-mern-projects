@@ -29,6 +29,16 @@ connectToMongoDB();
 app.use(express.json());
 app.use(express.static("public"));
 
+app.get("/health", (req, res) => {
+  res.json({
+    status: "ok",
+    uptime: process.uptime(),
+    memory: process.memoryUsage(),
+    dbState:
+      mongoose.connection.readyState === 1 ? "connected" : "disconnected",
+  });
+});
+
 // Routes
 app.use("/tasks", taskRoutes);
 
