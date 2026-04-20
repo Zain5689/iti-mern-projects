@@ -1,0 +1,138 @@
+<section class="pt-8 pb-7.5 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+  <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
+    <div
+      class="w-full bg-white rounded-2xl shadow-xl dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700 overflow-hidden"
+    >
+      <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+        <h1
+          class="text-2xl font-black leading-tight tracking-tight text-gray-900 md:text-3xl dark:text-white text-center"
+        >
+          Create Account
+        </h1>
+
+        <form class="space-y-5" [formGroup]="registerForm" (ngSubmit)="handleRegister()">
+          <div class="space-y-2">
+            <label for="name" class="block text-sm font-semibold text-gray-700 dark:text-gray-300"
+              >Your Name</label
+            >
+            <input
+              type="text"
+              id="name"
+              placeholder="John Doe"
+              formControlName="name"
+              class="w-full px-4 py-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400 shadow-sm"
+            />
+            @if (registerForm.get('name')?.errors && registerForm.get('name')?.touched) {
+              <div
+                class="flex items-start gap-2 p-3 rounded-lg bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-xs font-medium animate-pulse"
+              >
+                <ul class="list-disc list-inside">
+                  @if (registerForm.get('name')?.getError('required')) {
+                    <li>Name is Required</li>
+                  }
+                  @if (registerForm.get('name')?.getError('minlength')) {
+                    <li>Too short (min 3 chars)</li>
+                  }
+                  @if (registerForm.get('name')?.getError('maxlength')) {
+                    <li>Too long (max 20 chars)</li>
+                  }
+                </ul>
+              </div>
+            }
+          </div>
+
+          <div class="space-y-2">
+            <label for="email" class="block text-sm font-semibold text-gray-700 dark:text-gray-300"
+              >Your Email</label
+            >
+            <input
+              type="email"
+              id="email"
+              placeholder="name@company.com"
+              formControlName="email"
+              class="w-full px-4 py-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400 shadow-sm"
+            />
+            @if (registerForm.get('email')?.errors && registerForm.get('email')?.touched) {
+              <div class="p-2 rounded-lg text-red-500 text-xs font-bold">
+                @if (registerForm.get('email')?.getError('required')) {
+                  <span>⚠ Email is Required</span>
+                }
+                @if (registerForm.get('email')?.getError('email')) {
+                  <span>⚠ Enter a valid email</span>
+                }
+              </div>
+            }
+          </div>
+
+          <div class="space-y-2">
+            <label
+              for="password"
+              class="block text-sm font-semibold text-gray-700 dark:text-gray-300"
+              >Password</label
+            >
+            <input
+              type="password"
+              id="password"
+              placeholder="••••••••"
+              formControlName="password"
+              class="w-full px-4 py-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all dark:bg-gray-700 dark:border-gray-600 dark:text-white shadow-sm"
+            />
+            @if (registerForm.get('password')?.errors && registerForm.get('password')?.touched) {
+              <div class="text-red-500 text-xs px-1">
+                @if (registerForm.get('password')?.getError('required')) {
+                  <p>Password is required</p>
+                }
+                @if (registerForm.get('password')?.getError('minlength')) {
+                  <p>Minimum 6 characters</p>
+                }
+              </div>
+            }
+          </div>
+
+          <div class="space-y-2">
+            <label
+              for="confirm-password"
+              class="block text-sm font-semibold text-gray-700 dark:text-gray-300"
+              >Confirm Password</label
+            >
+            <input
+              type="password"
+              id="confirm-password"
+              placeholder="••••••••"
+              formControlName="confirmPassword"
+              class="w-full px-4 py-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all dark:bg-gray-700 dark:border-gray-600 dark:text-white shadow-sm"
+            />
+            @if (
+              registerForm.get('confirmPassword')?.errors &&
+              registerForm.get('confirmPassword')?.touched
+            ) {
+              <div class="text-red-500 text-xs px-1">
+                @if (registerForm.get('confirmPassword')?.getError('required')) {
+                  <p>Please confirm your password</p>
+                }
+                @if (registerForm.get('confirmPassword')?.getError('mismatch')) {
+                  <p>Passwords do not match</p>
+                }
+              </div>
+            }
+          </div>
+
+          <button
+            type="submit"
+            [disabled]="registerForm.invalid"
+            class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold rounded-xl text-sm px-5 py-4 text-center transition-all active:scale-95 shadow-lg"
+          >
+            Create Account
+          </button>
+
+          <p class="text-sm font-medium text-center text-gray-500 dark:text-gray-400 mt-4">
+            Already have an account?
+            <a href="#" class="text-blue-600 hover:underline dark:text-blue-400 font-bold"
+              >Login here</a
+            >
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

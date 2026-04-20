@@ -28,4 +28,9 @@ export const WEBSITE_ROUTES: Routes = [
     loadComponent: () => import('../../features/contact/contact').then((c) => c.Contact),
     title: 'contact',
   },
+  {
+    path: 'register',
+    loadComponent: () => import('../../features/auth/register/register').then((c) => c.Register),
+    title: 'register',
+  },
 ];

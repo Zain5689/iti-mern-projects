@@ -1,8 +1,8 @@
+import { env } from './../../../core/data/env';
 import { Component, Input, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { Movie } from '../../../shared/models/interfaces/movie.model';
 import { CommonModule } from '@angular/common';
-import { imgPrefix } from '../../../shared/models/data/movies.data';
 
 @Component({
   selector: 'app-movie-card',
@@ -14,7 +14,7 @@ export class MovieCard {
   @Input({ required: true }) movie!: Movie;
   private router = inject(Router);
 
-  readonly imgPrefix = imgPrefix;
+  readonly imgPrefix = env.imgPrefix;
   goToDetails() {
     this.router.navigate(['movies/', this.movie.id]);
   }

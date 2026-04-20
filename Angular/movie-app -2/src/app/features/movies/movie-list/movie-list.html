@@ -5,8 +5,13 @@
   </div>
 
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-    @for (movieItem of movies; track movieItem.id) {
+    @for (movieItem of movies(); track movieItem.id) {
       <app-movie-card [movie]="movieItem"></app-movie-card>
+    } @empty {
+      <div class="col-span-full flex flex-col items-center justify-center py-20 text-slate-500">
+        <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-blue-500 mb-4"></div>
+        <p>Loading movies...</p>
+      </div>
     }
   </div>
 </div>

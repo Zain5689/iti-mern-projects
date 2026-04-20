@@ -1,21 +1,26 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable, map } from 'rxjs';
 import { Movie } from '../../../shared/models/interfaces/movie.model';
-import { MOVIES_DATA } from '../../../shared/models/data/movies.data';
+import { env } from '../../../core/data/env';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MovieService {
-  private allMovies: Movie[] = MOVIES_DATA;
+  private apiKey = '392e7da67e8860f48faaf7ea3b1d1599';
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  getAllMovies(): Movie[] {
-    return this.allMovies;
+  getAllMovies(): Observable<Movie[]> {
+    return this.http
+      .get<{ results: Movie[] }>(env.baseurl)
+      .pipe(map((response) => response.results));
   }
 
-  getMovieById(id: number): Movie | undefined {
-    return this.allMovies.find((movie) => movie.id === id);
+  getMovieById(id: number): Observable<Movie> {
+    const url = `${env.detailsUrl}/${id}?api_key=${this.apiKey}`;
+    return this.http.get<Movie>(url);
   }
 
   getTestimonials() {

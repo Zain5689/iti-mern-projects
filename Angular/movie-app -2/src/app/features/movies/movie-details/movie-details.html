@@ -2,7 +2,8 @@
   <div class="relative min-h-screen bg-slate-950 text-white overflow-hidden max-w-7xl mx-auto">
     <div class="absolute inset-0 z-0">
       <img
-        [src]="imgPrefix + movie()?.backdrop_path"
+        [src]="posterPrefix + movie()?.poster_path"
+        [alt]="movie()?.title"
         class="w-full h-full object-cover opacity-30 blur-md"
         alt="backdrop"
       />
@@ -17,7 +18,7 @@
           class="w-72 lg:w-96 shrink-0 shadow-2xl rounded-3xl overflow-hidden border border-slate-800 transform hover:scale-105 transition-transform duration-500"
         >
           <img
-            [src]="imgPrefix + movie()?.poster_path"
+            [src]="posterPrefix + movie()?.poster_path"
             [alt]="movie()?.title"
             class="w-full h-auto"
           />
