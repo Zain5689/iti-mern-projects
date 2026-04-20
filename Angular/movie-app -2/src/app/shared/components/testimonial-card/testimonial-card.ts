@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { MovieService } from '../../../features/movies/services/movie';
 
 @Component({
@@ -10,5 +10,5 @@ import { MovieService } from '../../../features/movies/services/movie';
 })
 export class TestimonialCard {
   private movieService = inject(MovieService);
-  readonly reviews = this.movieService.getTestimonials();
+  readonly reviews = signal(this.movieService.getTestimonials());
 }
