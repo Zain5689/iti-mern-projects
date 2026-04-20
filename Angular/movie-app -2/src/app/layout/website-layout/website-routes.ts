@@ -5,6 +5,7 @@ export const WEBSITE_ROUTES: Routes = [
   {
     path: 'home',
     loadComponent: () => import('../../features/home/home').then((c) => c.Home),
+    title: 'MovieApp',
   },
   {
     path: 'about',
