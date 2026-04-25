@@ -29,10 +29,14 @@ export class AuthService {
       try {
         const decoded = jwtDecode(myToken);
         this.userData.set(decoded);
-      } catch (error) {
+      } catch {
         this.signOut();
       }
     }
+  }
+
+  signUp(data: any): Observable<any> {
+    return this.httpClient.post('http://localhost:3000/register', data);
   }
 
   signIn(data: any): Observable<any> {
@@ -43,5 +47,9 @@ export class AuthService {
     localStorage.removeItem('myToken');
     this.userData.set(null);
     this.router.navigate(['/login']);
+  }
+
+  allUsers(): Observable<any> {
+    return this.httpClient.get('http://localhost:3000/all-users');
   }
 }

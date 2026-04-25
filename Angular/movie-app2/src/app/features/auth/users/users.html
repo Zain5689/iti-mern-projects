@@ -1,3 +1,63 @@
-<div class="container">
-  <h1 class="display-6 text-primary text-center">All Users</h1>
-</div>
+<section
+  class="min-h-screen pt-20 bg-linear-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 transition-colors duration-500 p-6"
+>
+  <div class="max-w-6xl mx-auto">
+    <div class="mb-10 text-center space-y-2">
+      <h1
+        class="text-4xl font-black tracking-tight bg-linear-to-r from-blue-600 to-emerald-500 bg-clip-text text-transparent"
+      >
+        Community Directory
+      </h1>
+      <p class="text-slate-500 dark:text-slate-400 font-medium">
+        Manage and view all registered members
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      @for (user of allUsers(); track user._id || $index) {
+        <div
+          class="group bg-white/80 dark:bg-slate-800/90 backdrop-blur-md border border-white/20 dark:border-slate-700/50 p-6 rounded-3xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+        >
+          <div class="flex items-center gap-4">
+            <div
+              class="w-14 h-14 rounded-2xl bg-linear-to-tr from-blue-500 to-blue-400 flex items-center justify-center text-white text-xl font-bold shadow-lg shadow-blue-500/20"
+            >
+              {{ user.name?.charAt(0) || user.email?.charAt(0) || 'U' }}
+            </div>
+
+            <div class="overflow-hidden">
+              <h3 class="text-lg font-bold text-slate-800 dark:text-white truncate">
+                {{ user.name }}
+              </h3>
+              <p class="text-sm text-slate-500 dark:text-slate-400 truncate">
+                {{ user.email }}
+              </p>
+            </div>
+          </div>
+        </div>
+      } @empty {
+        <div class="col-span-full flex flex-col items-center justify-center py-20 space-y-4">
+          <div class="animate-bounce p-4 bg-slate-200 dark:bg-slate-700 rounded-full">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-10 w-10 text-slate-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+              />
+            </svg>
+          </div>
+          <p class="text-slate-500 dark:text-slate-400 font-medium">
+            No users found or loading data...
+          </p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

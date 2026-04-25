@@ -1,55 +1,16 @@
-import { HttpClient } from '@angular/common/http';
-import { computed, Injectable, Signal, signal, WritableSignal } from '@angular/core';
-import { Router } from '@angular/router';
-import { jwtDecode } from 'jwt-decode';
-import { Observable } from 'rxjs';
+import { HttpInterceptorFn } from '@angular/common/http';
 
-@Injectable({
-  providedIn: 'root',
-})
-export class AuthService {
-  userData: WritableSignal<any> = signal(null);
+export const authInterceptor: HttpInterceptorFn = (req, next) => {
+  const token = localStorage.getItem('myToken');
 
-  username: Signal<any> = computed(() => {
-    const user = this.userData();
-    if (!user) return '';
-    return user.email || '';
-  });
-
-  constructor(
-    private readonly httpClient: HttpClient,
-    private readonly router: Router,
-  ) {
-    this.saveUserData();
+  if (token) {
+    const authReq = req.clone({
+      setHeaders: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return next(authReq);
   }
 
-  saveUserData() {
-    const myToken = localStorage.getItem('myToken');
-    if (myToken) {
-      try {
-        const decoded = jwtDecode(myToken);
-        this.userData.set(decoded);
-      } catch (error) {
-        this.signOut();
-      }
-    }
-  }
-
-  signUp(data: any): Observable<any> {
-    return this.httpClient.post('http://localhost:3000/register', data);
-  }
-
-  signIn(data: any): Observable<any> {
-    return this.httpClient.post('http://localhost:3000/login', data);
-  }
-
-  signOut(): void {
-    localStorage.removeItem('myToken');
-    this.userData.set(null);
-    this.router.navigate(['/login']);
-  }
-
-  allUsers(): Observable<any> {
-    return this.httpClient.get('http://localhost:3000/users');
-  }
-}
+  return next(req);
+};

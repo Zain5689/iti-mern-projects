@@ -44,6 +44,6 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
   allUsers(): Observable<any> {
-    return this.httpClient.get('http://localhost:3000/all-users');
+    return this.httpClient.get('http://localhost:3000/users');
   }
 }
