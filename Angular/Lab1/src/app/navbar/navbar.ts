@@ -1,3 +1,4 @@
+import { AuthService } from '../../app/;
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,4 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './navbar.html',
   styleUrl: './navbar.css',
 })
-export class Navbar {}
+export class Navbar {
+  constructor(public readonly authService: AuthService) {}
+}

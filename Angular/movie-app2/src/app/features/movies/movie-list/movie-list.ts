@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieService } from '../services/movie';
-import { env } from '../../../core/data/env';
+import { env } from '../../../core/env';
 
 @Component({
   selector: 'app-movie-list',

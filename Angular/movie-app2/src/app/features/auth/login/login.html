@@ -1,0 +1,123 @@
+<section
+  class="min-h-screen pt-16 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 flex items-center justify-center p-4 transition-colors duration-500"
+>
+  <div class="w-full max-w-md">
+    <div
+      class="bg-white/80 dark:bg-slate-800/90 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 dark:border-slate-700/50 overflow-hidden"
+    >
+      <div class="p-8 space-y-6">
+        <div class="text-center space-y-2">
+          <h1
+            class="text-3xl font-black tracking-tight bg-gradient-to-r from-blue-600 to-emerald-500 bg-clip-text text-transparent md:text-4xl"
+          >
+            Welcome Back
+          </h1>
+          <p class="text-slate-500 dark:text-slate-400 text-sm font-medium">
+            Please enter your details to sign in
+          </p>
+        </div>
+
+        @if (apiErrors().length > 0) {
+          <div
+            class="p-4 rounded-2xl bg-red-50 dark:bg-red-900/20 border border-red-100 dark:border-red-800/30 animate-pulse"
+          >
+            <ul class="space-y-1">
+              @for (error of apiErrors(); track $index) {
+                <li class="text-red-600 dark:text-red-400 text-xs flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-red-600 dark:bg-red-400"></span>
+                  {{ error }}
+                </li>
+              }
+            </ul>
+          </div>
+        }
+
+        <form class="space-y-6" [formGroup]="loginForm" (ngSubmit)="handleLogin()">
+          <div class="group space-y-1.5">
+            <label
+              class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 ml-1"
+              >Email Address</label
+            >
+            <div class="relative">
+              <input
+                type="email"
+                formControlName="email"
+                placeholder="name@company.com"
+                class="w-full px-4 py-3.5 bg-slate-100/50 dark:bg-slate-700/50 border border-transparent rounded-2xl focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 focus:bg-white dark:focus:bg-slate-700 outline-none transition-all duration-300 dark:text-white placeholder:text-slate-400"
+              />
+            </div>
+            @if (f['email'].touched && f['email'].invalid) {
+              <p class="text-red-500 text-[10px] font-bold italic ml-2">
+                Please enter a valid email address
+              </p>
+            }
+          </div>
+
+          <div class="group space-y-1.5">
+            <div class="flex justify-between items-center px-1">
+              <label
+                class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400"
+                >Password</label
+              >
+            </div>
+            <input
+              type="password"
+              formControlName="password"
+              placeholder="••••••••"
+              class="w-full px-4 py-3.5 bg-slate-100/50 dark:bg-slate-700/50 border border-transparent rounded-2xl focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 focus:bg-white dark:focus:bg-slate-700 outline-none transition-all duration-300 dark:text-white placeholder:text-slate-400"
+            />
+            @if (f['password'].touched && f['password'].invalid) {
+              <p class="text-red-500 text-[10px] font-bold italic ml-2">
+                Password is required to sign in
+              </p>
+            }
+          </div>
+
+          <button
+            type="submit"
+            [disabled]="isLoading() || loginForm.invalid"
+            class="group relative w-full overflow-hidden text-white bg-blue-600 hover:bg-blue-700 disabled:bg-slate-400 font-bold rounded-2xl text-sm px-5 py-4 transition-all duration-300 shadow-lg shadow-blue-500/30 active:scale-[0.98] flex justify-center items-center gap-3"
+          >
+            <div
+              class="absolute inset-0 w-1/2 h-full bg-white/10 skew-x-[-20deg] -translate-x-full group-hover:translate-x-[250%] transition-transform duration-700"
+            ></div>
+
+            @if (isLoading()) {
+              <span
+                class="animate-spin border-2 border-white border-t-transparent rounded-full w-5 h-5"
+              ></span>
+              <span>Verifying...</span>
+            } @else {
+              <span>Sign In</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-4 w-4 group-hover:translate-x-1 transition-transform"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                />
+              </svg>
+            }
+          </button>
+
+          <div class="pt-4 text-center">
+            <p class="text-sm text-slate-500 dark:text-slate-400">
+              Don't have an account?
+              <a
+                routerLink="/register"
+                class="text-blue-600 dark:text-blue-400 font-bold hover:underline decoration-2 underline-offset-4"
+                >Create one now</a
+              >
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

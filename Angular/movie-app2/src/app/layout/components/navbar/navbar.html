@@ -5,7 +5,7 @@
     <div class="flex items-center justify-between h-16">
       <div class="shrink-0 flex items-center">
         <a
-          class="text-2xl font-black tracking-tighter bg-linear-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent"
+          class="text-2xl font-black tracking-tighter bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent"
           routerLink="/"
         >
           MovieApp
@@ -35,22 +35,49 @@
             class="px-4 py-2 rounded-md text-sm font-medium hover:bg-slate-800 transition-all text-white"
             >Contact</a
           >
-          <a
-            routerLink="/movies"
-            routerLinkActive="bg-slate-800 text-blue-400"
-            class="px-4 py-2 rounded-md text-sm font-medium hover:bg-slate-800 transition-all text-white"
-            >All Movies</a
-          >
-          <a
-            routerLink="/register"
-            class="px-4 py-2 rounded-md text-sm font-medium hover:bg-slate-800 transition-all bg-slate-800 text-blue-400"
-            >Register
-          </a>
-          <a
-            routerLink="/admin"
-            class="px-4 py-2 rounded-md text-sm font-medium hover:bg-slate-800 transition-all bg-slate-800 text-blue-400"
-            >Admin Dashboard
-          </a>
+
+          @if (authService.userData()) {
+            <a
+              routerLink="/movies"
+              routerLinkActive="bg-slate-800 text-blue-400"
+              class="px-4 py-2 rounded-md text-sm font-medium hover:bg-slate-800 transition-all text-white"
+              >All Movies</a
+            >
+
+            <a
+              routerLink="/users"
+              routerLinkActive="bg-slate-800 text-blue-400"
+              class="px-4 py-2 rounded-md text-sm font-medium hover:bg-slate-800 transition-all text-white"
+              >Users</a
+            >
+
+            <span
+              class="px-4 py-2 text-sm font-bold text-emerald-400 border-l border-slate-700 ml-2"
+            >
+              Hi, {{ authService.username() }}
+            </span>
+
+            <button
+              (click)="authService.signOut()"
+              class="px-4 py-2 rounded-md text-sm font-medium text-red-400 hover:bg-red-500/10 transition-all"
+            >
+              Logout
+            </button>
+          } @else {
+            <a
+              routerLink="/login"
+              routerLinkActive="bg-slate-800 text-blue-400"
+              class="px-4 py-2 rounded-md text-sm font-medium hover:bg-slate-800 transition-all text-white"
+              >Login</a
+            >
+
+            <a
+              routerLink="/register"
+              class="px-4 py-2 rounded-md text-sm font-medium bg-blue-600 text-white hover:bg-blue-500 transition-all shadow-lg shadow-blue-500/20"
+            >
+              Register
+            </a>
+          }
         </div>
       </div>
     </div>

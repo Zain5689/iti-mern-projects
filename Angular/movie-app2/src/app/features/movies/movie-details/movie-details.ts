@@ -2,7 +2,7 @@ import { Component, inject, signal, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Movie } from '../../../shared/models/interfaces/movie.model';
 import { MovieService } from '../services/movie';
-import { env } from '../../../core/data/env';
+import { env } from '../../../core/env';
 
 @Component({
   selector: 'app-movie-details',

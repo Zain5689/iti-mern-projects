@@ -1,134 +1,136 @@
-<section class="pt-8 pb-7.5 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-  <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
+<section
+  class="min-h-screen pt-16 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 flex items-center justify-center p-4 transition-colors duration-500"
+>
+  <div class="w-full max-w-md">
     <div
-      class="w-full bg-white rounded-2xl shadow-xl dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700 overflow-hidden"
+      class="bg-white/80 dark:bg-slate-800/90 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 dark:border-slate-700/50 overflow-hidden"
     >
-      <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-        <h1
-          class="text-2xl font-black leading-tight tracking-tight md:text-3xl text-center text-blue-500"
-        >
-          Create Account
-        </h1>
+      <div class="p-8 space-y-6">
+        <div class="text-center space-y-2">
+          <h1
+            class="text-3xl font-black tracking-tight bg-gradient-to-r from-blue-600 to-emerald-500 bg-clip-text text-transparent"
+          >
+            Create Account
+          </h1>
+          <p class="text-slate-500 dark:text-slate-400 text-sm font-medium">
+            Join our community today
+          </p>
+        </div>
+
+        @if (apiErrors().length > 0) {
+          <div
+            class="p-4 rounded-2xl bg-red-50 dark:bg-red-900/20 border border-red-100 dark:border-red-800/30 animate-pulse"
+          >
+            <ul class="space-y-1">
+              @for (error of apiErrors(); track $index) {
+                <li class="text-red-600 dark:text-red-400 text-xs flex items-center gap-2">
+                  <span class="w-1 h-1 rounded-full bg-red-600 dark:bg-red-400"></span>
+                  {{ error }}
+                </li>
+              }
+            </ul>
+          </div>
+        }
 
         <form class="space-y-5" [formGroup]="registerForm" (ngSubmit)="handleRegister()">
-          <div class="space-y-2">
-            <label for="name" class="block text-sm font-semibold text-gray-700 dark:text-gray-300"
-              >Your Name</label
+          <div class="group space-y-1.5">
+            <label
+              class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 ml-1"
+              >Full Name</label
             >
-            <input
-              type="text"
-              id="name"
-              placeholder="John Doe"
-              formControlName="name"
-              class="w-full px-4 py-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400 shadow-sm"
-            />
-            @if (registerForm.get('name')?.errors && registerForm.get('name')?.touched) {
-              <div
-                class="flex items-start gap-2 p-3 rounded-lg bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-xs font-medium animate-pulse"
-              >
-                <ul class="list-disc list-inside">
-                  @if (registerForm.get('name')?.getError('required')) {
-                    <li>Name is Required</li>
-                  }
-                  @if (registerForm.get('name')?.getError('minlength')) {
-                    <li>Too short (min 3 chars)</li>
-                  }
-                  @if (registerForm.get('name')?.getError('maxlength')) {
-                    <li>Too long (max 20 chars)</li>
-                  }
-                </ul>
-              </div>
+            <div class="relative">
+              <input
+                type="text"
+                formControlName="fullName"
+                placeholder="John Doe"
+                class="w-full px-4 py-3.5 bg-slate-100/50 dark:bg-slate-700/50 border border-transparent rounded-2xl focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 focus:bg-white dark:focus:bg-slate-700 outline-none transition-all duration-300 dark:text-white placeholder:text-slate-400"
+              />
+            </div>
+            @if (f['fullName'].touched && f['fullName'].invalid) {
+              <p class="text-red-500 text-[10px] font-bold italic ml-2">
+                Name is required (3-20 chars)
+              </p>
             }
           </div>
 
-          <div class="space-y-2">
-            <label for="email" class="block text-sm font-semibold text-gray-700 dark:text-gray-300"
-              >Your Email</label
+          <div class="group space-y-1.5">
+            <label
+              class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 ml-1"
+              >Email Address</label
             >
             <input
               type="email"
-              id="email"
-              placeholder="name@company.com"
               formControlName="email"
-              class="w-full px-4 py-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400 shadow-sm"
+              placeholder="example@mail.com"
+              class="w-full px-4 py-3.5 bg-slate-100/50 dark:bg-slate-700/50 border border-transparent rounded-2xl focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 focus:bg-white dark:focus:bg-slate-700 outline-none transition-all duration-300 dark:text-white placeholder:text-slate-400"
             />
-            @if (registerForm.get('email')?.errors && registerForm.get('email')?.touched) {
-              <div class="p-2 rounded-lg text-red-500 text-xs font-bold">
-                @if (registerForm.get('email')?.getError('required')) {
-                  <span>⚠ Email is Required</span>
-                }
-                @if (registerForm.get('email')?.getError('email')) {
-                  <span>⚠ Enter a valid email</span>
-                }
-              </div>
+            @if (f['email'].touched && f['email'].invalid) {
+              <p class="text-red-500 text-[10px] font-bold italic ml-2">
+                Please enter a valid email
+              </p>
             }
           </div>
 
-          <div class="space-y-2">
+          <div class="group space-y-1.5">
             <label
-              for="password"
-              class="block text-sm font-semibold text-gray-700 dark:text-gray-300"
+              class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 ml-1"
               >Password</label
             >
             <input
               type="password"
-              id="password"
-              placeholder="••••••••"
               formControlName="password"
-              class="w-full px-4 py-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all dark:bg-gray-700 dark:border-gray-600 dark:text-white shadow-sm"
+              placeholder="••••••••"
+              class="w-full px-4 py-3.5 bg-slate-100/50 dark:bg-slate-700/50 border border-transparent rounded-2xl focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 focus:bg-white dark:focus:bg-slate-700 outline-none transition-all duration-300 dark:text-white placeholder:text-slate-400"
             />
-            @if (registerForm.get('password')?.errors && registerForm.get('password')?.touched) {
-              <div class="text-red-500 text-xs px-1">
-                @if (registerForm.get('password')?.getError('required')) {
-                  <p>Password is required</p>
-                }
-                @if (registerForm.get('password')?.getError('minlength')) {
-                  <p>Minimum 6 characters</p>
-                }
-              </div>
+            @if (f['password'].touched && f['password'].invalid) {
+              <p class="text-red-500 text-[10px] font-bold italic ml-2">
+                Security: 8+ chars (A-z, 0-9)
+              </p>
             }
           </div>
 
-          <div class="space-y-2">
+          <div class="group space-y-1.5">
             <label
-              for="confirm-password"
-              class="block text-sm font-semibold text-gray-700 dark:text-gray-300"
+              class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 ml-1"
               >Confirm Password</label
             >
             <input
               type="password"
-              id="confirm-password"
-              placeholder="••••••••"
               formControlName="confirmPassword"
-              class="w-full px-4 py-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all dark:bg-gray-700 dark:border-gray-600 dark:text-white shadow-sm"
+              placeholder="••••••••"
+              class="w-full px-4 py-3.5 bg-slate-100/50 dark:bg-slate-700/50 border border-transparent rounded-2xl focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 focus:bg-white dark:focus:bg-slate-700 outline-none transition-all duration-300 dark:text-white placeholder:text-slate-400"
             />
-            @if (
-              registerForm.get('confirmPassword')?.errors &&
-              registerForm.get('confirmPassword')?.touched
-            ) {
-              <div class="text-red-500 text-xs px-1">
-                @if (registerForm.get('confirmPassword')?.getError('required')) {
-                  <p>Please confirm your password</p>
-                }
-                @if (registerForm.get('confirmPassword')?.getError('mismatch')) {
-                  <p>Passwords do not match</p>
-                }
-              </div>
+            @if (f['confirmPassword'].touched && registerForm.hasError('mismatch')) {
+              <p class="text-red-500 text-[10px] font-bold italic ml-2">Passwords do not match</p>
             }
           </div>
 
           <button
             type="submit"
-            [disabled]="registerForm.invalid"
-            class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold rounded-xl text-sm px-5 py-4 text-center transition-all active:scale-95 shadow-lg"
+            [disabled]="isLoading() || registerForm.invalid"
+            class="group relative w-full overflow-hidden text-white bg-blue-600 hover:bg-blue-700 disabled:bg-slate-400 font-bold rounded-2xl text-sm px-5 py-4 transition-all duration-300 shadow-lg shadow-blue-500/30 active:scale-[0.98] flex justify-center items-center gap-3"
           >
-            Create Account
+            <div
+              class="absolute inset-0 w-1/2 h-full bg-white/10 skew-x-[-20deg] -translate-x-full group-hover:translate-x-[250%] transition-transform duration-700"
+            ></div>
+
+            @if (isLoading()) {
+              <span
+                class="animate-spin border-2 border-white border-t-transparent rounded-full w-5 h-5"
+              ></span>
+              <span>Creating...</span>
+            } @else {
+              <span>Create Account</span>
+              <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+            }
           </button>
 
-          <p class="text-sm font-medium text-center text-gray-500 dark:text-gray-400 mt-4">
+          <p class="text-sm text-center text-slate-500 dark:text-slate-400 pt-2">
             Already have an account?
-            <a href="#" class="text-blue-600 hover:underline dark:text-blue-400 font-bold"
-              >Login here</a
+            <a
+              routerLink="/login"
+              class="text-blue-600 dark:text-blue-400 font-bold hover:underline decoration-2 underline-offset-4"
+              >Sign In</a
             >
           </p>
         </form>

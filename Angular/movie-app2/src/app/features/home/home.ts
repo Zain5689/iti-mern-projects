@@ -4,7 +4,7 @@ import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { TestimonialCard } from '../../shared/components/testimonial-card/testimonial-card';
 import { MovieCard } from '../movies/movie-card/movie-card';
-import { env } from '../../core/data/env';
+import { env } from '../../core/env';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs';
 

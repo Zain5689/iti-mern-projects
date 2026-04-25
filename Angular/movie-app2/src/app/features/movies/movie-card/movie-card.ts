@@ -1,4 +1,4 @@
-import { env } from './../../../core/data/env';
+import { env } from '../../../core/env';
 import { Component, Input, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { Movie } from '../../../shared/models/interfaces/movie.model';

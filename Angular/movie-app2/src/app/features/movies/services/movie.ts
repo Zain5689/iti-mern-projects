@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import { Movie } from '../../../shared/models/interfaces/movie.model';
-import { env } from '../../../core/data/env';
+import { env } from '../../../core/env';
 
 @Injectable({
   providedIn: 'root',

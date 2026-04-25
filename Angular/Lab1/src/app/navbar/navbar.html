@@ -1,49 +1,76 @@
 <nav class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 px-6 py-4">
   <div class="max-w-7xl mx-auto flex justify-between items-center">
-    <div class="group cursor-pointer flex items-center gap-2">
+    <div class="group cursor-pointer flex items-center gap-2" routerLink="/home">
       <div
         class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center text-white font-bold transform group-hover:rotate-12 transition-transform shadow-lg shadow-blue-500/20"
       >
         L
       </div>
       <span class="text-xl font-extrabold text-white tracking-tight">
-        ab<span class="text-blue-500">1</span>
+        Lab<span class="text-blue-500">1</span>
       </span>
     </div>
 
     <ul class="hidden md:flex items-center space-x-1">
       <li>
         <a
-          href="#"
-          class="px-4 py-2 rounded-full text-sm font-semibold text-white bg-white/10 transition-all border border-white/5"
+          routerLink="/home"
+          routerLinkActive="bg-white/10 text-white"
+          class="px-4 py-2 rounded-full text-sm font-semibold text-slate-400 hover:text-white transition-all"
         >
           Home
         </a>
       </li>
+
+      @if (authService.userData()) {
+        <li>
+          <a
+            routerLink="/users"
+            routerLinkActive="bg-white/10 text-white"
+            class="px-4 py-2 rounded-full text-sm font-medium text-slate-400 hover:text-white hover:bg-white/5 transition-all"
+          >
+            Users
+          </a>
+        </li>
+      }
+
       <li>
         <a
-          href="#"
+          routerLink="/about"
+          routerLinkActive="bg-white/10 text-white"
           class="px-4 py-2 rounded-full text-sm font-medium text-slate-400 hover:text-white hover:bg-white/5 transition-all"
         >
           About
         </a>
       </li>
-      <li>
-        <a
-          href="#"
-          class="px-4 py-2 rounded-full text-sm font-medium text-slate-400 hover:text-white hover:bg-white/5 transition-all"
-        >
-          Users
-        </a>
-      </li>
     </ul>
 
-    <div class="flex items-center">
-      <button
-        class="bg-blue-600 text-white px-5 py-2 rounded-full text-xs font-bold hover:bg-blue-500 transition-all shadow-lg shadow-blue-600/20 active:scale-95"
-      >
-        Contact Us
-      </button>
+    <div class="flex items-center gap-4">
+      @if (!authService.userData()) {
+        <a
+          routerLink="/login"
+          class="text-slate-400 hover:text-white text-sm font-semibold transition-all"
+          >Login</a
+        >
+        <a
+          routerLink="/register"
+          class="bg-blue-600 text-white px-5 py-2 rounded-full text-xs font-bold hover:bg-blue-500 transition-all shadow-lg active:scale-95"
+        >
+          Register
+        </a>
+      } @else {
+        <div class="flex items-center gap-3">
+          <span class="text-blue-400 text-sm font-bold border-r border-slate-700 pr-3">
+            Hi, {{ authService.username() || 'User' }}
+          </span>
+          <button
+            (click)="handleLogout()"
+            class="text-red-400 hover:text-red-300 text-xs font-bold uppercase tracking-widest transition-all"
+          >
+            Logout
+          </button>
+        </div>
+      }
     </div>
   </div>
 </nav>
