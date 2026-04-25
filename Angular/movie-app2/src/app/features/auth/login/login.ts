@@ -1,7 +1,7 @@
 import { Component, signal, WritableSignal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { AuthService } from '../../../Services/auth-service';
+import { AuthService } from '../../../core/Services/auth-service';
 
 @Component({
   selector: 'app-login',
@@ -37,7 +37,7 @@ export class Login {
         next: (res) => {
           this.isLoading.set(false);
           localStorage.setItem('myToken', res.token);
-          this.authService.saveUserData(); // لتحديث اسم المستخدم في الـ Navbar فوراً
+          this.authService.saveUserData();
           this.router.navigate(['/home']);
         },
         error: (err) => {

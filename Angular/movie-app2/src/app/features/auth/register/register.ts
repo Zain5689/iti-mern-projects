@@ -6,8 +6,8 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { AuthService } from '../../../Services/auth-service';
 import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../../../core/Services/auth-service';
 
 @Component({
   selector: 'app-register',
@@ -72,7 +72,6 @@ export class Register {
         },
         error: (err) => {
           this.isLoading.set(false);
-          // معالجة الأخطاء القادمة من السيرفر
           const errorData = err.error?.errors || [err.error?.message || 'Registration Failed'];
           this.apiErrors.set(Array.isArray(errorData) ? errorData : [errorData]);
         },
