@@ -11,7 +11,6 @@ export async function getMongoConnection(
       console.log(`Attempting to connect to: ${finalUrl}`);
 
       const connection = createConnection(finalUrl);
-
       connection.on('connecting', () => {
         console.log('Connecting to MongoDB...');
       });

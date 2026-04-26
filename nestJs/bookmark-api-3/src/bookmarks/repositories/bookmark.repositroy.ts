@@ -1,10 +1,10 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Scope } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { AddressBook, AddressBookDocument } from '../core/model/bookmark.model';
 import { CreateBookmarkDto, UpdateBookmarkDto } from '../core/dto/bookmark.dto';
 
-@Injectable()
+@Injectable({ scope: Scope.DEFAULT })
 export class AddressBookRepository {
   constructor(
     @InjectModel(AddressBook.name)

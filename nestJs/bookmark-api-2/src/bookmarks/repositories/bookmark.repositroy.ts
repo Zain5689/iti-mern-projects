@@ -1,6 +1,9 @@
 import { Inject, Injectable, Scope } from '@nestjs/common';
 import { Model } from 'mongoose';
-import { AddressBook, AddressBookDocument } from '../core/model/bookmark.model';
+import {
+  AddressBook,
+  AddressBookDocument,
+} from '../core/model/address-book.model';
 
 type CreateAddressBookPayload = Omit<AddressBook, 'id'>;
 type UpdateAddressBookPayload = Partial<

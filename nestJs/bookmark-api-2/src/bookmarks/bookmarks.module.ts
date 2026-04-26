@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { DatabaseModule } from '../database/database.module';
-import { AddressBookSchema } from './core/model/bookmark.model';
+import { AddressBookSchema } from './core/model/address-book.model';
 import { BookmarksController } from './controllers/bookmarks.controller';
 import { AddressBookRepository } from './repositories/bookmark.repositroy';
 import { BookmarksService } from './services/bookmarks.service';

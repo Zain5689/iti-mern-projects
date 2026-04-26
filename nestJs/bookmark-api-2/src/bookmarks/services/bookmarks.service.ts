@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateBookmarkDto, UpdateBookmarkDto } from '../core/dto/bookmark.dto';
-import { AddressBook } from '../core/model/bookmark.model';
+import { AddressBook } from '../core/model/address-book.model';
 import { AddressBookRepository } from '../repositories/bookmark.repositroy';
 
 @Injectable()

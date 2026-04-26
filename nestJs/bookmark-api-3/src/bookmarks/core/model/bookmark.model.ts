@@ -5,7 +5,6 @@ export type AddressBookDocument = AddressBook & Document;
 
 @Schema({
   timestamps: { createdAt: 'createdDate', updatedAt: 'updatedDate' },
-  versionKey: false,
 })
 export class AddressBook {
   @Prop({ required: true, unique: true })
