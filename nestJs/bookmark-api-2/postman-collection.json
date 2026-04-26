@@ -1,0 +1,628 @@
+{
+  "info": {
+    "name": "Bookmark API",
+    "description": "Collection for testing the Bookmark API endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Bookmarks",
+      "item": [
+        {
+          "name": "Create Bookmark",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"https://www.example.com\",\n  \"title\": \"Example Website\",\n  \"description\": \"This is an example bookmark\",\n  \"tags\": [\"example\", \"website\"]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/bookmarks",
+              "host": ["{{base_url}}"],
+              "path": ["bookmarks"]
+            },
+            "description": "Create a new bookmark with required url and title fields"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 201', function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "pm.test('Response has id field', function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('id');",
+                  "});",
+                  "",
+                  "pm.test('Response has correct title', function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.title).to.eql('Example Website');",
+                  "});",
+                  "",
+                  "// Store the bookmark id for later use",
+                  "pm.environment.set('bookmark_id', pm.response.json().id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get All Bookmarks",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/bookmarks",
+              "host": ["{{base_url}}"],
+              "path": ["bookmarks"]
+            },
+            "description": "Retrieve all bookmarks"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('Response is an array', function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(Array.isArray(jsonData)).to.be.true;",
+                  "});",
+                  "",
+                  "pm.test('Bookmarks have required fields', function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    if (jsonData.length > 0) {",
+                  "        pm.expect(jsonData[0]).to.have.property('id');",
+                  "        pm.expect(jsonData[0]).to.have.property('title');",
+                  "        pm.expect(jsonData[0]).to.have.property('url');",
+                  "    }",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get Bookmark by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/bookmarks/{{bookmark_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["bookmarks", "{{bookmark_id}}"]
+            },
+            "description": "Retrieve a specific bookmark by its ID"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('Response has bookmark data', function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('id');",
+                  "    pm.expect(jsonData).to.have.property('title');",
+                  "    pm.expect(jsonData).to.have.property('url');",
+                  "});",
+                  "",
+                  "pm.test('Returned bookmark ID matches request', function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.id).to.eql(pm.environment.get('bookmark_id'));",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Update Bookmark",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Updated Example Website\",\n  \"description\": \"Updated description for the bookmark\",\n  \"tags\": [\"updated\", \"modified\"]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/bookmarks/{{bookmark_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["bookmarks", "{{bookmark_id}}"]
+            },
+            "description": "Update an existing bookmark with partial data"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('Bookmark title was updated', function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.title).to.eql('Updated Example Website');",
+                  "});",
+                  "",
+                  "pm.test('Bookmark description was updated', function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.description).to.eql('Updated description for the bookmark');",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Delete Bookmark",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/bookmarks/{{bookmark_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["bookmarks", "{{bookmark_id}}"]
+            },
+            "description": "Delete a bookmark by its ID"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('Bookmark was successfully deleted', function () {",
+                  "    pm.expect(pm.response.code).to.be.oneOf([200, 204]);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get Bookmark (Not Found)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/bookmarks/invalid-id",
+              "host": ["{{base_url}}"],
+              "path": ["bookmarks", "invalid-id"]
+            },
+            "description": "Test error handling - retrieve a non-existent bookmark"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 404', function () {",
+                  "    pm.response.to.have.status(404);",
+                  "});",
+                  "",
+                  "pm.test('Error message mentions bookmark not found', function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.message).to.include('not found');",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Create Bookmark (Minimal)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"https://www.github.com\",\n  \"title\": \"GitHub\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/bookmarks",
+              "host": ["{{base_url}}"],
+              "path": ["bookmarks"]
+            },
+            "description": "Create a bookmark with only required fields (url and title)"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 201', function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "pm.test('Response has all required fields', function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('id');",
+                  "    pm.expect(jsonData).to.have.property('title').to.eql('GitHub');",
+                  "    pm.expect(jsonData).to.have.property('url').to.eql('https://www.github.com');",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Create Bookmark - Development",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"https://developer.mozilla.org\",\n  \"title\": \"MDN Web Docs\",\n  \"description\": \"Comprehensive JavaScript, CSS, and HTML documentation for web developers\",\n  \"tags\": [\"development\", \"documentation\", \"web\", \"javascript\"]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/bookmarks",
+              "host": ["{{base_url}}"],
+              "path": ["bookmarks"]
+            },
+            "description": "Create a development/documentation bookmark"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 201', function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "pm.test('Bookmark has development tags', function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.tags).to.include('development');",
+                  "    pm.expect(jsonData.tags).to.include('javascript');",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Create Bookmark - Social Media",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"https://www.youtube.com\",\n  \"title\": \"YouTube\",\n  \"description\": \"Video sharing platform for entertainment and learning\",\n  \"tags\": [\"social\", \"video\", \"entertainment\", \"learning\"]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/bookmarks",
+              "host": ["{{base_url}}"],
+              "path": ["bookmarks"]
+            },
+            "description": "Create a social media bookmark"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 201', function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "pm.test('Bookmark has social media tags', function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.tags).to.include('social');",
+                  "    pm.expect(jsonData.tags).to.include('video');",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Create Bookmark - Learning",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"https://stackoverflow.com\",\n  \"title\": \"Stack Overflow\",\n  \"description\": \"Q&A platform for programming and web development questions\",\n  \"tags\": [\"learning\", \"qa\", \"programming\", \"reference\"]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/bookmarks",
+              "host": ["{{base_url}}"],
+              "path": ["bookmarks"]
+            },
+            "description": "Create a learning/reference bookmark"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 201', function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "pm.test('Bookmark has learning tags', function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.tags).to.include('learning');",
+                  "    pm.expect(jsonData.tags).to.include('reference');",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Create Bookmark - Productivity",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"https://www.notion.so\",\n  \"title\": \"Notion\",\n  \"description\": \"All-in-one workspace for notes, databases, and project management\",\n  \"tags\": [\"productivity\", \"tools\", \"notes\", \"organization\"]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/bookmarks",
+              "host": ["{{base_url}}"],
+              "path": ["bookmarks"]
+            },
+            "description": "Create a productivity tools bookmark"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 201', function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "pm.test('Bookmark has productivity tags', function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.tags).to.include('productivity');",
+                  "    pm.expect(jsonData.tags).to.include('tools');",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Create Bookmark - News",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"https://www.medium.com\",\n  \"title\": \"Medium\",\n  \"description\": \"Publishing platform for articles on technology, business, and self-improvement\",\n  \"tags\": [\"news\", \"articles\", \"tech\", \"blogging\"]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/bookmarks",
+              "host": ["{{base_url}}"],
+              "path": ["bookmarks"]
+            },
+            "description": "Create a news/articles bookmark"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 201', function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "pm.test('Bookmark has news tags', function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.tags).to.include('news');",
+                  "    pm.expect(jsonData.tags).to.include('articles');",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Create Bookmark - Design",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"https://www.figma.com\",\n  \"title\": \"Figma\",\n  \"description\": \"Cloud-based design and prototyping tool for UI/UX designers\",\n  \"tags\": [\"design\", \"ui\", \"ux\", \"prototyping\", \"tools\"]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/bookmarks",
+              "host": ["{{base_url}}"],
+              "path": ["bookmarks"]
+            },
+            "description": "Create a design tools bookmark"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 201', function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "pm.test('Bookmark has design tags', function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.tags).to.include('design');",
+                  "    pm.expect(jsonData.tags).to.include('ui');",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Create Bookmark - Finance",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"https://www.coinbase.com\",\n  \"title\": \"Coinbase\",\n  \"description\": \"Cryptocurrency exchange platform for buying and selling crypto assets\",\n  \"tags\": [\"finance\", \"crypto\", \"investment\", \"trading\"]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/bookmarks",
+              "host": ["{{base_url}}"],
+              "path": ["bookmarks"]
+            },
+            "description": "Create a finance/crypto bookmark"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 201', function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "pm.test('Bookmark has finance tags', function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.tags).to.include('finance');",
+                  "    pm.expect(jsonData.tags).to.include('crypto');",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Create Bookmark - Entertainment",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"https://www.netflix.com\",\n  \"title\": \"Netflix\",\n  \"description\": \"Streaming service for movies, TV shows, and documentaries\",\n  \"tags\": [\"entertainment\", \"streaming\", \"movies\", \"tv\"]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/bookmarks",
+              "host": ["{{base_url}}"],
+              "path": ["bookmarks"]
+            },
+            "description": "Create an entertainment/streaming bookmark"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 201', function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "pm.test('Bookmark has entertainment tags', function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.tags).to.include('entertainment');",
+                  "    pm.expect(jsonData.tags).to.include('streaming');",
+                  "});"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000",
+      "type": "string"
+    },
+    {
+      "key": "bookmark_id",
+      "value": "",
+      "type": "string"
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "id": "bookmark-api-env",
+  "name": "Bookmark API - Local",
+  "values": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000",
+      "type": "string",
+      "enabled": true
+    },
+    {
+      "key": "bookmark_id",
+      "value": "",
+      "type": "string",
+      "enabled": true
+    },
+    {
+      "key": "sample_url_1",
+      "value": "https://www.github.com",
+      "type": "string",
+      "enabled": true
+    },
+    {
+      "key": "sample_url_2",
+      "value": "https://developer.mozilla.org",
+      "type": "string",
+      "enabled": true
+    },
+    {
+      "key": "sample_url_3",
+      "value": "https://stackoverflow.com",
+      "type": "string",
+      "enabled": true
+    },
+    {
+      "key": "sample_title_1",
+      "value": "GitHub - Where the world builds software",
+      "type": "string",
+      "enabled": true
+    },
+    {
+      "key": "sample_title_2",
+      "value": "MDN Web Docs - Resources for developers",
+      "type": "string",
+      "enabled": true
+    },
+    {
+      "key": "sample_title_3",
+      "value": "Stack Overflow - Q&A for developers",
+      "type": "string",
+      "enabled": true
+    },
+    {
+      "key": "sample_tags_development",
+      "value": "[\"development\", \"documentation\", \"web\", \"javascript\"]",
+      "type": "string",
+      "enabled": true
+    },
+    {
+      "key": "sample_tags_social",
+      "value": "[\"social\", \"video\", \"entertainment\", \"learning\"]",
+      "type": "string",
+      "enabled": true
+    },
+    {
+      "key": "sample_tags_learning",
+      "value": "[\"learning\", \"qa\", \"programming\", \"reference\"]",
+      "type": "string",
+      "enabled": true
+    },
+    {
+      "key": "sample_description_dev",
+      "value": "Comprehensive documentation for web development technologies",
+      "type": "string",
+      "enabled": true
+    },
+    {
+      "key": "sample_description_qa",
+      "value": "The largest online community for programmers",
+      "type": "string",
+      "enabled": true
+    }
+  ],
+  "_postman_variable_scope": "environment",
+  "_postman_exported_at": "2024-01-01T00:00:00.000Z",
+  "_postman_exported_using": "Postman/v11.0.0"
+}
