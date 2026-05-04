@@ -1,0 +1,108 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  background: #f4f7fb;
+  color: #1f2937;
+}
+
+main {
+  max-width: 980px;
+  margin: 40px auto;
+  padding: 0 20px 40px;
+}
+
+h1 {
+  font-size: 2.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 30px rgba(31, 41, 55, 0.08);
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+textarea {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 1rem;
+  resize: vertical;
+}
+
+select {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.form-row {
+  display: grid;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  margin-right: 12px;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error {
+  color: #b91c1c;
+  margin-top: 1rem;
+}
+
+.status {
+  color: #064e3b;
+  margin-top: 0.75rem;
+  font-weight: 600;
+}
+
+.results-card pre {
+  background: #f8fafc;
+  padding: 16px;
+  border-radius: 10px;
+  overflow-x: auto;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.result-group {
+  margin-bottom: 16px;
+}
+
+.info-card p {
+  margin: 0.75rem 0;
+  line-height: 1.7;
+}

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QuickSort Lab</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <h1>QuickSort Lab</h1>
+
+      <section class="card">
+        <h2>Array Input</h2>
+        <label for="array-input">Enter numbers separated by commas</label>
+        <textarea
+          id="array-input"
+          rows="4"
+          placeholder="e.g. 5, 2, 9, 1, 5, 6"
+        ></textarea>
+
+        <div class="form-row">
+          <label for="algorithm-select">Choose algorithm</label>
+          <select id="algorithm-select">
+            <option value="recursive">QuickSort (recursive)</option>
+            <option value="iterative">QuickSort (iterative)</option>
+            <option value="in-place">QuickSort (in-place)</option>
+            <option value="builtin">Built-in sort</option>
+          </select>
+        </div>
+
+        <button id="sort-button">Sort Array</button>
+        <button id="benchmark-button">Run Benchmark</button>
+        <p id="error-message" class="error"></p>
+        <p id="status-message" class="status"></p>
+      </section>
+
+      <section class="card results-card">
+        <h2>Results</h2>
+        <div class="result-group">
+          <strong>Sorted output:</strong>
+          <pre id="sorted-output">No output yet.</pre>
+        </div>
+        <div class="result-group">
+          <strong>Performance:</strong>
+          <pre id="performance-output">No benchmark performed yet.</pre>
+        </div>
+      </section>
+
+      <section class="card info-card">
+        <h2>QuickSort Notes</h2>
+        <p>
+          QuickSort is a comparison-based divide-and-conquer algorithm. It
+          performs well in practice and usually sorts in
+          <strong>O(n log n)</strong> time on average.
+        </p>
+        <p>
+          Use the benchmark button to compare the selected algorithm against
+          JavaScript's built-in sort.
+        </p>
+      </section>
+    </main>
+
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
