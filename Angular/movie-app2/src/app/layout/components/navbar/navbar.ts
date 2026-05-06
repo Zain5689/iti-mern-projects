@@ -10,6 +10,6 @@ import { AuthService } from '../../../core/Services/auth-service';
 })
 export class Navbar {
   constructor(public authService: AuthService) {
-    console.log(this.authService.username());
+    console.log(this.authService.username);
   }
 }

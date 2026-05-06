@@ -11,14 +11,16 @@ export class AuthService {
   private readonly httpClient = inject(HttpClient);
   private readonly router = inject(Router);
 
-  // توحيد الرابط مع السيرفر
   private readonly baseUrl = 'http://localhost:3000/api/auth';
+  private readonly baseUr2 = 'http://localhost:3000/api';
 
   userData: WritableSignal<any> = signal(null);
 
   username: Signal<any> = computed(() => {
     const user = this.userData();
-    return user ? user.email || user.name || '' : '';
+    console.log(user);
+
+    return user ? user.email.slice(0, user.email.indexOf('@')) : '';
   });
 
   constructor() {
@@ -45,7 +47,7 @@ export class AuthService {
     return this.httpClient.post(`${this.baseUrl}/login`, data);
   }
   allUsers(): Observable<any> {
-    return this.httpClient.get(`${this.baseUrl}/users`);
+    return this.httpClient.get(`${this.baseUr2}/users`);
   }
 
   signOut(): void {
