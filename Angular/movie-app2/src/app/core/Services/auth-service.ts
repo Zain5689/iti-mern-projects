@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { computed, Injectable, Signal, signal, WritableSignal } from '@angular/core';
+import { computed, Injectable, Signal, signal, WritableSignal, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
 import { Observable } from 'rxjs';
@@ -8,18 +8,20 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
+  private readonly httpClient = inject(HttpClient);
+  private readonly router = inject(Router);
+
+  // توحيد الرابط مع السيرفر
+  private readonly baseUrl = 'http://localhost:3000/api/auth';
+
   userData: WritableSignal<any> = signal(null);
 
   username: Signal<any> = computed(() => {
     const user = this.userData();
-    if (!user) return '';
-    return user.email || user.name || '';
+    return user ? user.email || user.name || '' : '';
   });
 
-  constructor(
-    private readonly httpClient: HttpClient,
-    private readonly router: Router,
-  ) {
+  constructor() {
     this.saveUserData();
   }
 
@@ -36,11 +38,14 @@ export class AuthService {
   }
 
   signUp(data: any): Observable<any> {
-    return this.httpClient.post('http://localhost:3000/register', data);
+    return this.httpClient.post(`${this.baseUrl}/register`, data);
   }
 
   signIn(data: any): Observable<any> {
-    return this.httpClient.post('http://localhost:3000/login', data);
+    return this.httpClient.post(`${this.baseUrl}/login`, data);
+  }
+  allUsers(): Observable<any> {
+    return this.httpClient.get(`${this.baseUrl}/users`);
   }
 
   signOut(): void {
@@ -49,7 +54,7 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
 
-  allUsers(): Observable<any> {
-    return this.httpClient.get('http://localhost:3000/users');
+  isAuthenticated(): boolean {
+    return !!this.userData();
   }
 }
