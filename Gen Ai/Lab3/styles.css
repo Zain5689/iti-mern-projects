@@ -1,0 +1,261 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, "Segoe UI", Roboto, sans-serif;
+  background: #eef2f5;
+  color: #1f2937;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+}
+
+button,
+select,
+input {
+  font: inherit;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: #f08a1d;
+  color: white;
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.08);
+}
+
+.brand {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.control-group select {
+  min-width: 160px;
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  border: none;
+  outline: none;
+  background: white;
+  color: #111827;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.08);
+}
+
+.layout {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  align-items: stretch;
+}
+
+.sidebar {
+  background: #f5f5f5;
+  border-radius: 28px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.new-chat {
+  background: #1f2937;
+  color: #ffffff;
+  border: none;
+  border-radius: 999px;
+  padding: 0.95rem 1.5rem;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: background 0.2s ease;
+}
+
+.new-chat:hover {
+  background: #111827;
+}
+
+.chat-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.chat-list a {
+  display: block;
+  padding: 0.95rem 1rem;
+  border-radius: 16px;
+  color: #1f2937;
+  text-decoration: none;
+  background: white;
+  border: 1px solid transparent;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.chat-list a:hover,
+.chat-list a:focus-visible {
+  background: #ffffff;
+  border-color: #d1d5db;
+}
+
+.chat-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-card {
+  background: white;
+  border-radius: 28px;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  flex: 1;
+  overflow: hidden;
+}
+
+.message-area {
+  flex: 1;
+  min-height: 0;
+  padding: 1.5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.message-area::before {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 100%;
+  margin-bottom: -1px;
+}
+
+.message-area .bubble {
+  max-width: 85%;
+  padding: 0.95rem 1rem;
+  border-radius: 18px;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.message-area .bubble.user {
+  align-self: flex-end;
+  background: #f8fafc;
+  border: 1px solid #d1d5db;
+}
+
+.message-area .bubble.assistant {
+  align-self: flex-start;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+}
+
+.message-area .bubble.assistant img {
+  width: 100%;
+  display: block;
+  margin-top: 0.75rem;
+  border-radius: 16px;
+}
+
+.system-note {
+  text-align: center;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+#fireworks-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.input-bar {
+  position: sticky;
+  bottom: 0;
+  background: white;
+  border-top: 1px solid #e5e7eb;
+  padding: 1rem 1.5rem;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.input-bar input {
+  flex: 1;
+  border: 1px solid #d1d5db;
+  border-radius: 999px;
+  padding: 0.95rem 1.25rem;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.input-bar input:focus {
+  border-color: #9ca3af;
+  box-shadow: 0 0 0 4px rgba(240, 138, 29, 0.08);
+}
+
+.search-btn {
+  border: none;
+  background: #1f2937;
+  color: white;
+  border-radius: 999px;
+  padding: 0.95rem 1.5rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.search-btn:hover {
+  background: #111827;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .control-group select {
+    width: 100%;
+  }
+
+  .sidebar {
+    padding: 1rem;
+  }
+
+  .input-bar {
+    flex-direction: column;
+  }
+
+  .search-btn {
+    width: 100%;
+  }
+}

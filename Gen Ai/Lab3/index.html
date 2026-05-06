@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Chat Demo</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand">AI Chat Demo</div>
+        <div class="control-group">
+          <select id="mode-selector" aria-label="Select model">
+            <option value="chat">GPT-4 (Chat)</option>
+            <option value="image">Image Generation</option>
+          </select>
+        </div>
+      </header>
+
+      <div class="layout">
+        <aside class="sidebar">
+          <button class="new-chat">New Chat</button>
+          <nav class="chat-list" aria-label="Recent chats">
+            <a href="#">Chat 1</a>
+            <a href="#">Chat 2</a>
+            <a href="#">Chat 3</a>
+          </nav>
+        </aside>
+
+        <main class="chat-panel">
+          <section class="chat-card">
+            <div
+              id="message-area"
+              class="message-area"
+              aria-label="Chat messages"
+            ></div>
+            <div class="input-bar">
+              <input
+                id="user-input"
+                type="text"
+                placeholder="Ask Me"
+                aria-label="Ask Me"
+              />
+              <button id="send-btn" class="search-btn" type="button">
+                Search
+              </button>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <canvas id="fireworks-canvas"></canvas>
+    <script src="app.js" defer></script>
+  </body>
+</html>
