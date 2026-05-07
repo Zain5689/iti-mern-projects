@@ -10,10 +10,17 @@ const posts = [
     content: "GQL is a query language",
     authorId: "1",
   },
+  {
+    id: "102",
+    title: "React Tips",
+    content: "Use functional components",
+    authorId: "1",
+  },
 ];
 
 const comments = [
-  { id: "1", content: "Great start!", authorId: "2", postId: "1" },
+  { id: "501", text: "Great post!", authorId: "2", postId: "101" },
+  { id: "502", text: "Thanks!", authorId: "1", postId: "101" },
 ];
 
 module.exports = { users, posts, comments };

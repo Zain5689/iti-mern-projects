@@ -64,10 +64,10 @@ const typeDefs = gql`
     getPostById(id: ID!): Post
     getAllComments: [Comment!]!
     getCommentById(id: ID!): Comment
-    getPostsByUser(userId: ID!): [Post!]!
-    getUserByPost(postId: ID!): User
-    getCommentsByPost(postId: ID!): [Comment!]!
-    getPostByComment(commentId: ID!): Post
+    // getPostsByUser(userId: ID!): [Post!]!
+    // getUserByPost(postId: ID!): User
+    // getCommentsByPost(postId: ID!): [Comment!]!
+    // getPostByComment(commentId: ID!): Post
   }
 
   type Mutation {
