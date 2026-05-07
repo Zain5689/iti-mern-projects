@@ -1,8 +1,12 @@
+// auth.service.ts
+
 import { HttpClient } from '@angular/common/http';
 import { computed, Injectable, Signal, signal, WritableSignal, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
 import { Observable } from 'rxjs';
+import { User } from '../../shared/models/interfaces/user.model';
+import { TokenPayload } from '../../shared/models/interfaces/user.model';
 
 @Injectable({
   providedIn: 'root',
@@ -14,12 +18,13 @@ export class AuthService {
   private readonly baseUrl = 'http://localhost:3000/api/auth';
   private readonly baseUr2 = 'http://localhost:3000/api';
 
-  userData: WritableSignal<any> = signal(null);
+  // Use TokenPayload (not User) for the decoded JWT payload
+  userData: WritableSignal<TokenPayload | null> = signal(null);
 
-  username: Signal<any> = computed(() => {
+  // Computed signal works because TokenPayload has an email field
+  username: Signal<string> = computed(() => {
     const user = this.userData();
     console.log(user);
-
     return user ? user.email.slice(0, user.email.indexOf('@')) : '';
   });
 
@@ -31,7 +36,8 @@ export class AuthService {
     const myToken = localStorage.getItem('myToken');
     if (myToken) {
       try {
-        const decoded = jwtDecode(myToken);
+        // Decode with the TokenPayload type
+        const decoded = jwtDecode<TokenPayload>(myToken);
         this.userData.set(decoded);
       } catch {
         this.signOut();
@@ -39,15 +45,17 @@ export class AuthService {
     }
   }
 
-  signUp(data: any): Observable<any> {
+  // signUp and signIn still use the full User model (including password)
+  signUp(data: User): Observable<any> {
     return this.httpClient.post(`${this.baseUrl}/register`, data);
   }
 
-  signIn(data: any): Observable<any> {
+  signIn(data: User): Observable<any> {
     return this.httpClient.post(`${this.baseUrl}/login`, data);
   }
-  allUsers(): Observable<any> {
-    return this.httpClient.get(`${this.baseUr2}/users`);
+
+  allUsers(): Observable<User[]> {
+    return this.httpClient.get<User[]>(`${this.baseUr2}/users`);
   }
 
   signOut(): void {
