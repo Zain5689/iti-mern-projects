@@ -1,0 +1,1 @@
+import"./chunk-7CGTOI24.js";var t=[{path:"",redirectTo:"movies",pathMatch:"full"},{path:"movies",loadComponent:()=>import("./chunk-ESONFZ4Y.js").then(o=>o.DashboardMovieList),title:"admin/movies"}];export{t as DASHBOAR_ROUTES};
