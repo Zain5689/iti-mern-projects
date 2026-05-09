@@ -6,30 +6,20 @@ const commentQueries = require("./comments/queries");
 const commentMutations = require("./comments/mutations");
 const Post = require("../../models/Post");
 const Comment = require("../../models/Comment");
+const User = require("../../models/User");
 
 const resolvers = {
-  Query: {
-    ...userQueries,
-    ...postQueries,
-    ...commentQueries,
-  },
-
-  Mutation: {
-    ...userMutations,
-    ...postMutations,
-    ...commentMutations,
-  },
-
+  Query: { ...userQueries, ...postQueries, ...commentQueries },
+  Mutation: { ...userMutations, ...postMutations, ...commentMutations },
   Post: {
-    comments: async (post) => {
-      return await Comment.find({ post: post.id }).populate("author");
-    },
+    author: async (post) => await User.findById(post.author),
+    comments: async (post) =>
+      await Comment.find({ post: post.id }).populate("author"),
   },
-
   Comment: {
-    post: async (comment) => {
-      return await Post.findById(comment.post).populate("author");
-    },
+    author: async (comment) => await User.findById(comment.author),
+    post: async (comment) =>
+      await Post.findById(comment.post).populate("author"),
   },
 };
 

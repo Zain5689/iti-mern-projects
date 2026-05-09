@@ -9,12 +9,8 @@ const {
 
 const userMutations = {
   register: async (_, { username, email, password }) => {
-    const existingUser = await User.findOne({
-      $or: [{ email }, { username }],
-    });
-    if (existingUser) {
-      throw new Error("User already exists");
-    }
+    const existingUser = await User.findOne({ $or: [{ email }, { username }] });
+    if (existingUser) throw new Error("User already exists");
 
     const hashedPassword = await hashPassword(password);
     const user = new User({ username, email, password: hashedPassword });
@@ -26,27 +22,18 @@ const userMutations = {
 
   login: async (_, { email, password }) => {
     const user = await User.findOne({ email });
-    if (!user) {
-      throw new Error("User not found");
-    }
+    if (!user) throw new Error("User not found");
 
     const isValidPassword = await verifyPassword(password, user.password);
-    if (!isValidPassword) {
-      throw new Error("Invalid password");
-    }
+    if (!isValidPassword) throw new Error("Invalid password");
 
     const token = generateToken(user.id);
     return { token, user };
   },
 
   updateUser: async (_, { id, username, email }, context) => {
-    if (!context.user) {
-      throw new Error("Authentication required");
-    }
-
-    if (context.user.id !== id) {
-      throw new Error("Not authorized to update this user");
-    }
+    if (!context.user) throw new Error("Authentication required");
+    if (context.user.id !== id) throw new Error("Not authorized");
 
     const updateData = {};
     if (username) updateData.username = username;
@@ -56,20 +43,13 @@ const userMutations = {
   },
 
   deleteUser: async (_, { id }, context) => {
-    if (!context.user) {
-      throw new Error("Authentication required");
-    }
+    if (!context.user) throw new Error("Authentication required");
+    if (context.user.id !== id) throw new Error("Not authorized");
 
-    if (context.user.id !== id) {
-      throw new Error("Not authorized to delete this user");
-    }
-
-    // Delete user's posts and comments
     await Post.deleteMany({ author: id });
     await Comment.deleteMany({ author: id });
     await User.findByIdAndDelete(id);
-
-    return true;
+    return "User and all their data deleted successfully";
   },
 };
 

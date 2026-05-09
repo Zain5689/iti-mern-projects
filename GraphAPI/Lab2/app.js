@@ -7,11 +7,8 @@ const { getUserFromContext } = require("./auth");
 require("dotenv").config();
 
 const app = express();
-
-// Connect to MongoDB
 connectDB();
 
-// Apollo Server setup
 const server = new ApolloServer({
   typeDefs,
   resolvers,
@@ -19,15 +16,11 @@ const server = new ApolloServer({
     const user = await getUserFromContext({ req });
     return { user, req };
   },
-  introspection: true,
-  playground: true,
 });
 
-// Start server
 async function startServer() {
   await server.start();
   server.applyMiddleware({ app });
-
   const PORT = process.env.PORT || 4000;
   app.listen(PORT, () => {
     console.log(
@@ -36,6 +29,4 @@ async function startServer() {
   });
 }
 
-startServer().catch((error) => {
-  console.error("Error starting server:", error);
-});
+startServer().catch((err) => console.error(err));
