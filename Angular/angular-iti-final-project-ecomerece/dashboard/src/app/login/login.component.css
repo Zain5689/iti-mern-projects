@@ -1,0 +1,107 @@
+/* الحاوية الرئيسية لتوسيط الكارت */
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f7f6; /* لون خلفية هادئ */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* تصميم الكارت */
+.login-card {
+    background: #ffffff;
+    width: 100%;
+    max-width: 380px;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* الرأس */
+.login-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login-header h2 {
+    color: #2c3e50; /* نفس لون الـ Sidebar */
+    margin-bottom: 8px;
+    font-size: 1.6rem;
+}
+
+.login-header p {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+/* الحقول */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #34495e;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #dcdde1;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-sizing: border-box; /* لمنع خروج الحقل عن الكارت */
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #2ecc71; /* لون أخضر عند الكتابة */
+    box-shadow: 0 0 5px rgba(46, 204, 113, 0.2);
+}
+
+/* رسالة الخطأ */
+.error-msg {
+    background-color: #fce4e4;
+    color: #e74c3c;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+    border-right: 4px solid #e74c3c;
+}
+
+/* الزر */
+.login-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #2ecc71; /* نفس لون الـ Active في الداش بورد */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.login-btn:hover:not(:disabled) {
+    background-color: #27ae60;
+}
+
+.login-btn:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+}
+
+/* التذييل */
+.login-footer {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #95a5a6;
+}

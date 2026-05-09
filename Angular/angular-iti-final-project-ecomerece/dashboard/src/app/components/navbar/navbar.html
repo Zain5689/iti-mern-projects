@@ -1,0 +1,22 @@
+<p>navbar works!</p>
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">ITI E-Commerce</a>
+    
+    <div class="d-flex align-items-center">
+      <!-- Products Link with Active State -->
+      <a class="btn btn-products btn-sm me-2" 
+         routerLink="/products" 
+         routerLinkActive="active-link">
+         Products
+      </a>
+
+      <!-- Login Button -->
+      <a class="btn btn-outline-light btn-sm" 
+         routerLink="/login"
+         routerLinkActive="d-none"> <!-- Hides login button if already on login page -->
+         Login
+      </a>
+    </div>
+  </div>
+</nav>

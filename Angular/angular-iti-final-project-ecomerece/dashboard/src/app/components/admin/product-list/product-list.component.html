@@ -1,0 +1,63 @@
+<div class="table-container">
+  <div class="table-header">
+    <div class="header-content">
+      <h2>Product Management</h2>
+      <p class="subtitle">Manage and monitor your inventory items</p>
+    </div>
+    <button class="btn-add" routerLink="/admin/add-product">
+      <i class="fas fa-plus"></i> Add New Product
+    </button>
+  </div>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Category</th> <!-- Fixed spelling -->
+        <th>Quantity</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (product of products; track product._id) {
+        <tr>
+          <td>
+            <div class="img-wrapper">
+              <img [src]="product.imageCover" class="product-img" alt="product">
+            </div>
+          </td>
+          <td class="product-title">{{ product.title }}</td>
+          <td class="product-price">
+            <span class="currency-symbol">$</span>{{ product.price }}
+          </td>
+          <td class="product-category"> <!-- Changed class for consistency -->
+             {{ product.category?.title || product.category }}
+          </td>
+          <td>
+            <span class="stock-badge">
+              {{ product.quantity }} in stock
+            </span>
+          </td>
+          <td class="actions">
+            <button [routerLink]="['/admin/edit-product', product._id]" class="btn-edit">
+              Edit
+            </button>
+            <button (click)="deleteProduct(product._id!)" class="btn-delete">
+              Delete
+            </button>
+          </td>
+        </tr>
+      } @empty {
+        <tr>
+          <td colspan="6" class="empty-msg"> <!-- Changed to 6 because you have 6 columns -->
+            <div class="no-data">
+              <p>No products available at the moment.</p>
+            </div>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

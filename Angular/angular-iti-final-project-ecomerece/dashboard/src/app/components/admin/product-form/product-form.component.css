@@ -1,0 +1,126 @@
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  background-color: #f4f7f6;
+  direction: ltr; /* تم التغيير لليسار */
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form-card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.form-header {
+  background: #4a90e2;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.form-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.product-form {
+  padding: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+input:focus, textarea:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.3);
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.hint {
+  font-size: 0.75rem;
+  color: #888;
+  margin-top: 5px;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 10px;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background-color: #357abd;
+}
+
+.submit-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.error-border {
+  border-color: #e74c3c !important;
+}
+
+.file-input {
+  background: #f9f9f9;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px dashed #ccc;
+}
+/* في ملف product-form.component.css */
+select.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+    margin-top: 5px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}

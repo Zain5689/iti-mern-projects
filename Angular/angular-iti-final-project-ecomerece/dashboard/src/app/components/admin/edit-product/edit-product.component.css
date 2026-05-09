@@ -1,0 +1,145 @@
+/* Container */
+.edit-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 20px;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Card */
+.edit-card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 550px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+  border-top: 5px solid #f1c40f; /* لون التنبيه/التعديل الأصفر */
+  overflow: hidden;
+}
+
+/* Header */
+.edit-header {
+  padding: 30px 30px 10px;
+  text-align: center;
+}
+
+.edit-header h3 {
+  margin: 0;
+  color: #2d3436;
+  font-size: 1.6rem;
+}
+
+.edit-header p {
+  color: #636e72;
+  font-size: 0.9rem;
+  margin-top: 8px;
+}
+
+/* Form Styling */
+.edit-form {
+  padding: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #444;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+input, textarea {
+  padding: 12px 15px;
+  border: 1px solid #dfe6e9;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: #fdfdfd;
+}
+
+input:focus, textarea:focus {
+  border-color: #f1c40f;
+  background-color: #fff;
+  box-shadow: 0 0 8px rgba(241, 196, 15, 0.2);
+  outline: none;
+}
+
+/* Row (Price & Quantity) */
+.form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+/* Buttons */
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.save-btn {
+  padding: 14px;
+  background-color: #f1c40f;
+  color: #2d3436;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.save-btn:hover:not(:disabled) {
+  background-color: #d4ac0d;
+  transform: translateY(-2px);
+}
+
+.save-btn:disabled {
+  background-color: #ecf0f1;
+  color: #bdc3c7;
+  cursor: not-allowed;
+}
+
+.cancel-btn {
+  padding: 12px;
+  background-color: transparent;
+  color: #636e72;
+  border: 1px solid #dfe6e9;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cancel-btn:hover {
+  background-color: #f8f9fa;
+  color: #2d3436;
+}
+
+select.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+    margin-top: 5px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}

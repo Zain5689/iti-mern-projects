@@ -1,0 +1,141 @@
+<div class="min-h-screen bg-slate-50 py-8 px-4">
+  <div class="max-w-7xl mx-auto">
+    @if (toastMessage()) {
+      <div
+        class="fixed top-24 right-6 z-50 bg-slate-900 text-white text-sm px-4 py-3 rounded-xl shadow-2xl border border-amber-400/40"
+      >
+        {{ toastMessage() }}
+      </div>
+    }
+    <!-- Back Button -->
+    <div class="mb-8">
+      <a
+        routerLink="/shop"
+        class="inline-flex items-center gap-2 text-slate-500 hover:text-amber-600 transition-all duration-300 font-bold text-sm uppercase tracking-wider bg-white/50 backdrop-blur-sm px-5 py-2.5 rounded-full shadow-sm border border-white/50 group"
+      >
+        <i
+          class="fa-solid fa-arrow-left-long text-xs group-hover:-translate-x-1 transition-transform"
+        ></i>
+        Back to Shop
+      </a>
+    </div>
+
+    @if (product()) {
+      <div
+        class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start bg-white/40 backdrop-blur-xl rounded-[40px] p-8 lg:p-12 shadow-xl border border-white/20"
+      >
+        <!-- Left Column: Images -->
+        <div class="space-y-6">
+          <div
+            class="relative bg-white rounded-4xl overflow-hidden border border-slate-100 flex items-center justify-center shadow-lg"
+          >
+            <img
+              [src]="activeImage() || product()?.imageCover"
+              [alt]="product()?.title"
+              class="w-full h-125 object-contain p-8 transition-all duration-500"
+            />
+          </div>
+
+          <!-- Image Gallery (Thumbnail List) -->
+          @if (product()?.images && product()!.images.length > 0) {
+            <div class="flex gap-4 overflow-x-auto pb-2">
+              <div
+                (click)="activeImage.set(product()!.imageCover)"
+                [class.border-amber-400]="activeImage() === product()?.imageCover"
+                class="w-24 h-24 shrink-0 rounded-2xl border-2 border-transparent bg-white cursor-pointer p-2 shadow-sm transition-all"
+              >
+                <img [src]="product()?.imageCover" class="w-full h-full object-contain" />
+              </div>
+              @for (img of product()?.images; track $index) {
+                <div
+                  (click)="activeImage.set(img)"
+                  [class.border-amber-400]="activeImage() === img"
+                  class="w-24 h-24 shrink-0 rounded-2xl border-2 border-transparent bg-white cursor-pointer p-2 shadow-sm transition-all"
+                >
+                  <img [src]="img" class="w-full h-full object-contain" />
+                </div>
+              }
+            </div>
+          }
+        </div>
+
+        <!-- Right Column: Details -->
+        <div class="space-y-8">
+          <div>
+            <div class="flex items-center gap-2 mb-4">
+              @if (product()?.category) {
+                <span
+                  class="bg-amber-400 text-slate-900 text-[10px] font-black uppercase tracking-[0.2em] px-4 py-1.5 rounded-full shadow-lg shadow-amber-400/30"
+                >
+                  {{ product()?.category?.title }}
+                </span>
+              } @else {
+                <span
+                  class="bg-slate-200 text-slate-600 text-[10px] font-black uppercase tracking-[0.2em] px-4 py-1.5 rounded-full"
+                >
+                  No Category
+                </span>
+              }
+            </div>
+
+            <h1 class="text-5xl font-black text-slate-900 tracking-tighter leading-tight mb-4">
+              {{ product()?.title }}
+            </h1>
+
+            <div class="flex items-center gap-6">
+              <div
+                class="flex items-center gap-1.5 bg-slate-900 text-white px-3 py-1 rounded-full text-xs font-bold"
+              >
+                <i class="fa-solid fa-star text-amber-400"></i> {{ product()?.ratingsAverage || 0 }}
+              </div>
+              <span class="text-slate-400 text-sm font-bold uppercase tracking-widest">
+                Sold: {{ product()?.sold }}
+              </span>
+              <span
+                [class.text-green-600]="product()!.quantity > 0"
+                [class.text-red-500]="product()!.quantity <= 0"
+                class="text-sm font-bold uppercase tracking-widest"
+              >
+                {{
+                  product()!.quantity > 0
+                    ? 'In Stock (' + product()?.quantity + ')'
+                    : 'Out of Stock'
+                }}
+              </span>
+            </div>
+          </div>
+
+          <p class="text-slate-500 text-lg leading-relaxed font-medium">
+            {{ product()?.description }}
+          </p>
+
+          <div class="flex items-baseline gap-2">
+            <span class="text-5xl font-black text-slate-900 tracking-tighter">
+              <span class="text-xl font-medium">$</span>{{ product()?.price }}
+            </span>
+            <span class="text-slate-400 font-bold line-through text-lg">
+              ${{ (product()?.price || 0) + 100 }}
+            </span>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-4 pt-8">
+            <button
+              (click)="addToCart(product()!)"
+              [disabled]="product()!.quantity <= 0 || adding()"
+              class="bg-slate-900 text-white w-full px-6 py-3 rounded-full font-bold shadow-lg transform disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 ease-in-out hover:bg-amber-400 hover:text-slate-900 hover:-translate-y-1 hover:shadow-xl active:scale-95"
+            >
+              <i class="fa-solid fa-cart-plus"></i>
+              {{ adding() ? 'Adding…' : 'Add to Cart' }}
+            </button>
+            <button
+              (click)="addToWishlist(product()!)"
+              class="w-16 h-16 rounded-2xl border-2 border-slate-100 flex items-center justify-center text-xl text-slate-800 hover:bg-red-50 hover:border-red-100 hover:text-red-500 transition-all duration-300"
+            >
+              <i class="fa-solid fa-heart"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,155 @@
+/* Container styling */
+.table-container {
+  padding: 30px;
+  background: #fdfdfd;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Header Section */
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.header-content h2 {
+  margin: 0;
+  color: #2d3436;
+  font-size: 1.8rem;
+}
+
+.subtitle {
+  color: #636e72;
+  margin: 5px 0 0;
+}
+
+/* Add Button */
+.btn-add {
+  background: #4a90e2;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-add:hover {
+  background: #357abd;
+  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+}
+
+/* Table Styling */
+.custom-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px; /* Gap between rows */
+}
+
+.custom-table thead th {
+  padding: 15px;
+  text-align: left;
+  color: #b2bec3;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+}
+
+.custom-table tbody tr {
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  transition: transform 0.2s ease;
+}
+
+.custom-table tbody tr:hover {
+  transform: scale(1.01);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.custom-table td {
+  padding: 15px;
+  vertical-align: middle;
+}
+
+/* Image Wrapper */
+.img-wrapper {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f0f0f0;
+}
+
+.product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Typography & Badges */
+.product-title {
+  font-weight: 600;
+  color: #2d3436;
+}
+
+.product-price {
+  color: #00b894;
+  font-weight: 700;
+}
+
+.stock-badge {
+  background: #dfe6e9;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Action Buttons */
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-edit, .btn-delete {
+  padding: 8px 15px;
+  border-radius: 6px;
+  border: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-edit {
+  background: #e1f0ff;
+  color: #4a90e2;
+}
+
+.btn-edit:hover {
+  background: #4a90e2;
+  color: white;
+}
+
+.btn-delete {
+  background: #ffeaea;
+  color: #eb4d4b;
+}
+
+.btn-delete:hover {
+  background: #eb4d4b;
+  color: white;
+}
+
+/* Empty State */
+.empty-msg {
+  text-align: center;
+  padding: 50px !important;
+  color: #b2bec3;
+}

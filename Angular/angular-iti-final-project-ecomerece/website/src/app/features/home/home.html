@@ -1,0 +1,171 @@
+<main class="bg-white min-h-screen">
+  @if (toastMessage()) {
+    <div
+      class="fixed top-24 right-6 z-50 bg-slate-900 text-white text-sm px-4 py-3 rounded-xl shadow-2xl border border-amber-400/40"
+    >
+      {{ toastMessage() }}
+    </div>
+  }
+  <section class="relative bg-slate-900 overflow-hidden">
+    <div
+      class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=10')] bg-cover bg-center opacity-10"
+    ></div>
+    <div
+      class="max-w-7xl mx-auto px-4 py-16 md:py-24 flex flex-col md:flex-row items-center relative z-10"
+    >
+      <div class="md:w-1/2 space-y-6 text-center md:text-left">
+        <span class="text-amber-400 font-bold tracking-widest uppercase text-sm"
+          >New Collection 2026</span
+        >
+        <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight">
+          Tech & Style <br /><span class="text-amber-400">Redefined.</span>
+        </h1>
+        <p class="text-gray-400 text-lg max-w-lg mx-auto md:mx-0">
+          Explore the ultimate collection of premium electronics and fashion accessories designed
+          for the modern lifestyle.
+        </p>
+        <button
+          routerLink="/shop"
+          class="bg-amber-400 hover:bg-amber-300 text-slate-900 px-10 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105 shadow-xl shadow-amber-400/20"
+        >
+          Shop the Collection
+        </button>
+      </div>
+      <div class="md:w-1/2 mt-12 md:mt-0 relative">
+        <div class="absolute inset-0 bg-amber-400 blur-[120px] opacity-20 rounded-full"></div>
+        <img
+          src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=800"
+          class="relative z-10 rounded-3xl rotate-3 hover:rotate-0 transition-transform duration-500 shadow-2xl"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-slate-50 border-b border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="flex items-center gap-4 p-4">
+        <div class="bg-amber-100 p-3 rounded-xl text-amber-600 text-2xl">
+          <i class="fa-solid fa-truck"></i>
+        </div>
+        <div>
+          <h4 class="font-bold text-slate-800">Free Shipping</h4>
+          <p class="text-sm text-gray-500">On all orders over $100</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-4 p-4 border-x border-slate-200">
+        <div class="bg-amber-100 p-3 rounded-xl text-amber-600 text-2xl">
+          <i class="fa-solid fa-shield-alt"></i>
+        </div>
+        <div>
+          <h4 class="font-bold text-slate-800">Secure Payment</h4>
+          <p class="text-sm text-gray-500">100% protected checkout</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-4 p-4">
+        <div class="bg-amber-100 p-3 rounded-xl text-amber-600 text-2xl">
+          <i class="fa-solid fa-headset"></i>
+        </div>
+        <div>
+          <h4 class="font-bold text-slate-800">24/7 Support</h4>
+          <p class="text-sm text-gray-500">Dedicated assistance</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-white dark:bg-gray-900 transition-colors duration-300">
+    <div class="container max-w-7xl mx-auto">
+      <div class="flex justify-between items-center mb-10">
+        <div>
+          <h2 class="text-3xl font-black text-slate-800 dark:text-white tracking-tight uppercase">
+            Categories
+          </h2>
+        </div>
+
+        <button
+          routerLink="/shop"
+          class="hidden md:flex items-center gap-2 text-amber-600 font-bold hover:text-amber-700 transition-colors group"
+        >
+          View All Categories
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2.5"
+            stroke="currentColor"
+            class="w-4 h-4 group-hover:translate-x-1 transition-transform"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <div class="flex flex-wrap gap-3 mx-auto justify-center items-center">
+        @for (category of categories(); track category._id) {
+          <button
+            class="px-8 py-3 rounded-xl border-2 border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-200 font-bold hover:bg-amber-500 hover:border-amber-500 hover:text-white transition-all duration-300 active:scale-95 shadow-sm hover:shadow-md"
+          >
+            {{ category.title }}
+          </button>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-1">
+      <div class="flex flex-wrap justify-between items-center gap-4 mb-10">
+        <div class="relative pl-4 border-l-4 border-amber-400">
+          <h2 class="text-3xl md:text-4xl font-black tracking-tight text-slate-900 uppercase">
+            Trending
+            <span class="text-transparent bg-clip-text bg-linear-to-r from-amber-500 to-orange-300"
+              >Products</span
+            >
+          </h2>
+          <p class="text-slate-500 mt-1 font-medium italic">Best sellers this week</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        @if (products() && products().length > 0) {
+          @for (product of products(); track product._id) {
+            <app-product-card [product]="product" (add)="onAddToCart($event)"></app-product-card>
+          }
+        } @else {
+          <div
+            class="col-span-full py-20 px-6 flex flex-col items-center justify-center text-center bg-slate-50 rounded-4xl border-2 border-dashed border-slate-200 transition-all"
+          >
+            <div
+              class="w-24 h-24 bg-white rounded-full shadow-sm flex items-center justify-center mb-6 border border-slate-100"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-12 w-12 text-slate-300"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                />
+              </svg>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-2">No products found</h3>
+            <p class="text-slate-500 max-w-sm mb-8 leading-relaxed">
+              We couldn't find any items matching your current selection. Try exploring other
+              categories or clear your filters.
+            </p>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+</main>

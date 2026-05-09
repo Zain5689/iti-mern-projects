@@ -1,0 +1,113 @@
+/* Main Container */
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+    font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+    direction: ltr; /* Left to Right */
+    background-color: #f8f9fa;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 260px;
+    background-color: #1a1a2e; /* Dark Navy */
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+}
+
+.sidebar-header {
+    padding: 30px 20px;
+    text-align: center;
+    background-color: #16213e;
+}
+
+.sidebar h2 {
+    font-size: 1.4rem;
+    margin: 0;
+    color: #4ecca3; /* Emerald Green */
+    letter-spacing: 1px;
+}
+
+/* Navigation Links */
+.nav-links {
+    list-style: none;
+    padding: 20px 0;
+    margin: 0;
+}
+
+.nav-links li {
+    margin-bottom: 5px;
+}
+
+.nav-links a {
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+    color: #95a5a6;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent; /* Highlight on the left */
+}
+
+.nav-links a .icon {
+    margin-right: 15px;
+    font-size: 1.2rem;
+}
+
+.nav-links a:hover, 
+.nav-links a.active {
+    background-color: #0f3460;
+    color: #ffffff;
+    border-left: 4px solid #4ecca3;
+}
+
+/* Main Content Area */
+.main-content {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.main-header {
+    background-color: #ffffff;
+    padding: 20px 40px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.main-header h1 {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 0;
+}
+
+.content-wrapper {
+    padding: 30px 40px;
+}
+
+/* Internal Card-like container for Router Outlet */
+.router-container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    min-height: 70vh;
+}
+
+/* Logout Button */
+.logout-btn {
+    margin: auto 20px 30px 20px;
+    padding: 12px;
+    background-color: #e94560;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: #ff2e63;
+}

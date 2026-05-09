@@ -1,0 +1,76 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="text-primary">Order Management</h2>
+    <span class="badge bg-secondary p-2">
+      TOTAL ORDERS: {{ orders.length }}
+    </span>
+  </div>
+
+  <div class="card shadow-sm">
+    <div class="card-body p-0">
+      <table class="table table-hover mb-0">
+        <thead class="table-light">
+          <tr>
+            <th>Order ID</th>
+            <th>Customer Name</th>
+            <th>Date</th>
+            <th>Total Price</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orders">
+            <td class="fw-bold">#{{ order._id.slice(-6) }}</td>
+            <td>{{ order.user?.name || order.user || 'Guest User' }}</td>
+
+            <td>{{ order.createdAt | date:'mediumDate' }}</td>
+
+            <td class="text-success fw-bold">
+              {{ order.totalPrice | currency:'USD':'symbol':'1.2-2' }}
+            </td>
+
+            <td>
+              <select
+                [value]="order.status"
+                (change)="updateStatus(order._id, $event)"
+                class="form-select form-select-sm fw-bold"
+                [ngClass]="{
+                'text-warning border-warning': order.status === 'pending',
+                'text-primary border-primary': order.status === 'confirmed',
+                'text-info border-info': order.status === 'shipped',
+                'text-success border-success': order.status === 'delivered',
+                'text-danger border-danger': order.status === 'cancelled'
+                }"
+              >
+                <option value="pending">⏳ Pending</option>
+                <option value="confirmed">✅ Confirmed</option>
+                <option value="shipped">🚚 Shipped</option>
+                <option value="delivered">🏠 Delivered</option>
+                <option value="cancelled">❌ Cancelled</option>
+              </select>
+            </td>
+
+            <td>
+              <button class="btn btn-sm btn-outline-primary me-1">
+                <i class="bi bi-eye"></i> Details
+              </button>
+              <button class="btn btn-sm btn-outline-danger">
+                <i class="bi bi-trash"></i> Delete
+              </button>
+            </td>
+          </tr>
+
+          <tr *ngIf="orders.length === 0">
+            <td colspan="6" class="text-center py-5">
+              <div class="text-muted">
+                <i class="bi bi-inbox fs-1 d-block mb-2"></i>
+                No orders found in the database.
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

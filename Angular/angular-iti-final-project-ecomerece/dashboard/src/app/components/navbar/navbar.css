@@ -1,0 +1,73 @@
+/* 1. The Navbar Shell */
+.navbar {
+  /* Semi-transparent dark background */
+  background: rgba(23, 23, 23, 0.85) !important;
+  backdrop-filter: blur(12px); /* Glassmorphism effect */
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.75rem 0;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* 2. Logo/Brand Styling */
+.navbar-brand {
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  background: linear-gradient(90deg, #fff, #a5a5a5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: opacity 0.3s ease;
+}
+
+.navbar-brand:hover {
+  opacity: 0.8;
+}
+
+/* 3. Modernizing the Buttons */
+.btn-sm {
+  padding: 0.5rem 1.25rem;
+  font-weight: 500;
+  border-radius: 8px; /* Softer corners */
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Login Button Specifics */
+.btn-outline-light {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.btn-outline-light:hover {
+  background: #fff;
+  color: #000 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+/* Products Button Specifics (Secondary Look) */
+.btn-products {
+  color: #a5a5a5;
+  border: none;
+}
+
+.btn-products:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* 4. Active Route Indicator */
+.active-link {
+  color: #fff !important;
+  position: relative;
+}
+
+.active-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 20%;
+  width: 60%;
+  height: 2px;
+  background: #0d6efd; /* Brand color indicator */
+  border-radius: 2px;
+}

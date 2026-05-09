@@ -1,0 +1,47 @@
+<div class="dashboard-container">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2>Admin Panel</h2>
+    </div>
+    
+    <ul class="nav-links">
+      <li>
+        <a routerLink="/admin/products" routerLinkActive="active">
+          <span class="icon">📦</span> Products
+        </a>
+      </li>
+      <li>
+        <a routerLink="/admin/categories" routerLinkActive="active">
+          <span class="icon">📁</span> Categories
+        </a>
+      </li>
+      <li>
+        <a routerLink="/admin/orders" routerLinkActive="active">
+          <span class="icon">💰</span> Orders
+        </a>
+      </li>
+      <li>
+        <a routerLink="/admin/add-product" routerLinkActive="active">
+          <span class="icon">➕</span> Add Product
+        </a>
+      </li>
+    </ul>
+    
+    <button class="logout-btn" (click)="onLogout()">
+      Logout
+    </button>
+  </aside>
+
+  <!-- Main Area -->
+  <main class="main-content">
+    <header class="main-header">
+      <h1>Dashboard Overview</h1>
+    </header>
+    
+    <div class="content-wrapper">
+      <!-- Content from child components will appear here -->
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>

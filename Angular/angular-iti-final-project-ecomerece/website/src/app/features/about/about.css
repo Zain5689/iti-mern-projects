@@ -1,0 +1,26 @@
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.float-icon {
+  animation: float-slow 4s ease-in-out infinite;
+}
+
+.hover-scale {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.hover-scale:hover {
+  transform: translateY(-8px);
+  background-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.group:hover .shadow-xl {
+  box-shadow: 0 25px 50px -12px rgba(251, 191, 36, 0.2);
+}

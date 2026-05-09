@@ -1,0 +1,40 @@
+/* تحسين شكل الحاوية الرئيسية */
+.container {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+/* تأثير عند الوقوف على صفوف الجدول */
+.table-hover tbody tr:hover {
+    background-color: #f1f4f9;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+/* تنسيق الـ Badges لتكون دائرية وشكلها أوضح */
+.badge {
+    padding: 8px 12px;
+    font-weight: 500;
+    border-radius: 30px;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+}
+
+/* تنسيق القائمة المنسدلة (Select) */
+.form-select-sm {
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+    cursor: pointer;
+}
+
+.form-select-sm:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+}
+
+/* تظليل خفيف للكارت الحامل للجدول */
+.card {
+    border: none;
+    border-radius: 12px;
+}
