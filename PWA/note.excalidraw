@@ -746,10 +746,10 @@
     {
       "id": "E-re1lGZZ20-MKsxwhLh7",
       "type": "text",
-      "x": 1102.777846765519,
-      "y": 346.28007626533577,
+      "x": 1085.407729578019,
+      "y": 187.1300823688514,
       "width": 790.579345703125,
-      "height": 750,
+      "height": 1663.2000000000003,
       "angle": 0,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
@@ -763,88 +763,22 @@
       "index": "aM",
       "roundness": null,
       "seed": 264087474,
-      "version": 4,
-      "versionNonce": 899857774,
+      "version": 74,
+      "versionNonce": 1385032294,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1778778141730,
+      "boundElements": [],
+      "updated": 1778778365126,
       "link": null,
       "locked": false,
-      "text": "Based on the detailed foundations of PWAs, here are the essential main points\ncategorized for clarity. This covers the mindset, design, and technical pillars you\nneed as a developer:1. The Core Philosophy: \"Progressive\"The \"P\" in PWA stands\nfor Progressive Enhancement.Layered approach: Build the core experience with\nstandard HTML/CSS/JS first (so it works for everyone).Feature Detection: Use\ntools like @supports in CSS and object checks in JS to \"unlock\" advanced\nfeatures only if the browser supports them.No Device Detection: Stop guessing\nif a user is on a \"mobile\" or \"desktop\" based on strings; test for the specific\nfeature or screen size instead.2. The Modern Design StrategyForget the old\n\"mobile vs. desktop\" binary. Modern PWA design is about Intrinsic Design:Mobile\nas a Constraint: Use the small screen to force yourself to prioritize essential\ncontent and actions (Focus).The Mini-Mode: PWAs on desktop can be resized\nsmaller than any browser window (as small as 200x100px). You must design for\nthis \"widget-like\" state.Fluidity: Use CSS Grid and Flexbox to create layouts\nthat respond to the content’s needs, not just fixed pixels.Foldables & Hybrids:\nBe ready for devices that change state (like a phone that unfolds into a\ntablet).3. Performance as a FoundationPerformance isn't just a \"plus\"; it's a\nrequirement. Google measures this through Core Web Vitals:LCP (Largest\nContentful Paint): How fast the main content loads.INP (Interaction to Next\nPaint): How fast the UI reacts when a user clicks/taps.CLS (Cumulative Layout\nShift): Ensuring elements don't \"jump around\" while loading (Visual Stability).4.\nIntegration & ReliabilityA PWA bridges the gap between web and\nnative:Standalone Experience: Once installed, it should look and feel like an app\n(no browser search bar, custom title bar colors).Offline-First: Use Service\nWorkers to ensure the app doesn't break when the network fails.Platform\nIntegration: Accessing the file system, contacts, or hardware APIs when\navailable.Summary Checklist for your Projects:PillarAction ItemDesignPrioritize\ncontent first, then add layout layers.ResponsiveTest for \"Mini-Mode\" and\nfoldable viewports.TechnicalImplement Feature Detection instead of UA\nsniffing.PerformanceOptimize for LCP, INP, and CLS scores.",
-      "fontSize": 20,
-      "fontFamily": 5,
+      "text": "Based on the detailed foundations of PWAs, here are the\nessential main points categorized for clarity. This covers the\nmindset, design, and technical pillars you need as a developer:\n\n1. The Core Philosophy: \"Progressive\"The \"P\" in PWA stands\nfor Progressive Enhancement.Layered approach: Build the\ncore experience with standard HTML/CSS/JS first (so it works\nfor everyone).Feature Detection: Use tools like @supports in\nCSS and object checks in JS to \"unlock\" advanced features\nonly if the browser supports them.No Device Detection: Stop\nguessing if a user is on a \"mobile\" or \"desktop\" based on\nstrings; test for the specific feature or screen size instead.\n\n2. The Modern Design StrategyForget the old \"mobile vs.\ndesktop\" binary. Modern PWA design is about Intrinsic\nDesign:Mobile as a Constraint: Use the small screen to force\nyourself to prioritize essential content and actions (Focus).The\nMini-Mode: PWAs on desktop can be resized smaller than any\nbrowser window (as small as 200x100px). You must design\nfor this \"widget-like\" state.Fluidity: Use CSS Grid and Flexbox\nto create layouts that respond to the content’s needs, not just\nfixed pixels.Foldables & Hybrids: Be ready for devices that\nchange state (like a phone that unfolds into a tablet).\n\n3. Performance as a FoundationPerformance isn't just a \"plus\";\nit's a requirement. Google measures this through Core Web\nVitals:LCP (Largest Contentful Paint): How fast the main\ncontent loads.INP (Interaction to Next Paint): How fast the UI\nreacts when a user clicks/taps.CLS (Cumulative Layout Shift):\nEnsuring elements don't \"jump around\" while loading (Visual\nStability).\n\n4. Integration & ReliabilityA PWA bridges the gap between\nweb and native:Standalone Experience: Once installed, it\nshould look and feel like an app (no browser search bar,\ncustom title bar colors).Offline-First: Use Service Workers to\nensure the app doesn't break when the network fails.Platform\nIntegration: Accessing the file system, contacts, or hardware\nAPIs when available.Summary Checklist for your\nProjects:PillarAction ItemDesignPrioritize content first, then\nadd layout layers.ResponsiveTest for \"Mini-Mode\" and\nfoldable viewports.TechnicalImplement Feature Detection\ninstead of UA sniffing.PerformanceOptimize for LCP, INP, and\nCLS scores.",
+      "fontSize": 28,
+      "fontFamily": 6,
       "textAlign": "left",
       "verticalAlign": "top",
       "containerId": null,
-      "originalText": "Based on the detailed foundations of PWAs, here are the essential main points categorized for clarity. This covers the mindset, design, and technical pillars you need as a developer:1. The Core Philosophy: \"Progressive\"The \"P\" in PWA stands for Progressive Enhancement.Layered approach: Build the core experience with standard HTML/CSS/JS first (so it works for everyone).Feature Detection: Use tools like @supports in CSS and object checks in JS to \"unlock\" advanced features only if the browser supports them.No Device Detection: Stop guessing if a user is on a \"mobile\" or \"desktop\" based on strings; test for the specific feature or screen size instead.2. The Modern Design StrategyForget the old \"mobile vs. desktop\" binary. Modern PWA design is about Intrinsic Design:Mobile as a Constraint: Use the small screen to force yourself to prioritize essential content and actions (Focus).The Mini-Mode: PWAs on desktop can be resized smaller than any browser window (as small as 200x100px). You must design for this \"widget-like\" state.Fluidity: Use CSS Grid and Flexbox to create layouts that respond to the content’s needs, not just fixed pixels.Foldables & Hybrids: Be ready for devices that change state (like a phone that unfolds into a tablet).3. Performance as a FoundationPerformance isn't just a \"plus\"; it's a requirement. Google measures this through Core Web Vitals:LCP (Largest Contentful Paint): How fast the main content loads.INP (Interaction to Next Paint): How fast the UI reacts when a user clicks/taps.CLS (Cumulative Layout Shift): Ensuring elements don't \"jump around\" while loading (Visual Stability).4. Integration & ReliabilityA PWA bridges the gap between web and native:Standalone Experience: Once installed, it should look and feel like an app (no browser search bar, custom title bar colors).Offline-First: Use Service Workers to ensure the app doesn't break when the network fails.Platform Integration: Accessing the file system, contacts, or hardware APIs when available.Summary Checklist for your Projects:PillarAction ItemDesignPrioritize content first, then add layout layers.ResponsiveTest for \"Mini-Mode\" and foldable viewports.TechnicalImplement Feature Detection instead of UA sniffing.PerformanceOptimize for LCP, INP, and CLS scores.",
+      "originalText": "Based on the detailed foundations of PWAs, here are the essential main points categorized for clarity. This covers the mindset, design, and technical pillars you need as a developer:\n\n1. The Core Philosophy: \"Progressive\"The \"P\" in PWA stands for Progressive Enhancement.Layered approach: Build the core experience with standard HTML/CSS/JS first (so it works for everyone).Feature Detection: Use tools like @supports in CSS and object checks in JS to \"unlock\" advanced features only if the browser supports them.No Device Detection: Stop guessing if a user is on a \"mobile\" or \"desktop\" based on strings; test for the specific feature or screen size instead.\n\n2. The Modern Design StrategyForget the old \"mobile vs. desktop\" binary. Modern PWA design is about Intrinsic Design:Mobile as a Constraint: Use the small screen to force yourself to prioritize essential content and actions (Focus).The Mini-Mode: PWAs on desktop can be resized smaller than any browser window (as small as 200x100px). You must design for this \"widget-like\" state.Fluidity: Use CSS Grid and Flexbox to create layouts that respond to the content’s needs, not just fixed pixels.Foldables & Hybrids: Be ready for devices that change state (like a phone that unfolds into a tablet).\n\n3. Performance as a FoundationPerformance isn't just a \"plus\"; it's a requirement. Google measures this through Core Web Vitals:LCP (Largest Contentful Paint): How fast the main content loads.INP (Interaction to Next Paint): How fast the UI reacts when a user clicks/taps.CLS (Cumulative Layout Shift): Ensuring elements don't \"jump around\" while loading (Visual Stability).\n\n4. Integration & ReliabilityA PWA bridges the gap between web and native:Standalone Experience: Once installed, it should look and feel like an app (no browser search bar, custom title bar colors).Offline-First: Use Service Workers to ensure the app doesn't break when the network fails.Platform Integration: Accessing the file system, contacts, or hardware APIs when available.Summary Checklist for your Projects:PillarAction ItemDesignPrioritize content first, then add layout layers.ResponsiveTest for \"Mini-Mode\" and foldable viewports.TechnicalImplement Feature Detection instead of UA sniffing.PerformanceOptimize for LCP, INP, and CLS scores.",
       "autoResize": false,
-      "lineHeight": 1.25
-    },
-    {
-      "id": "qaziTpSheIGF6DjCws-fC",
-      "type": "arrow",
-      "x": 1739.9874720096595,
-      "y": 648.8000042438514,
-      "width": 2080.800094604492,
-      "height": 1516.8000303208828,
-      "angle": 0,
-      "strokeColor": "#1e1e1e",
-      "backgroundColor": "transparent",
-      "fillStyle": "solid",
-      "strokeWidth": 2,
-      "strokeStyle": "solid",
-      "roughness": 1,
-      "opacity": 100,
-      "groupIds": [],
-      "frameId": null,
-      "index": "aN",
-      "roundness": {
-        "type": 2
-      },
-      "seed": 2047517682,
-      "version": 391,
-      "versionNonce": 926319022,
-      "isDeleted": false,
-      "boundElements": null,
-      "updated": 1778778183924,
-      "link": null,
-      "locked": false,
-      "points": [
-        [
-          0,
-          0
-        ],
-        [
-          0,
-          0
-        ],
-        [
-          492.0001220703125,
-          763.1999969482422
-        ],
-        [
-          -28.799896240234375,
-          319.1999816894531
-        ],
-        [
-          124.80010986328125,
-          348.0000305175781
-        ],
-        [
-          388.800048828125,
-          -240
-        ],
-        [
-          -1588.7999725341797,
-          -753.6000333726406
-        ]
-      ],
-      "lastCommittedPoint": null,
-      "startBinding": null,
-      "endBinding": null,
-      "startArrowhead": null,
-      "endArrowhead": "arrow",
-      "elbowed": false
+      "lineHeight": 1.35
     }
   ],
   "appState": {
